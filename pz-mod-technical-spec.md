@@ -109,7 +109,7 @@ end)
 
 All mutation goes through `AH10_DistribHelpers` so there is exactly one place that knows the vanilla table shapes. Required helper surface:
 
-- `setItemWeight(poolName, itemFullName, weight)` — idempotent upsert into a pool's `items` list (the list is flat `{name, weight, name, weight, ...}` pairs in B41; **verify B42 shape against the probe's pool dump before coding**).
+- `setItemWeight(poolName, itemFullName, weight)` — idempotent upsert into a pool's `items` list. **[VERIFIED Aug 2026 against B42.20 game files]** — B42 kept the B41 flat `{name, weight, ...}` shape, plus optional pool flags (`ignoreZombieDensity`, `cookFood`, `onlyOne`) and a `junk` sub-table. Entries use SHORT names (`"Pan"`, module Base implied); AH10 normalizes `Base.X`↔`X` so upserts hit vanilla entries instead of duplicating them. See `reference/README.md`.
 - `removeItem(poolName, itemFullName)`
 - `scalePool(poolName, factor)` — multiply all weights (panic layer).
 - `setRolls(poolName, n)`
@@ -140,7 +140,9 @@ Worked example in comments of AH01 required, with the kitchen knife numbers from
 
 ### 2.6 Vehicles (AH13)
 
-[PROBED] Surface confirmed: `VehicleZoneDistribution` (55 zone keys — `parkingstall`, `trailerpark`, `bad`, `medium`, `good`, `sport`, `junkyard`, `trafficjamw/e/n/s`, `police`, `fire`, `ranger`, plus branded/specialty zones) and `VehicleDistributions` both exist as globals at merge time. Relevant sandbox vars observed: `CarSpawnRate`, `VehicleStoryChance`, `CarGeneralCondition`, `LockedCar`, `RecentlySurvivorVehicles`. Remaining ticket-6 task: inspect one zone entry's field names to find the per-zone chance field before writing the multiplier loop. Requirements regardless of field names:
+[PROBED] Surface confirmed: `VehicleZoneDistribution` (55 zone keys — `parkingstall`, `trailerpark`, `bad`, `medium`, `good`, `sport`, `junkyard`, `trafficjamw/e/n/s`, `police`, `fire`, `ranger`, plus branded/specialty zones) and `VehicleDistributions` both exist as globals at merge time. Relevant sandbox vars observed: `CarSpawnRate`, `VehicleStoryChance`, `CarGeneralCondition`, `LockedCar`, `RecentlySurvivorVehicles`.
+
+**[VERIFIED Aug 2026]** Field names resolved from `media/lua/shared/Vehicles/VehicleZoneDefinition.lua` (verbatim copy in `reference/`): the per-zone spawn chance is `zone.spawnRate` (%, implicit game default **16** when absent — the multiplier must write `(spawnRate or 16) * m`). Per-vehicle `spawnChance` is a pick-share out of ~100 selecting WHICH model and is never scaled. `business2`–`business12` are aliases of the single `business` table — iterate with table-identity dedupe or the multiplier compounds 12×. AH13 implemented + unit-tested (`tests/test_vehicles.lua`). Requirements met:
 - Multiplier from sandbox option, default 1.5, range 1.0–3.0, step 0.1.
 - Apply by scaling per-zone spawn *chance* fields only — never touch fuel/condition fields (settled decision 3).
 - 1.0 must be a true no-op (skip the loop entirely).
@@ -148,7 +150,7 @@ Worked example in comments of AH01 required, with the kitchen knife numbers from
 
 ### 2.7 Sandbox options (AH00)
 
-B42 mod sandbox options via `sandbox-options.txt` (verify B42 filename/format against any current Workshop mod). Minimum set, per design §11: `AH.Enabled` (bool, default true) · `AH.HouseholdAbundance` (enum Low/Design/High, default Design — scales §4 weights ±20%) · `AH.LedgerEnabled` (bool, true) · `AH.VehicleMultiplier` (float 1.0–3.0, 1.5) · `AH.SetpieceStocking` (enum Panic/Full, Panic) · Mod B adds `AH.ArchetypesEnabled` (bool, true).
+B42 mod sandbox options via `sandbox-options.txt` — **[VERIFIED Aug 2026]** format is unchanged from B41 (`VERSION = 1,` + `option Page.Name { type, min, default, max, page, translation }`), confirmed against a current B42 Workshop mod. Both mods' options ship under the shared `AmericanHousehold` page/namespace (AH00 reads `SandboxVars.AmericanHousehold.*`). Minimum set, per design §11: `AH.Enabled` (bool, default true) · `AH.HouseholdAbundance` (enum Low/Design/High, default Design — scales §4 weights ±20%) · `AH.LedgerEnabled` (bool, true) · `AH.VehicleMultiplier` (float 1.0–3.0, 1.5) · `AH.SetpieceStocking` (enum Panic/Full, Panic) · Mod B adds `AH.ArchetypesEnabled` (bool, true).
 
 ---
 
@@ -326,11 +328,11 @@ Tickets 1–8 are Mod A and can proceed **regardless of probe outcome**. Tickets
 
 ## 8. Open items this spec inherits (do not resolve silently)
 
-1. ~~Vehicle table names~~ — **resolved by probe** (§2.6). Per-zone chance *field name* still needs one inspection.
-2. B42 pool *entry* shape (flat `{name, weight}` pairs vs structured) — the probe dumped pool names, not internals; inspect one pool (e.g. `KitchenPots`) at merge time, first thing in ticket 3.
+1. ~~Vehicle table names / per-zone chance field~~ — **fully resolved Aug 2026**: `VehicleZoneDistribution` lives in `media/lua/shared/Vehicles/VehicleZoneDefinition.lua` in B42; chance field is `spawnRate` (§2.6). AH13 written and unit-tested.
+2. ~~B42 pool *entry* shape~~ — **resolved Aug 2026 from game files**: B41-style flat pairs confirmed; short names, module Base implied; optional pool flags. See §2.2 and `reference/README.md`. AH10 updated + unit-tested (`tests/test_distrib.lua`).
 3. Item-tag patching syntax in B42 — research against current Workshop mods (§2.5).
 4. World-seed accessor for the determinism stack (§3.3).
 5. Junk-drawer trigger-container choice (§3.6 step 2 simplification) — pick during ticket 4, document in code.
-6. Whether B42 `sandbox-options.txt` format matches B41 — check before ticket 1 completes.
+6. ~~B42 `sandbox-options.txt` format~~ — **resolved Aug 2026**: matches B41 (§2.7); both mods' options files written.
 7. **New (from probe):** what map data selects the vanilla themed pool variants (`WardrobeRedneck`, `FridgeTrailerPark`, `DerelictHouse*`) — room def property or building class? If accessible at fill time, Mod B's archetype system can piggyback on the game's own house-character signal. Investigate during ticket 10.
 8. **New (from probe):** farm supply has no dedicated room pools (§0.3 gap) — that §10.3 category needs new room-type mapping; schedule last within ticket 7.

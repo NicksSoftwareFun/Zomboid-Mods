@@ -2,12 +2,19 @@
 -- AH10_DistribHelpers.lua — the ONLY code that touches vanilla distribution
 -- tables. Tech spec §2.2. Server context; runs at merge time.
 --
--- UNVERIFIED-IN-GAME as of this commit: written against the B41-documented
--- pool entry shape (open item 2 in the tech spec):
---   pool = { rolls = <n>, items = { "Name", w, "Name", w, ... }, junk = {...} }
--- shapeOf() detects this and refuses to touch pools it doesn't recognize —
--- first in-game run will print any unrecognized shapes; fix shapeOf first
--- if that happens, nothing else.
+-- Pool shape CONFIRMED against B42.20 ProceduralDistributions.lua (open
+-- item 2 resolved, Aug 2026):
+--   pool = { rolls = <n>, items = { "Name", w, "Name", w, ... },
+--            junk = { rolls = <n>, items = {...} }, <extra flags ok> }
+-- Same flat pair list as B41; pools may carry extra scalar fields
+-- (e.g. ignoreZombieDensity) which we ignore. We never touch `junk`.
+--
+-- NAMING: vanilla entries are SHORT names ("Pan") with module Base implied;
+-- fully-qualified names ("Base.LouisvilleMap1") appear only rarely. All AH
+-- data uses full "Base.X" ids (needed for FindItem validation), so the
+-- helpers normalize: match either form, insert the short form. Without this,
+-- setItemWeight("KitchenPots","Base.Pan",w) would ADD a duplicate entry
+-- alongside vanilla's "Pan" instead of updating it.
 --------------------------------------------------------------------------------
 
 AH = AH or {}
@@ -17,6 +24,17 @@ local changes = {}   -- audit log for logDiff()
 
 local function pools()
     return ProceduralDistributions and ProceduralDistributions.list
+end
+
+-- "Base.Pan" -> "Pan"; other modules and already-short names pass through.
+local function shortName(itemName)
+    return (itemName:gsub("^Base%.", ""))
+end
+
+-- True if pool entry `entry` refers to `itemName` under either spelling.
+local function sameItem(entry, itemName)
+    return entry == itemName or entry == shortName(itemName)
+        or shortName(entry) == shortName(itemName)
 end
 
 -- Returns "flat" (B41-style alternating name/weight list) or nil.
@@ -52,30 +70,41 @@ function AH.Distrib.rolls(name)
     return pool and (pool.rolls or 1) or nil
 end
 
-function AH.Distrib.totalWeight(name)
+-- Total pool weight. `excludeItem` (optional): skip that item's own entry —
+-- the AH01 solver derives w assuming the item is NOT yet in the pool
+-- (total becomes W+w), so when upserting an item vanilla already stocks
+-- (Pan is already in KitchenPots at 10) its old weight must not count
+-- toward W or the solve comes out low.
+function AH.Distrib.totalWeight(name, excludeItem)
     local pool = AH.Distrib.getPool(name)
     if not pool then return nil end
     local total, it = 0, pool.items
-    for i = 2, #it, 2 do total = total + it[i] end
+    for i = 2, #it, 2 do
+        if not (excludeItem and sameItem(it[i - 1], excludeItem)) then
+            total = total + it[i]
+        end
+    end
     return total
 end
 
 -- Idempotent upsert: sets the item's weight, adding the entry if absent.
--- Mutates IN PLACE (P8: other mods' earlier edits must survive).
+-- Mutates IN PLACE (P8: other mods' earlier edits must survive). Matches
+-- vanilla's short-name entries; inserts short form for consistency.
 function AH.Distrib.setItemWeight(poolName, itemName, weight)
     local pool = AH.Distrib.getPool(poolName)
     if not pool then return false end
     local it = pool.items
     for i = 1, #it, 2 do
-        if it[i] == itemName then
-            changes[#changes + 1] = { poolName, itemName, it[i + 1], weight }
+        if sameItem(it[i], itemName) then
+            changes[#changes + 1] = { poolName, it[i], it[i + 1], weight }
             it[i + 1] = weight
             return true
         end
     end
-    it[#it + 1] = itemName
+    local short = shortName(itemName)
+    it[#it + 1] = short
     it[#it + 1] = weight
-    changes[#changes + 1] = { poolName, itemName, 0, weight }
+    changes[#changes + 1] = { poolName, short, 0, weight }
     return true
 end
 
@@ -84,8 +113,8 @@ function AH.Distrib.removeItem(poolName, itemName)
     if not pool then return false end
     local it = pool.items
     for i = 1, #it, 2 do
-        if it[i] == itemName then
-            changes[#changes + 1] = { poolName, itemName, it[i + 1], 0 }
+        if sameItem(it[i], itemName) then
+            changes[#changes + 1] = { poolName, it[i], it[i + 1], 0 }
             table.remove(it, i + 1)
             table.remove(it, i)
             return true

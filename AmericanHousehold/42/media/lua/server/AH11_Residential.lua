@@ -26,7 +26,9 @@ local function applyResidential()
                 break
             end
 
-            local W = AH.Distrib.totalWeight(e.pool)
+            -- exclude the item's own vanilla entry (if any) from W: the
+            -- solver assumes the item is being ADDED to the pool.
+            local W = AH.Distrib.totalWeight(e.pool, e.item)
             local R = AH.Distrib.rolls(e.pool)
             if not W or W <= 0 or not R then
                 skipped = skipped + 1

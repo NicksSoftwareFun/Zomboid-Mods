@@ -1,0 +1,26 @@
+Sandbox_EN = {
+    Sandbox_AmericanHousehold = "The American Household",
+
+    Sandbox_AH_Enabled = "Enable loot rebalance",
+    Sandbox_AH_Enabled_tooltip = "Master switch for the household loot rebalance. Off = vanilla distributions untouched.",
+
+    Sandbox_AH_HouseholdAbundance = "Household abundance",
+    Sandbox_AH_HouseholdAbundance_tooltip = "Scales household durable-goods presence targets. Design is the tuned baseline; Low/High shift it by 20%.",
+    Sandbox_AH_Abundance_option1 = "Low",
+    Sandbox_AH_Abundance_option2 = "Design",
+    Sandbox_AH_Abundance_option3 = "High",
+
+    Sandbox_AH_LedgerEnabled = "Household ledger",
+    Sandbox_AH_LedgerEnabled_tooltip = "Enables the household ledger consumable-scarcity layer.",
+
+    Sandbox_AH_VehicleMultiplier = "Vehicle spawn multiplier",
+    Sandbox_AH_VehicleMultiplier_tooltip = "Multiplies per-zone vehicle spawn chance. 1.0 disables the pass entirely. Never touches fuel or condition.",
+
+    Sandbox_AH_SetpieceStocking = "Store stocking",
+    Sandbox_AH_SetpieceStocking_tooltip = "Panic = stores as looted during the panic (baseline). Full = pre-outbreak inventories.",
+    Sandbox_AH_Stocking_option1 = "Panic",
+    Sandbox_AH_Stocking_option2 = "Full",
+
+    Sandbox_AH_Verbose = "Verbose logging",
+    Sandbox_AH_Verbose_tooltip = "Per-fill and per-merge-change console logging. QA mode; leave off for normal play.",
+}

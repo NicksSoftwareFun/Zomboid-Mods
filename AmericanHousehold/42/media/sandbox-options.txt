@@ -1,0 +1,55 @@
+VERSION = 1,
+
+option AmericanHousehold.Enabled
+{
+    type = boolean,
+    default = true,
+    page = AmericanHousehold,
+    translation = AH_Enabled,
+}
+
+option AmericanHousehold.HouseholdAbundance
+{
+    type = enum,
+    numValues = 3,
+    default = 2,
+    page = AmericanHousehold,
+    translation = AH_HouseholdAbundance,
+    valueTranslation = AH_Abundance,
+}
+
+option AmericanHousehold.LedgerEnabled
+{
+    type = boolean,
+    default = true,
+    page = AmericanHousehold,
+    translation = AH_LedgerEnabled,
+}
+
+option AmericanHousehold.VehicleMultiplier
+{
+    type = double,
+    min = 1.0,
+    default = 1.5,
+    max = 3.0,
+    page = AmericanHousehold,
+    translation = AH_VehicleMultiplier,
+}
+
+option AmericanHousehold.SetpieceStocking
+{
+    type = enum,
+    numValues = 2,
+    default = 1,
+    page = AmericanHousehold,
+    translation = AH_SetpieceStocking,
+    valueTranslation = AH_Stocking,
+}
+
+option AmericanHousehold.Verbose
+{
+    type = boolean,
+    default = false,
+    page = AmericanHousehold,
+    translation = AH_Verbose,
+}
