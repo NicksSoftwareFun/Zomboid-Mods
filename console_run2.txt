@@ -1,0 +1,1814 @@
+LOG  : General      f:0> 05-08-2026 16:47:16
+LOG  : General      f:0> SLF4J(I): Attempting to load provider "zombie.core.logger.Slf4jBridge" specified via "slf4j.provider" system property
+LOG  : General      f:0> ===== System specs =====
+LOG  : General      f:0> CPU: Intel(R) Core(TM) i7-8700K CPU @ 3.70GHz, vendor: GenuineIntel, cores: 6, threads: 12
+LOG  : General      f:0> RAM: 32717 Mb
+LOG  : General      f:0> Base board: Z370 GAMING PLUS (MS-7B61), vendor: Micro-Star International Co., Ltd.
+LOG  : General      f:0> GPU: NVIDIA GeForce RTX 2080, vendor: NVIDIA, video memory: 8192 Mb, driver: 32.0.15.8157
+LOG  : General      f:0> Disk info: 476.34 Gb, free space: 83.58 Gb, usable space: 83.58 Gb
+LOG  : General      f:0> OS: Windows 10, version: 10.0, arch: amd64, build: 19045
+LOG  : General      f:0> JVM (free: 400 Mb, max: 3072 Mb, total available: 512 Mb)
+LOG  : General      f:0> ========================
+LOG  : General      f:0> java.specification.version=25
+LOG  : General      f:0> sun.cpu.isalist=amd64
+LOG  : General      f:0> sun.jnu.encoding=Cp1252
+LOG  : General      f:0> java.vm.vendor=Azul Systems, Inc.
+LOG  : General      f:0> sun.arch.data.model=64
+LOG  : General      f:0> java.vendor.url=http://www.azul.com/
+LOG  : General      f:0> zomboid.steam=1
+LOG  : General      f:0> java.vm.specification.version=25
+LOG  : General      f:0> os.name=Windows 10
+LOG  : General      f:0> zomboid.znetlog=1
+LOG  : General      f:0> slf4j.provider=zombie.core.logger.Slf4jBridge
+LOG  : General      f:0> jdk.debug=release
+LOG  : General      f:0> sun.cpu.endian=little
+LOG  : General      f:0> java.specification.vendor=Oracle Corporation
+LOG  : General      f:0> java.version.date=2025-10-21
+LOG  : General      f:0> java.home=C:\Program Files (x86)\Steam\steamapp...
+LOG  : General      f:0> file.separator=\
+LOG  : General      f:0> line.separator=
+
+LOG  : General      f:0> java.vm.specification.vendor=Oracle Corporation
+LOG  : General      f:0> java.specification.name=Java Platform API Specification
+LOG  : General      f:0> java.awt.headless=true
+LOG  : General      f:0> sun.management.compiler=HotSpot 64-Bit Tiered Compilers
+LOG  : General      f:0> java.runtime.version=25.0.1+8-LTS
+LOG  : General      f:0> stdout.encoding=Cp1252
+LOG  : General      f:0> os.version=10.0
+LOG  : General      f:0> jna.nosys=false
+LOG  : General      f:0> java.runtime.name=OpenJDK Runtime Environment
+LOG  : General      f:0> file.encoding=UTF-8
+LOG  : General      f:0> java.vm.name=OpenJDK 64-Bit Server VM
+LOG  : General      f:0> java.vendor.version=Zulu25.30+17-CA
+LOG  : General      f:0> jna.loaded=true
+LOG  : General      f:0> java.vendor.url.bug=http://www.azul.com/support/
+LOG  : General      f:0> java.version=25.0.1
+LOG  : General      f:0> os.arch=amd64
+LOG  : General      f:0> java.vm.specification.name=Java Virtual Machine Specification
+LOG  : General      f:0> sun.os.patch.level=
+LOG  : General      f:0> native.encoding=Cp1252
+LOG  : General      f:0> java.vm.info=mixed mode, sharing
+LOG  : General      f:0> stderr.encoding=Cp1252
+LOG  : General      f:0> java.vendor=Azul Systems, Inc.
+LOG  : General      f:0> java.vm.version=25.0.1+8-LTS
+LOG  : General      f:0> stdin.encoding=Cp1252
+LOG  : General      f:0> sun.io.unicode.encoding=UnicodeLittle
+LOG  : General      f:0> java.class.version=69.0
+LOG  : General      f:0> -----
+LOG  : General      f:0> version=42.20.2 ffe7a8a4b1 demo=false
+LOG  : General      f:0> revision=ffe7a8a4b1 pzbullet=1.0.0.28
+LOG  : General      f:0> Logs configuration:
+LOG  : General      f:0>      General: General
+LOG  : General      f:0>      Network: General
+LOG  : General      f:0>          Lua: General
+LOG  : General      f:0>          Mod: General
+LOG  : General      f:0>  Multiplayer: General
+LOG  : General      f:0>      Default: Off
+LOG  : General      f:0> LightingFPS set to 15
+LOG  : General      f:0> closest width=640 freq=60
+LOG  : General      f:0> closest width=640 freq=75
+LOG  : General      f:0> closest width=640 freq=85
+LOG  : General      f:0> closest width=720 freq=60
+LOG  : General      f:0> closest width=720 freq=75
+LOG  : General      f:0> closest width=720 freq=85
+LOG  : General      f:0> closest width=800 freq=60
+LOG  : General      f:0> closest width=800 freq=75
+LOG  : General      f:0> closest width=800 freq=85
+LOG  : General      f:0> closest width=1024 freq=60
+LOG  : General      f:0> closest width=1024 freq=75
+LOG  : General      f:0> closest width=1024 freq=85
+LOG  : General      f:0> closest width=1280 freq=75
+LOG  : General      f:0> closest width=1280 freq=85
+LOG  : General      f:0> Display mode changed to 1600x1200 freq=65 fullScreen=true
+LOG  : General      f:0> GraphicsCard: NVIDIA Corporation NVIDIA GeForce RTX 2080/PCIe/SSE2
+LOG  : General      f:0> OpenGL version: 4.6.0 NVIDIA 581.57
+LOG  : General      f:0> Desktop resolution 1600x1200
+LOG  : General      f:0> Initial resolution 1600x1200 fullScreen=true
+LOG  : General      f:0> OpenGL 1.5 buffer objects supported
+LOG  : General      f:0> VSync: OFF
+LOG  : General      f:0> 1785962837959 fmod: Java loging: OK
+LOG  : General      f:0> 1785962837967 fmod: FMOD::Studio::System::create() result: No errors.
+LOG  : General      f:0> 1785962837967 fmod: FMOD::Studio::System::getCoreSystem() result: No errors.
+LOG  : General      f:0> 1785962837968 fmod: FMOD_System_GetVersion() result: No errors.
+LOG  : General      f:0> 1785962837968 fmod: fmodintegration built with version 20309, fmod shared library version 20309
+LOG  : General      f:0> 1785962837968 fmod: System Create: OK
+LOG  : General      f:0> 1785962837968 fmod: FMOD_System_SetSoftwareFormat() result: No errors.
+LOG  : General      f:0> 1785962838260 fmod: FMOD::Studio::System::Initialize() result: No errors.
+LOG  : General      f:0> 1785962838260 fmod: Creating DSP for capture sound
+LOG  : General      f:0> 1785962838261 fmod: FMOD_System_CreateDSP() result: No errors.
+LOG  : General      f:0> 1785962838261 fmod: FMOD_DSP_SetBypass() result: No errors.
+LOG  : General      f:0> 1785962838261 fmod: FMOD_System_GetMasterChannelGroup() result: No errors.
+LOG  : General      f:0> 1785962838261 fmod: FMOD_ChannelGroup_AddDSP() result: No errors.
+LOG  : General      f:0> 1785962838262 fmod: FMOD_System_Set3DSettings() result: No errors.
+LOG  : Mod          f:0> refusing to list examplemod
+LOG  : General      f:0> Loading networking libraries...
+LOG  : General      f:0> Loading steam_api64...
+LOG  : General      f:0> Loading RakNet64...
+LOG  : General      f:0> Loading ZNetJNI64...
+LOG  : General      f:0> SteamUtils initialised successfully
+LOG  : General      f:0> Loading Mods
+LOG  : Mod          f:0> refusing to list examplemod
+LOG  : Mod          f:0> loading AHProbe
+LOG  : General      f:0> Loading Translations
+LOG  : General      f:0> texturepack: loading UI
+LOG  : General      f:0> Loading UI texture pack
+LOG  : General      f:0> texturepack: loading UI2
+LOG  : General      f:0> Loading UI2 texture pack
+LOG  : General      f:0> texturepack: loading IconsMoveables
+LOG  : General      f:0> Loading IconsMoveables texture pack
+LOG  : General      f:0> texturepack: loading RadioIcons
+LOG  : General      f:0> Loading RadioIcons texture pack
+LOG  : General      f:0> texturepack: loading ApComUI
+LOG  : General      f:0> Loading ApComUI texture pack
+LOG  : General      f:0> texturepack: loading Mechanics
+LOG  : General      f:0> Loading Mechanics texture pack
+LOG  : General      f:0> texturepack: loading WeatherFx
+LOG  : General      f:0> Loading WeatherFx texture pack
+LOG  : General      f:0> Loading Scripts
+ERROR: General      f:0 at FluidContainerScript.load           > Sanitizing container name 'Large Bucket', name may not contain whitespaces.
+ERROR: General      f:0 at FluidContainerScript.load           > Sanitizing container name 'Fuel Pump', name may not contain whitespaces.
+WARN : General      f:0 at XuiSkin$EntityUiStyle.Load          > Could not find icon: Build_AnvilStone, script = Stone Anvil
+WARN : General      f:0 at XuiSkin$EntityUiStyle.LoadComponentInfo> Could not find icon: Build_AnvilStone
+WARN : General      f:0 at XuiSkin$EntityUiStyle.Load          > Could not find icon: Build_AnvilStone, script = Stone Anvil
+WARN : General      f:0 at XuiSkin$EntityUiStyle.LoadComponentInfo> Could not find icon: Build_AnvilStone
+WARN : General      f:0 at XuiSkin$EntityUiStyle.Load          > Could not find icon: Build_AnvilStone, script = Stone Anvil
+WARN : General      f:0 at XuiSkin$EntityUiStyle.LoadComponentInfo> Could not find icon: Build_AnvilStone
+WARN : General      f:0 at XuiSkin$EntityUiStyle.Load          > Could not find icon: Build_AnvilStone, script = Stone Anvil
+WARN : General      f:0 at XuiSkin$EntityUiStyle.LoadComponentInfo> Could not find icon: Build_AnvilStone
+WARN : General      f:0 at TaggedObjectManager.createTagBits   > manager-> new tag discovered that was not preprocessed, tag: keyduplicator
+WARN : General      f:0 at TaggedObjectManager.createTagBits   > manager-> new tag discovered that was not preprocessed, tag: choppingblock
+LOG  : General      f:0> Loading Clothing
+LOG  : General      f:0> 
+LOG  : General      f:0> Loading Lua
+WARN : Lua          f:0 at Lua(Vanilla).corpseStorageCheck     > require("ISUI/ISInventoryPaneContextMenu") failed
+WARN : Lua          f:0 at Lua(Vanilla).corpseStorageCheck     > require("ISUI/ISVehicleMenu") failed
+WARN : Lua          f:0 at Lua(Vanilla).corpseStorageCheck     > require("ISUI/ISContextMenu") failed
+WARN : Lua          f:0 at Lua(Vanilla).ISCampingMenu          > require("Camping/CCampfireSystem") failed
+WARN : Lua          f:0 at Lua(Vanilla).ISInventoryTransferUtil> require("TimedActions/ISInventoryTransferAction") failed
+WARN : Lua          f:0 at Lua(Vanilla).ISInventoryTransferUtil> require("ISUI/PlayerData/ISPlayerData") failed
+WARN : Lua          f:0 at Lua(Vanilla).ISAnimalContextMenu    > require("BuildingObjects/ISAnimalPickMateCursor") failed
+WARN : Lua          f:0 at Lua(Vanilla).TakeSameType           > require("ISUI/InventoryWindow/ISLootWindowControlHandler") failed
+WARN : Lua          f:0 at Lua(Vanilla).FloorTakeSameType      > require("ISUI/InventoryWindow/ISLootWindowControlHandler") failed
+WARN : Lua          f:0 at Lua(Vanilla).testUI                 > require("pzapi/ui/ui") failed
+LOG  : Lua          f:0> OnLoadSoundbanks
+LOG  : General      f:0> texturepack: loading Tiles2x
+LOG  : General      f:0> Loading Tiles2x texture pack
+LOG  : General      f:0> texturepack: loading Overlays2x
+LOG  : General      f:0> Loading Overlays2x texture pack
+LOG  : General      f:0> texturepack: loading JumboTrees2x
+LOG  : General      f:0> Loading JumboTrees2x texture pack
+LOG  : General      f:0> texturepack: loading JumboTreesBigs2x
+LOG  : General      f:0> Loading JumboTreesBigs2x texture pack
+LOG  : General      f:0> texturepack: loading Tiles2x.floor
+LOG  : General      f:0> Loading Tiles2x.floor texture pack
+LOG  : General      f:0> texturepack: loading B42ChunkCaching2x
+LOG  : General      f:0> Loading B42ChunkCaching2x texture pack
+LOG  : General      f:0> texturepack: loading B42ChunkCaching2x.floor
+LOG  : General      f:0> Loading B42ChunkCaching2x.floor texture pack
+LOG  : General      f:0> texturepack: loading Clock2x
+LOG  : General      f:0> Loading Clock2x texture pack
+LOG  : General      f:0> Loading models and animations
+LOG  : General      f:0> 1785962859899 fmod: globalSystem = 0x66251CC8
+LOG  : General      f:0> 1785962859899 fmod: FMOD_System_GetRecordDriverInfo: nativeRate = 48000, nativeChannels = 2
+LOG  : General      f:0> 1785962859899 fmod: System create record sound: OK
+LOG  : General      f:0> 1785962859900 fmod: Create resampler: OK
+LOG  : General      f:0> 1785962859900 fmod: Create acoustic echo canceller: OK
+LOG  : General      f:0> 1785962860016 fmod: GetRecordNumDrivers id = 0, sound = 0x77871378 loop=1
+LOG  : General      f:0> Game booting
+LOG  : General      f:0> STATE: exit zombie.gameStates.TISLogoState
+LOG  : General      f:0> STATE: exit zombie.gameStates.TermsOfServiceState
+LOG  : General      f:0> binkId: 1
+WARN : Lua          f:0 at Lua(Vanilla).namedColorToTable      > env.lua-> namedColorToTable color not found: ProgressYellow
+LOG  : General      f:0> binkId: 2
+LOG  : General      f:0> STATE: exit zombie.gameStates.MainScreenState
+LOG  : General      f:0> LOADED UP A TOTAL OF 613 TEXTURES
+LOG  : General      f:0> STATE: exit zombie.gameStates.LoadingQueueState
+LOG  : Lua          f:0> Initializing Randomized World Tabletop Clutter Tables
+WARN : Lua          f:0 at Lua(Vanilla).Features               > recursive require(): C:/Program Files (x86)/Steam/steamapps/common/ProjectZomboid/media/lua/server/WorldGen/WorldGen.lua
+WARN : Lua          f:0 at Lua(Vanilla).Biomes                 > recursive require(): C:/Program Files (x86)/Steam/steamapps/common/ProjectZomboid/media/lua/server/WorldGen/WorldGen.lua
+WARN : Lua          f:0 at Lua(Vanilla).Selection              > recursive require(): C:/Program Files (x86)/Steam/steamapps/common/ProjectZomboid/media/lua/server/WorldGen/WorldGen.lua
+WARN : Lua          f:0 at Lua(Vanilla).Veins                  > recursive require(): C:/Program Files (x86)/Steam/steamapps/common/ProjectZomboid/media/lua/server/WorldGen/WorldGen.lua
+WARN : Lua          f:0 at Lua(Vanilla).Roads                  > recursive require(): C:/Program Files (x86)/Steam/steamapps/common/ProjectZomboid/media/lua/server/WorldGen/WorldGen.lua
+WARN : Lua          f:0 at Lua(Vanilla).WorldGen               > recursive require(): C:/Program Files (x86)/Steam/steamapps/common/ProjectZomboid/media/lua/server/WorldGen/attachments/Priorities.lua
+LOG  : Lua          f:0> [AHProbe] OnFillContainer hook registered (A3: event exists)
+LOG  : Lua          f:0> [AHProbe] table inventory scheduled for OnPostDistributionMerge
+LOG  : Lua          f:0> [AHProbe] loaded  play normally, then grep console.txt for [AHProbe]
+ERROR: General      f:0 at CraftRecipeComponentScript.getIconTexture> CraftRecipeComponentScript: Recipe Piano missing UiConfigScript - falling back to SpriteConfigScript first world object face for recipe icon.
+LOG  : General      f:0> SafeMode is off
+LOG  : General      f:0> Loading worldgen params
+LOG  : General      f:0> IsoMetaGrid.Create: begin scanning directories
+LOG  : General      f:0> Looking in these map folders:
+LOG  : General      f:0> <End of map-folders list>
+LOG  : General      f:0> IsoMetaGrid.Create: X: [ -250 250 ], Y: [ -250 250 ]
+LOG  : General      f:0> World seed: xpLYNYEddCayMTwc -59277095
+LOG  : General      f:0> IsoMetaGrid.Create: finished scanning directories in 0.071 seconds
+LOG  : General      f:0> IsoMetaGrid.Create: begin loading
+LOG  : Lua          f:0> [AHProbe] OnPreDistributionMerge fired (Mod A hook confirmed)
+LOG  : Lua          f:0> [AHProbe] ---- table inventory ----
+LOG  : Lua          f:0> [AHProbe] ProceduralDistributions.list pool count = 1420
+LOG  : Lua          f:0> [AHProbe]   pool EXISTS: GunStoreShelf
+LOG  : Lua          f:0> [AHProbe]   pool EXISTS: GunStoreDisplayCase
+LOG  : Lua          f:0> [AHProbe]   pool EXISTS: GunStoreCounter
+LOG  : Lua          f:0> [AHProbe]   pool EXISTS: StoreShelfMechanics
+LOG  : Lua          f:0> [AHProbe]   pool EXISTS: PoliceStorageGuns
+LOG  : Lua          f:0> [AHProbe]   pool EXISTS: ArmyStorageGuns
+LOG  : Lua          f:0> [AHProbe]   pool EXISTS: StoreShelfElectronics
+LOG  : Lua          f:0> [AHProbe] full pool list written to Lua/AHProbe_pools.txt
+LOG  : Lua          f:0> [AHProbe] Distributions global exists, type=table
+LOG  : Lua          f:0> [AHProbe]   VehicleZoneDistribution key: parkingstall
+LOG  : Lua          f:0> [AHProbe]   VehicleZoneDistribution key: trailerpark
+LOG  : Lua          f:0> [AHProbe]   VehicleZoneDistribution key: bad
+LOG  : Lua          f:0> [AHProbe]   VehicleZoneDistribution key: medium
+LOG  : Lua          f:0> [AHProbe]   VehicleZoneDistribution key: good
+LOG  : Lua          f:0> [AHProbe]   VehicleZoneDistribution key: luxuryDealership
+LOG  : Lua          f:0> [AHProbe]   VehicleZoneDistribution key: sport
+LOG  : Lua          f:0> [AHProbe]   VehicleZoneDistribution key: junkyard
+LOG  : Lua          f:0> [AHProbe]   VehicleZoneDistribution key: trafficjamw
+LOG  : Lua          f:0> [AHProbe]   VehicleZoneDistribution key: trafficjame
+LOG  : Lua          f:0> [AHProbe]   VehicleZoneDistribution key: trafficjamn
+LOG  : Lua          f:0> [AHProbe]   VehicleZoneDistribution key: trafficjams
+LOG  : Lua          f:0> [AHProbe]   VehicleZoneDistribution key: police
+LOG  : Lua          f:0> [AHProbe]   VehicleZoneDistribution key: prison
+LOG  : Lua          f:0> [AHProbe]   VehicleZoneDistribution key: fire
+LOG  : Lua          f:0> [AHProbe]   VehicleZoneDistribution key: ranger
+LOG  : Lua          f:0> [AHProbe]   VehicleZoneDistribution key: mccoy
+LOG  : Lua          f:0> [AHProbe]   VehicleZoneDistribution key: carpenter
+LOG  : Lua          f:0> [AHProbe]   VehicleZoneDistribution key: postal
+LOG  : Lua          f:0> [AHProbe]   VehicleZoneDistribution key: spiffo
+LOG  : Lua          f:0> [AHProbe]   VehicleZoneDistribution key: ambulance
+LOG  : Lua          f:0> [AHProbe]   VehicleZoneDistribution key: radio
+LOG  : Lua          f:0> [AHProbe]   VehicleZoneDistribution key: fossoil
+LOG  : Lua          f:0> [AHProbe]   VehicleZoneDistribution key: scarlet
+LOG  : Lua          f:0> [AHProbe]   VehicleZoneDistribution key: massgenfac
+LOG  : Lua          f:0> [AHProbe] VehicleZoneDistribution exists, 55 keys
+LOG  : Lua          f:0> [AHProbe] VehicleDistributions global exists
+LOG  : Lua          f:0> [AHProbe]   SandboxVars.VehicleStoryChance = 3
+LOG  : Lua          f:0> [AHProbe]   SandboxVars.EnableVehicles = true
+LOG  : Lua          f:0> [AHProbe]   SandboxVars.CarSpawnRate = 3
+LOG  : Lua          f:0> [AHProbe]   SandboxVars.VehicleEasyUse = false
+LOG  : Lua          f:0> [AHProbe]   SandboxVars.LockedCar = 4
+LOG  : Lua          f:0> [AHProbe]   SandboxVars.CarGasConsumption = 1
+LOG  : Lua          f:0> [AHProbe]   SandboxVars.CarGeneralCondition = 3
+LOG  : Lua          f:0> [AHProbe]   SandboxVars.CarDamageOnImpact = 3
+LOG  : Lua          f:0> [AHProbe]   SandboxVars.DamageToPlayerFromHitByACar = 1
+LOG  : Lua          f:0> [AHProbe]   SandboxVars.CarAlarm = 3
+LOG  : Lua          f:0> [AHProbe]   SandboxVars.RecentlySurvivorVehicles = 2
+LOG  : Lua          f:0> [AHProbe] SandboxVars scan done
+LOG  : Lua          f:0> [AHProbe] ---- table inventory end ----
+LOG  : General      f:0> VehiclesDB2.init() start
+LOG  : General      f:0> VehiclesDB2.init() end
+LOG  : General      f:0> triggerEvent OnInitWorld
+LOG  : General      f:0> SandboxOptions.load() start
+LOG  : General      f:0> SandboxOptions.load() end
+LOG  : General      f:0> ItemPickerJava.Parse() start
+LOG  : General      f:0> ItemPickerJava.Parse() end
+LOG  : General      f:0> LoadTileDefinitions start
+LOG  : General      f:0> LoadTileDefinitions end
+LOG  : General      f:0> triggerEvent OnLoadedTileDefinitions
+LOG  : General      f:0> loadAnimalDefinitions start
+LOG  : General      f:0> loadAnimalDefinitions end
+LOG  : General      f:0> GameTime.init() and load() start
+LOG  : General      f:0> GameTime.init() and load() end
+LOG  : General      f:0> ZomboidRadio.Init() start
+LOG  : Lua          f:0> scriptmanager = zombie.radio.scripting.RadioScriptManager@479977f1, isNewGame = false
+LOG  : Lua          f:0> name = Automated Emergency Broadcast System, freq = 98600, cat = Emergency, uuid = EMRG-711984
+LOG  : General      f:0> Radio Loading channels...
+LOG  : General      f:0> ZomboidRadio.Init() end
+LOG  : General      f:0> GlobalModData.init() start
+LOG  : General      f:0> GlobalModData.init() end
+LOG  : General      f:0> InstanceTracker.load() start
+LOG  : General      f:0> InstanceTracker.load() end
+LOG  : General      f:0> ErosionGlobals.Boot() start
+LOG  : General      f:0> ErosionGlobals.Boot() end
+LOG  : General      f:0> WorldDictionary.init() start
+LOG  : General      f:0> WorldDictionary: Checking dictionary...
+LOG  : General      f:0> Loading WorldDictionary:C:\Users\Nick Van Riper\Zomboid\Saves\Apocalypse\2026-08-05_16-35-24\WorldDictionary.bin
+LOG  : General      f:0> WorldDictionary.init() end
+LOG  : General      f:0> GameEntityManager.Init() start
+LOG  : General      f:0> GameEntityManager.Init() end
+LOG  : General      f:0> PersistentOutfits.init() start
+LOG  : General      f:0> PersistentOutfits.init() end
+LOG  : General      f:0> IsoMetaGrid.Create: finished loading in 3.923 seconds
+ERROR: Lua          f:0 at Lua(Vanilla).handleMannequinZone    > ERROR: Mannequin zone missing properties in media/maps/Muldraugh, KY/objects.lua coords: 13583, 1299, 0
+WARN : Lua          f:0 at Lua(Vanilla).doMapZones             > can't find map objects file: media/maps/West Point, KY/objects.lua
+WARN : Lua          f:0 at Lua(Vanilla).doMapZones             > can't find map objects file: media/maps/Valley Station, KY/objects.lua
+WARN : Lua          f:0 at Lua(Vanilla).doMapZones             > can't find map objects file: media/maps/Rosewood, KY/objects.lua
+WARN : Lua          f:0 at Lua(Vanilla).doMapZones             > can't find map objects file: media/maps/Riverside, KY/objects.lua
+WARN : Lua          f:0 at Lua(Vanilla).doMapZones             > can't find map objects file: media/maps/March Ridge, KY/objects.lua
+WARN : Lua          f:0 at Lua(Vanilla).doMapZones             > can't find map objects file: media/maps/Irvington, KY/objects.lua
+WARN : Lua          f:0 at Lua(Vanilla).doMapZones             > can't find map objects file: media/maps/Fallas Lake, KY/objects.lua
+WARN : Lua          f:0 at Lua(Vanilla).doMapZones             > can't find map objects file: media/maps/Ekron, KY/objects.lua
+WARN : Lua          f:0 at Lua(Vanilla).doMapZones             > can't find map objects file: media/maps/Echo Creek, KY/objects.lua
+WARN : Lua          f:0 at Lua(Vanilla).doMapZones             > can't find map objects file: media/maps/Brandenburg, KY/objects.lua
+ERROR: General      f:0 at Basements.mergeRoomsOntoMetaCell    > duplicate RoomDef.metaID for room at 10707,9484,0
+ERROR: General      f:0 at IsoMetaGrid.load                    > invalid room metaID #231 in cell 25,33 while reading map_meta.bin
+ERROR: General      f:0 at IsoMetaGrid.load                    > invalid room metaID #327914 in cell 25,33 while reading map_meta.bin
+ERROR: General      f:0 at IsoMetaGrid.load                    > invalid room metaID #327911 in cell 25,33 while reading map_meta.bin
+ERROR: General      f:0 at IsoMetaGrid.load                    > invalid room metaID #655594 in cell 25,33 while reading map_meta.bin
+LOG  : General      f:0> loading 8797 zones from map_zone.bin
+LOG  : General      f:0> loading 121 zones from map_animals.bin
+LOG  : General      f:0> Max #ZONES on one chunk is 27
+LOG  : General      f:0> triggerEvent OnLoadedMapZones
+LOG  : General      f:0> ItemConfigurator.Preprocess() start
+LOG  : General      f:0> ItemConfigurator.Preprocess() end
+LOG  : General      f:0> MapCollisionData.init() start
+LOG  : General      f:0> MapCollisionData.init() end
+LOG  : General      f:0> AnimalPopulationManager.init() start
+LOG  : General      f:0> AnimalPopulationManager.init() end
+LOG  : General      f:0> ZombiePopulationManager.init() start
+LOG  : General      f:0> ZombiePopulationManager.init() end
+LOG  : General      f:0> Pathfind init() start
+LOG  : General      f:0> Pathfind init() end
+LOG  : General      f:0> WorldStreamer.create() start
+LOG  : General      f:0> WorldStreamer.create() end
+LOG  : General      f:0> CellLoader.LoadCellBinaryChunk start
+LOG  : General      f:0> CellLoader.LoadCellBinaryChunk start
+LOG  : General      f:0> MapItem.LoadWorldMap() start
+LOG  : General      f:0> MapItem.LoadWorldMap() start
+LOG  : General      f:0> WorldStreamer.isBusy() loop start
+LOG  : General      f:0> WorldStreamer.isBusy() loop end
+LOG  : General      f:0> MetaTracker.load() start
+LOG  : General      f:0> MetaTracker.load() end
+LOG  : General      f:0> triggerEvent OnGameTimeLoaded
+LOG  : General      f:0> GlobalObjects.initSystems() start
+LOG  : General      f:0> GlobalObjects.initSystems() end
+LOG  : General      f:0> bWaitForAssetLoadingToFinish2 start
+LOG  : General      f:0> bWaitForAssetLoadingToFinish2 end
+LOG  : General      f:0> FBORenderChunkManager.gameLoaded() start
+LOG  : General      f:0> FBORenderChunkManager.gameLoaded() end
+LOG  : General      f:0> Bullet.initPhysicsMeshes() start
+LOG  : General      f:0> Bullet.initPhysicsMeshes() end
+LOG  : General      f:0> game loading took 16 seconds
+LOG  : General      f:0> STATE: exit zombie.gameStates.GameLoadingState
+LOG  : Lua          f:0> 1 players found
+LOG  : Lua          f:0> player 0 is mouse
+LOG  : General      f:0> Game Mode: Apocalypse
+LOG  : General      f:0> Sandbox Options:
+LOG  : General      f:0> Zombies 4
+LOG  : General      f:0> Distribution 1
+LOG  : General      f:0> ZombieVoronoiNoise true
+LOG  : General      f:0> ZombieRespawn 4
+LOG  : General      f:0> ZombieMigrate true
+LOG  : General      f:0> DayLength 4
+LOG  : General      f:0> StartYear 1
+LOG  : General      f:0> StartMonth 7
+LOG  : General      f:0> StartDay 9
+LOG  : General      f:0> StartTime 2
+LOG  : General      f:0> DayNightCycle 1
+LOG  : General      f:0> ClimateCycle 1
+LOG  : General      f:0> FogCycle 1
+LOG  : General      f:0> WaterShut 2
+LOG  : General      f:0> ElecShut 2
+LOG  : General      f:0> AlarmDecay 2
+LOG  : General      f:0> WaterShutModifier 2
+LOG  : General      f:0> ElecShutModifier 25
+LOG  : General      f:0> AlarmDecayModifier 14
+LOG  : General      f:0> FoodLootNew 0.8
+LOG  : General      f:0> LiteratureLootNew 0.6
+LOG  : General      f:0> SkillBookLoot 0.6
+LOG  : General      f:0> RecipeResourceLoot 0.6
+LOG  : General      f:0> MedicalLootNew 0.6
+LOG  : General      f:0> SurvivalGearsLootNew 0.6
+LOG  : General      f:0> CannedFoodLootNew 0.6
+LOG  : General      f:0> WeaponLootNew 0.6
+LOG  : General      f:0> RangedWeaponLootNew 1.2
+LOG  : General      f:0> AmmoLootNew 0.6
+LOG  : General      f:0> MechanicsLootNew 0.6
+LOG  : General      f:0> OtherLootNew 0.8
+LOG  : General      f:0> ClothingLootNew 0.6
+LOG  : General      f:0> ContainerLootNew 0.6
+LOG  : General      f:0> KeyLootNew 0.4
+LOG  : General      f:0> MediaLootNew 0.6
+LOG  : General      f:0> MementoLootNew 0.6
+LOG  : General      f:0> CookwareLootNew 0.6
+LOG  : General      f:0> MaterialLootNew 0.6
+LOG  : General      f:0> FarmingLootNew 0.6
+LOG  : General      f:0> ToolLootNew 0.6
+LOG  : General      f:0> RollsMultiplier 1.0
+LOG  : General      f:0> LootItemRemovalList 
+LOG  : General      f:0> RemoveStoryLoot false
+LOG  : General      f:0> RemoveZombieLoot false
+LOG  : General      f:0> ZombiePopLootEffect 0
+LOG  : General      f:0> InsaneLootFactor 0.05
+LOG  : General      f:0> ExtremeLootFactor 0.2
+LOG  : General      f:0> RareLootFactor 0.6
+LOG  : General      f:0> NormalLootFactor 1.0
+LOG  : General      f:0> CommonLootFactor 2.0
+LOG  : General      f:0> AbundantLootFactor 3.0
+LOG  : General      f:0> Temperature 3
+LOG  : General      f:0> Rain 3
+LOG  : General      f:0> ErosionSpeed 4
+LOG  : General      f:0> ErosionDays 0
+LOG  : General      f:0> Farming 3
+LOG  : General      f:0> CompostTime 2
+LOG  : General      f:0> StatsDecrease 3
+LOG  : General      f:0> NatureAbundance 3
+LOG  : General      f:0> Alarm 4
+LOG  : General      f:0> LockedHouses 6
+LOG  : General      f:0> StarterKit false
+LOG  : General      f:0> Nutrition true
+LOG  : General      f:0> FoodRotSpeed 3
+LOG  : General      f:0> FridgeFactor 3
+LOG  : General      f:0> SeenHoursPreventLootRespawn 0
+LOG  : General      f:0> HoursForLootRespawn 0
+LOG  : General      f:0> MaxItemsForLootRespawn 5
+LOG  : General      f:0> ConstructionPreventsLootRespawn true
+LOG  : General      f:0> WorldItemRemovalList Base.Hat, Base.Glasses, Base.Maggots, Base.Slug, Base.Slug2, Base.Snail, Base.Worm, Base.Dung_Mouse, Base.Dung_Rat
+LOG  : General      f:0> HoursForWorldItemRemoval 24.0
+LOG  : General      f:0> ItemRemovalListBlacklistToggle false
+LOG  : General      f:0> TimeSinceApo 1
+LOG  : General      f:0> PlantResilience 3
+LOG  : General      f:0> PlantAbundance 3
+LOG  : General      f:0> EndRegen 3
+LOG  : General      f:0> Helicopter 2
+LOG  : General      f:0> MetaEvent 2
+LOG  : General      f:0> SleepingEvent 1
+LOG  : General      f:0> GeneratorFuelConsumption 0.1
+LOG  : General      f:0> GeneratorSpawning 4
+LOG  : General      f:0> AnnotatedMapChance 4
+LOG  : General      f:0> CharacterFreePoints 0
+LOG  : General      f:0> ConstructionBonusPoints 3
+LOG  : General      f:0> NightDarkness 3
+LOG  : General      f:0> NightLength 3
+LOG  : General      f:0> BoneFracture true
+LOG  : General      f:0> InjurySeverity 2
+LOG  : General      f:0> HoursForCorpseRemoval 216.0
+LOG  : General      f:0> DecayingCorpseHealthImpact 3
+LOG  : General      f:0> ZombieHealthImpact false
+LOG  : General      f:0> BloodLevel 3
+LOG  : General      f:0> ClothingDegradation 3
+LOG  : General      f:0> FireSpread true
+LOG  : General      f:0> DaysForRottenFoodRemoval -1
+LOG  : General      f:0> AllowExteriorGenerator true
+LOG  : General      f:0> MaxFogIntensity 1
+LOG  : General      f:0> MaxRainFxIntensity 1
+LOG  : General      f:0> EnableSnowOnGround true
+LOG  : General      f:0> AttackBlockMovements true
+LOG  : General      f:0> SurvivorHouseChance 3
+LOG  : General      f:0> VehicleStoryChance 3
+LOG  : General      f:0> ZoneStoryChance 3
+LOG  : General      f:0> AllClothesUnlocked false
+LOG  : General      f:0> EnableTaintedWaterText true
+LOG  : General      f:0> EnableVehicles true
+LOG  : General      f:0> CarSpawnRate 3
+LOG  : General      f:0> ZombieAttractionMultiplier 1.0
+LOG  : General      f:0> VehicleEasyUse false
+LOG  : General      f:0> InitialGas 2
+LOG  : General      f:0> FuelStationGasInfinite false
+LOG  : General      f:0> FuelStationGasMin 0.0
+LOG  : General      f:0> FuelStationGasMax 0.8
+LOG  : General      f:0> FuelStationGasEmptyChance 20
+LOG  : General      f:0> LockedCar 4
+LOG  : General      f:0> CarGasConsumption 1.0
+LOG  : General      f:0> CarGeneralCondition 3
+LOG  : General      f:0> CarDamageOnImpact 3
+LOG  : General      f:0> DamageToPlayerFromHitByACar 1
+LOG  : General      f:0> TrafficJam true
+LOG  : General      f:0> CarAlarm 3
+LOG  : General      f:0> PlayerDamageFromCrash true
+LOG  : General      f:0> SirenShutoffHours 0.0
+LOG  : General      f:0> ChanceHasGas 2
+LOG  : General      f:0> RecentlySurvivorVehicles 2
+LOG  : General      f:0> MultiHitZombies false
+LOG  : General      f:0> RearVulnerability 3
+LOG  : General      f:0> SirenEffectsZombies true
+LOG  : General      f:0> AnimalStatsModifier 4
+LOG  : General      f:0> AnimalMetaStatsModifier 4
+LOG  : General      f:0> AnimalPregnancyTime 4
+LOG  : General      f:0> AnimalAgeModifier 4
+LOG  : General      f:0> AnimalMilkIncModifier 4
+LOG  : General      f:0> AnimalWoolIncModifier 4
+LOG  : General      f:0> AnimalRanchChance 5
+LOG  : General      f:0> AnimalGrassRegrowTime 240
+LOG  : General      f:0> AnimalMetaPredator false
+LOG  : General      f:0> AnimalMatingSeason true
+LOG  : General      f:0> AnimalEggHatch 4
+LOG  : General      f:0> AnimalSoundAttractZombies true
+LOG  : General      f:0> AnimalTrackChance 4
+LOG  : General      f:0> AnimalPathChance 4
+LOG  : General      f:0> MaximumRatIndex 25
+LOG  : General      f:0> DaysUntilMaximumRatIndex 90
+LOG  : General      f:0> MetaKnowledge 3
+LOG  : General      f:0> SeeNotLearntRecipe true
+LOG  : General      f:0> MaximumLootedBuildingRooms 50
+LOG  : General      f:0> EnablePoisoning 1
+LOG  : General      f:0> MaggotSpawn 1
+LOG  : General      f:0> LightBulbLifespan 2.0
+LOG  : General      f:0> FishAbundance 2
+LOG  : General      f:0> LevelForMediaXPCutoff 3
+LOG  : General      f:0> LevelForDismantleXPCutoff 0
+LOG  : General      f:0> BloodSplatLifespanDays 0
+LOG  : General      f:0> LiteratureCooldown 45
+LOG  : General      f:0> NegativeTraitsPenalty 1
+LOG  : General      f:0> MinutesPerPage 2.0
+LOG  : General      f:0> KillInsideCrops true
+LOG  : General      f:0> PlantGrowingSeasons true
+LOG  : General      f:0> PlaceDirtAboveground false
+LOG  : General      f:0> FarmingSpeedNew 1.0
+LOG  : General      f:0> FarmingAmountNew 1.0
+LOG  : General      f:0> MaximumLooted 25
+LOG  : General      f:0> DaysUntilMaximumLooted 90
+LOG  : General      f:0> RuralLooted 0.5
+LOG  : General      f:0> MaximumDiminishedLoot 20
+LOG  : General      f:0> DaysUntilMaximumDiminishedLoot 3650
+LOG  : General      f:0> MuscleStrainFactor 0.7
+LOG  : General      f:0> DiscomfortFactor 0.8
+LOG  : General      f:0> WoundInfectionFactor 1.0
+LOG  : General      f:0> NoBlackClothes true
+LOG  : General      f:0> EasyClimbing false
+LOG  : General      f:0> MaximumFireFuelHours 8
+LOG  : General      f:0> FirearmUseDamageChance 2
+LOG  : General      f:0> FirearmNoiseMultiplier 1.0
+LOG  : General      f:0> FirearmJamMultiplier 1.0
+LOG  : General      f:0> FirearmMoodleMultiplier 1.0
+LOG  : General      f:0> FirearmWeatherMultiplier 1.0
+LOG  : General      f:0> FirearmHeadGearEffect true
+LOG  : General      f:0> ClayLakeChance 0.05
+LOG  : General      f:0> ClayRiverChance 0.05
+LOG  : General      f:0> GeneratorTileRange 20
+LOG  : General      f:0> GeneratorVerticalPowerRange 3
+LOG  : General      f:0> SpawnFrequency 4
+LOG  : General      f:0> AllowMiniMap false
+LOG  : General      f:0> AllowWorldMap true
+LOG  : General      f:0> MapAllKnown false
+LOG  : General      f:0> MapNeedsLight true
+LOG  : General      f:0> Speed 4
+LOG  : General      f:0> SprinterPercentage 0
+LOG  : General      f:0> Strength 2
+LOG  : General      f:0> Toughness 4
+LOG  : General      f:0> Transmission 1
+LOG  : General      f:0> Mortality 5
+LOG  : General      f:0> Reanimate 3
+LOG  : General      f:0> Cognition 3
+LOG  : General      f:0> DoorOpeningPercentage 0
+LOG  : General      f:0> CrawlUnderVehicle 5
+LOG  : General      f:0> Memory 2
+LOG  : General      f:0> Sight 5
+LOG  : General      f:0> Hearing 5
+LOG  : General      f:0> SpottedLogic true
+LOG  : General      f:0> ThumpNoChasing false
+LOG  : General      f:0> ThumpOnConstruction true
+LOG  : General      f:0> ActiveOnly 1
+LOG  : General      f:0> TriggerHouseAlarm true
+LOG  : General      f:0> ZombiesDragDown true
+LOG  : General      f:0> ZombiesCrawlersDragDown false
+LOG  : General      f:0> ZombiesFenceLunge true
+LOG  : General      f:0> ZombiesArmorFactor 2.0
+LOG  : General      f:0> ZombiesMaxDefense 85
+LOG  : General      f:0> ChanceOfAttachedWeapon 6
+LOG  : General      f:0> ZombiesFallDamage 1.0
+LOG  : General      f:0> DisableFakeDead 1
+LOG  : General      f:0> PlayerSpawnZombieRemoval 1
+LOG  : General      f:0> FenceThumpersRequired 25
+LOG  : General      f:0> FenceDamageMultiplier 1.0
+LOG  : General      f:0> PopulationMultiplier 0.65
+LOG  : General      f:0> PopulationStartMultiplier 1.0
+LOG  : General      f:0> PopulationPeakMultiplier 1.5
+LOG  : General      f:0> PopulationPeakDay 28
+LOG  : General      f:0> RespawnHours 0.0
+LOG  : General      f:0> RespawnUnseenHours 0.0
+LOG  : General      f:0> RespawnMultiplier 0.0
+LOG  : General      f:0> RedistributeHours 12.0
+LOG  : General      f:0> FollowSoundDistance 100
+LOG  : General      f:0> RallyGroupSize 20
+LOG  : General      f:0> RallyGroupSizeVariance 50
+LOG  : General      f:0> RallyTravelDistance 20
+LOG  : General      f:0> RallyGroupSeparation 15
+LOG  : General      f:0> RallyGroupRadius 3
+LOG  : General      f:0> ZombiesCountBeforeDelete 300
+LOG  : General      f:0> Global 1.0
+LOG  : General      f:0> GlobalToggle true
+LOG  : General      f:0> Fitness 1.0
+LOG  : General      f:0> Strength 1.0
+LOG  : General      f:0> Sprinting 1.0
+LOG  : General      f:0> Lightfoot 1.0
+LOG  : General      f:0> Nimble 1.0
+LOG  : General      f:0> Sneak 1.0
+LOG  : General      f:0> Axe 1.0
+LOG  : General      f:0> Blunt 1.0
+LOG  : General      f:0> SmallBlunt 1.0
+LOG  : General      f:0> LongBlade 1.0
+LOG  : General      f:0> SmallBlade 1.0
+LOG  : General      f:0> Spear 1.0
+LOG  : General      f:0> Maintenance 1.0
+LOG  : General      f:0> Woodwork 1.0
+LOG  : General      f:0> Cooking 1.0
+LOG  : General      f:0> Farming 1.0
+LOG  : General      f:0> Doctor 1.0
+LOG  : General      f:0> Electricity 1.0
+LOG  : General      f:0> MetalWelding 1.0
+LOG  : General      f:0> Mechanics 1.0
+LOG  : General      f:0> Tailoring 1.0
+LOG  : General      f:0> Aiming 1.0
+LOG  : General      f:0> Reloading 1.0
+LOG  : General      f:0> Fishing 1.0
+LOG  : General      f:0> Trapping 1.0
+LOG  : General      f:0> PlantScavenging 1.0
+LOG  : General      f:0> FlintKnapping 1.0
+LOG  : General      f:0> Masonry 1.0
+LOG  : General      f:0> Pottery 1.0
+LOG  : General      f:0> Carving 1.0
+LOG  : General      f:0> Husbandry 1.0
+LOG  : General      f:0> Tracking 1.0
+LOG  : General      f:0> Blacksmith 1.0
+LOG  : General      f:0> Butchering 1.0
+LOG  : General      f:0> Glassmaking 1.0
+LOG  : General      f:0> binkId: 3
+LOG  : Lua          f:530> [AHProbe] fill #1 room=empty containerType=counter class=ItemContainer:[type:counter, parent:null:fixtures_counters_01_77:fixtures_counters_01_77:zombie.iso.IsoObject@4154d521]
+LOG  : Lua          f:530> [AHProbe] CHAIN OK building id=22 roomTypeArg=empty roomName=empty
+LOG  : Lua          f:530> [AHProbe]   def bounds: x=10770 y=9731 x2=10780 y2=9741 w=10 h=10
+ERROR: General      f:530 at KahluaThread.flushErrorMessage      > dumping Lua stack trace
+-----------------------------------------
+STACK TRACE
+-----------------------------------------
+	Lua((MOD:American Household - Phase 0 Probe)).firstsquare(AHProbe.lua:141)
+	Lua((MOD:American Household - Phase 0 Probe)).try(AHProbe.lua:40)
+	Lua((MOD:American Household - Phase 0 Probe)).probeFill(AHProbe.lua:140)
+ERROR: General      f:530> Lua((MOD:American Household - Phase 0 Probe)).firstsquare> Exception thrown
+	java.lang.RuntimeException: Object tried to call nil in firstsquare at KahluaUtil.fail(KahluaUtil.java:100).
+	Stack trace:
+		se.krka.kahlua.vm.KahluaUtil.fail(KahluaUtil.java:100)
+		Lua((MOD:American Household - Phase 0 Probe)).firstsquare(AHProbe.lua:141)
+		Lua((MOD:American Household - Phase 0 Probe)).try(AHProbe.lua:40)
+		Lua((MOD:American Household - Phase 0 Probe)).probeFill(AHProbe.lua:140)
+		se.krka.kahlua.vm.KahluaThread.luaMainloop(KahluaThread.java:763)
+		se.krka.kahlua.vm.KahluaThread.call(KahluaThread.java:162)
+		se.krka.kahlua.vm.KahluaThread.pcall(KahluaThread.java:1740)
+		se.krka.kahlua.stdlib.BaseLib.pcall(BaseLib.java:313)
+		se.krka.kahlua.stdlib.BaseLib.call(BaseLib.java:111)
+		se.krka.kahlua.vm.KahluaThread.callJava(KahluaThread.java:178)
+		se.krka.kahlua.vm.KahluaThread.luaMainloop(KahluaThread.java:795)
+		se.krka.kahlua.vm.KahluaThread.call(KahluaThread.java:162)
+		se.krka.kahlua.vm.KahluaThread.pcall(KahluaThread.java:1740)
+		se.krka.kahlua.vm.KahluaThread.pcallvoid(KahluaThread.java:1572)
+		se.krka.kahlua.integration.LuaCaller.pcallvoid(LuaCaller.java:60)
+		se.krka.kahlua.integration.LuaCaller.protectedCallVoid(LuaCaller.java:131)
+		zombie.Lua.Event.trigger(Event.java:55)
+		zombie.Lua.LuaEventManager.triggerEvent(LuaEventManager.java:355)
+		zombie.inventory.ItemPickerJava.fillContainerInternal(ItemPickerJava.java:963)
+		zombie.inventory.ItemPickerJava.fillContainer(ItemPickerJava.java:841)
+		zombie.LoadGridsquarePerformanceWorkaround$ItemPicker.checkObject(LoadGridsquarePerformanceWorkaround.java:69)
+		zombie.LoadGridsquarePerformanceWorkaround.LoadGridsquare(LoadGridsquarePerformanceWorkaround.java:34)
+		zombie.iso.IsoChunk.loadGridSquareIfNeeded(IsoChunk.java:4153)
+		zombie.iso.IsoChunk.doLoadGridsquare(IsoChunk.java:4083)
+		zombie.iso.IsoChunkMap.updateInternal(IsoChunkMap.java:218)
+		zombie.iso.IsoChunkMap.update(IsoChunkMap.java:185)
+		zombie.iso.IsoCell.updateInternal(IsoCell.java:4883)
+		zombie.iso.IsoCell.update(IsoCell.java:4862)
+		zombie.iso.IsoWorld.updateWorld(IsoWorld.java:3336)
+		zombie.iso.IsoWorld.updateInternal(IsoWorld.java:3428)
+		zombie.iso.IsoWorld.update(IsoWorld.java:3361)
+		zombie.gameStates.IngameState.updateInternal(IngameState.java:1505)
+		zombie.gameStates.IngameState.update(IngameState.java:1325)
+		zombie.gameStates.GameStateMachine.update(GameStateMachine.java:65)
+		zombie.GameWindow.logic(GameWindow.java:390)
+		zombie.GameWindow.frameStep(GameWindow.java:790)
+		zombie.GameWindow.mainThreadStep(GameWindow.java:567)
+		zombie.MainThread.mainLoop(MainThread.java:69)
+		java.base/java.lang.Thread.run(Unknown Source)
+ERROR: General      f:530 at KahluaThread.flushErrorMessage      > dumping Lua stack trace
+-----------------------------------------
+STACK TRACE
+-----------------------------------------
+	Lua((MOD:American Household - Phase 0 Probe)).firstsquare(AHProbe.lua:141)
+	Lua((MOD:American Household - Phase 0 Probe)).try(AHProbe.lua:40)
+	Lua((MOD:American Household - Phase 0 Probe)).probeFill(AHProbe.lua:140)
+LOG  : Lua          f:530> [AHProbe] FAIL firstsquare :: Object tried to call nil in firstsquare java.lang.RuntimeException
+LOG  : Lua          f:530> [AHProbe]   STABILITY id=22
+LOG  : Lua          f:530> [AHProbe] fill #2 room=empty containerType=dresser class=ItemContainer:[type:dresser, parent:null:furniture_storage_01_14:furniture_storage_01_14:zombie.iso.IsoObject@2ef7a596]
+LOG  : Lua          f:530> [AHProbe] fill #3 room=empty containerType=sidetable class=ItemContainer:[type:sidetable, parent:null:furniture_tables_low_01_12:furniture_tables_low_01_12:zombie.iso.IsoObject@4753bda]
+LOG  : Lua          f:532> [AHProbe] fill #4 room=empty containerType=counter class=ItemContainer:[type:counter, parent:null:fixtures_counters_01_12:fixtures_counters_01_12:zombie.iso.IsoObject@3f968d97]
+LOG  : Lua          f:532> [AHProbe] fill #5 room=empty containerType=overhead class=ItemContainer:[type:overhead, parent:null:fixtures_counters_01_168:fixtures_counters_01_168:zombie.iso.IsoObject@3c94438a]
+LOG  : Lua          f:532> [AHProbe] fill #6 room=empty containerType=counter class=ItemContainer:[type:counter, parent:null:fixtures_counters_01_13:fixtures_counters_01_13:zombie.iso.IsoObject@13b350ab]
+LOG  : Lua          f:532> [AHProbe] fill #7 room=empty containerType=microwave class=ItemContainer:[type:microwave, parent:null:appliances_cooking_01_25:appliances_cooking_01_25:zombie.iso.objects.IsoStove@5328616a]
+LOG  : Lua          f:532> [AHProbe] fill #8 room=empty containerType=counter class=ItemContainer:[type:counter, parent:null:fixtures_counters_01_26:fixtures_counters_01_26:zombie.iso.IsoObject@9dbe9f4]
+LOG  : Lua          f:532> [AHProbe] fill #9 room=empty containerType=sidetable class=ItemContainer:[type:sidetable, parent:null:location_community_medical_01_36:location_community_medical_01_36:zombie.iso.IsoObject@f25a6bc]
+LOG  : Lua          f:532> [AHProbe] fill #10 room=empty containerType=fridge class=ItemContainer:[type:fridge, parent:null:appliances_refrigeration_01_8:appliances_refrigeration_01_8:zombie.iso.IsoObject@5fe8f83a]
+LOG  : Lua          f:778> [AHProbe] CHAIN OK building id=25 roomTypeArg=bedroom roomName=bedroom
+LOG  : Lua          f:778> [AHProbe]   def bounds: x=10814 y=9751 x2=10826 y2=9760 w=12 h=9
+ERROR: General      f:778 at KahluaThread.flushErrorMessage      > dumping Lua stack trace
+-----------------------------------------
+STACK TRACE
+-----------------------------------------
+	Lua((MOD:American Household - Phase 0 Probe)).firstsquare(AHProbe.lua:141)
+	Lua((MOD:American Household - Phase 0 Probe)).try(AHProbe.lua:40)
+	Lua((MOD:American Household - Phase 0 Probe)).probeFill(AHProbe.lua:140)
+ERROR: General      f:778> Lua((MOD:American Household - Phase 0 Probe)).firstsquare> Exception thrown
+	java.lang.RuntimeException: Object tried to call nil in firstsquare at KahluaUtil.fail(KahluaUtil.java:100).
+	Stack trace:
+		se.krka.kahlua.vm.KahluaUtil.fail(KahluaUtil.java:100)
+		Lua((MOD:American Household - Phase 0 Probe)).firstsquare(AHProbe.lua:141)
+		Lua((MOD:American Household - Phase 0 Probe)).try(AHProbe.lua:40)
+		Lua((MOD:American Household - Phase 0 Probe)).probeFill(AHProbe.lua:140)
+		se.krka.kahlua.vm.KahluaThread.luaMainloop(KahluaThread.java:763)
+		se.krka.kahlua.vm.KahluaThread.call(KahluaThread.java:162)
+		se.krka.kahlua.vm.KahluaThread.pcall(KahluaThread.java:1740)
+		se.krka.kahlua.stdlib.BaseLib.pcall(BaseLib.java:313)
+		se.krka.kahlua.stdlib.BaseLib.call(BaseLib.java:111)
+		se.krka.kahlua.vm.KahluaThread.callJava(KahluaThread.java:178)
+		se.krka.kahlua.vm.KahluaThread.luaMainloop(KahluaThread.java:795)
+		se.krka.kahlua.vm.KahluaThread.call(KahluaThread.java:162)
+		se.krka.kahlua.vm.KahluaThread.pcall(KahluaThread.java:1740)
+		se.krka.kahlua.vm.KahluaThread.pcallvoid(KahluaThread.java:1572)
+		se.krka.kahlua.integration.LuaCaller.pcallvoid(LuaCaller.java:60)
+		se.krka.kahlua.integration.LuaCaller.protectedCallVoid(LuaCaller.java:131)
+		zombie.Lua.Event.trigger(Event.java:55)
+		zombie.Lua.LuaEventManager.triggerEvent(LuaEventManager.java:355)
+		zombie.inventory.ItemPickerJava.fillContainerInternal(ItemPickerJava.java:963)
+		zombie.inventory.ItemPickerJava.fillContainer(ItemPickerJava.java:841)
+		zombie.LoadGridsquarePerformanceWorkaround$ItemPicker.checkObject(LoadGridsquarePerformanceWorkaround.java:69)
+		zombie.LoadGridsquarePerformanceWorkaround.LoadGridsquare(LoadGridsquarePerformanceWorkaround.java:34)
+		zombie.iso.IsoChunk.loadGridSquareIfNeeded(IsoChunk.java:4153)
+		zombie.iso.IsoChunk.doLoadGridsquare(IsoChunk.java:4083)
+		zombie.iso.IsoChunkMap.updateInternal(IsoChunkMap.java:218)
+		zombie.iso.IsoChunkMap.update(IsoChunkMap.java:185)
+		zombie.iso.IsoCell.updateInternal(IsoCell.java:4883)
+		zombie.iso.IsoCell.update(IsoCell.java:4862)
+		zombie.iso.IsoWorld.updateWorld(IsoWorld.java:3336)
+		zombie.iso.IsoWorld.updateInternal(IsoWorld.java:3428)
+		zombie.iso.IsoWorld.update(IsoWorld.java:3361)
+		zombie.gameStates.IngameState.updateInternal(IngameState.java:1505)
+		zombie.gameStates.IngameState.update(IngameState.java:1325)
+		zombie.gameStates.GameStateMachine.update(GameStateMachine.java:65)
+		zombie.GameWindow.logic(GameWindow.java:390)
+		zombie.GameWindow.frameStep(GameWindow.java:790)
+		zombie.GameWindow.mainThreadStep(GameWindow.java:567)
+		zombie.MainThread.mainLoop(MainThread.java:69)
+		java.base/java.lang.Thread.run(Unknown Source)
+ERROR: General      f:778 at KahluaThread.flushErrorMessage      > dumping Lua stack trace
+-----------------------------------------
+STACK TRACE
+-----------------------------------------
+	Lua((MOD:American Household - Phase 0 Probe)).firstsquare(AHProbe.lua:141)
+	Lua((MOD:American Household - Phase 0 Probe)).try(AHProbe.lua:40)
+	Lua((MOD:American Household - Phase 0 Probe)).probeFill(AHProbe.lua:140)
+LOG  : Lua          f:778> [AHProbe] FAIL firstsquare :: Object tried to call nil in firstsquare java.lang.RuntimeException
+LOG  : Lua          f:778> [AHProbe]   STABILITY id=25
+LOG  : Lua          f:899> [AHProbe] CHAIN OK building id=27 roomTypeArg=livingroom roomName=livingroom
+LOG  : Lua          f:899> [AHProbe]   def bounds: x=10814 y=9753 x2=10820 y2=9760 w=6 h=7
+ERROR: General      f:899 at KahluaThread.flushErrorMessage      > dumping Lua stack trace
+-----------------------------------------
+STACK TRACE
+-----------------------------------------
+	Lua((MOD:American Household - Phase 0 Probe)).firstsquare(AHProbe.lua:141)
+	Lua((MOD:American Household - Phase 0 Probe)).try(AHProbe.lua:40)
+	Lua((MOD:American Household - Phase 0 Probe)).probeFill(AHProbe.lua:140)
+ERROR: General      f:899> Lua((MOD:American Household - Phase 0 Probe)).firstsquare> Exception thrown
+	java.lang.RuntimeException: Object tried to call nil in firstsquare at KahluaUtil.fail(KahluaUtil.java:100).
+	Stack trace:
+		se.krka.kahlua.vm.KahluaUtil.fail(KahluaUtil.java:100)
+		Lua((MOD:American Household - Phase 0 Probe)).firstsquare(AHProbe.lua:141)
+		Lua((MOD:American Household - Phase 0 Probe)).try(AHProbe.lua:40)
+		Lua((MOD:American Household - Phase 0 Probe)).probeFill(AHProbe.lua:140)
+		se.krka.kahlua.vm.KahluaThread.luaMainloop(KahluaThread.java:763)
+		se.krka.kahlua.vm.KahluaThread.call(KahluaThread.java:162)
+		se.krka.kahlua.vm.KahluaThread.pcall(KahluaThread.java:1740)
+		se.krka.kahlua.stdlib.BaseLib.pcall(BaseLib.java:313)
+		se.krka.kahlua.stdlib.BaseLib.call(BaseLib.java:111)
+		se.krka.kahlua.vm.KahluaThread.callJava(KahluaThread.java:178)
+		se.krka.kahlua.vm.KahluaThread.luaMainloop(KahluaThread.java:795)
+		se.krka.kahlua.vm.KahluaThread.call(KahluaThread.java:162)
+		se.krka.kahlua.vm.KahluaThread.pcall(KahluaThread.java:1740)
+		se.krka.kahlua.vm.KahluaThread.pcallvoid(KahluaThread.java:1572)
+		se.krka.kahlua.integration.LuaCaller.pcallvoid(LuaCaller.java:60)
+		se.krka.kahlua.integration.LuaCaller.protectedCallVoid(LuaCaller.java:131)
+		zombie.Lua.Event.trigger(Event.java:55)
+		zombie.Lua.LuaEventManager.triggerEvent(LuaEventManager.java:355)
+		zombie.inventory.ItemPickerJava.fillContainerInternal(ItemPickerJava.java:963)
+		zombie.inventory.ItemPickerJava.fillContainer(ItemPickerJava.java:841)
+		zombie.LoadGridsquarePerformanceWorkaround$ItemPicker.checkObject(LoadGridsquarePerformanceWorkaround.java:69)
+		zombie.LoadGridsquarePerformanceWorkaround.LoadGridsquare(LoadGridsquarePerformanceWorkaround.java:34)
+		zombie.iso.IsoChunk.loadGridSquareIfNeeded(IsoChunk.java:4153)
+		zombie.iso.IsoChunk.doLoadGridsquare(IsoChunk.java:4083)
+		zombie.iso.IsoChunkMap.updateInternal(IsoChunkMap.java:218)
+		zombie.iso.IsoChunkMap.update(IsoChunkMap.java:185)
+		zombie.iso.IsoCell.updateInternal(IsoCell.java:4883)
+		zombie.iso.IsoCell.update(IsoCell.java:4862)
+		zombie.iso.IsoWorld.updateWorld(IsoWorld.java:3336)
+		zombie.iso.IsoWorld.updateInternal(IsoWorld.java:3428)
+		zombie.iso.IsoWorld.update(IsoWorld.java:3361)
+		zombie.gameStates.IngameState.updateInternal(IngameState.java:1505)
+		zombie.gameStates.IngameState.update(IngameState.java:1325)
+		zombie.gameStates.GameStateMachine.update(GameStateMachine.java:65)
+		zombie.GameWindow.logic(GameWindow.java:390)
+		zombie.GameWindow.frameStep(GameWindow.java:790)
+		zombie.GameWindow.mainThreadStep(GameWindow.java:567)
+		zombie.MainThread.mainLoop(MainThread.java:69)
+		java.base/java.lang.Thread.run(Unknown Source)
+ERROR: General      f:899 at KahluaThread.flushErrorMessage      > dumping Lua stack trace
+-----------------------------------------
+STACK TRACE
+-----------------------------------------
+	Lua((MOD:American Household - Phase 0 Probe)).firstsquare(AHProbe.lua:141)
+	Lua((MOD:American Household - Phase 0 Probe)).try(AHProbe.lua:40)
+	Lua((MOD:American Household - Phase 0 Probe)).probeFill(AHProbe.lua:140)
+LOG  : Lua          f:899> [AHProbe] FAIL firstsquare :: Object tried to call nil in firstsquare java.lang.RuntimeException
+LOG  : Lua          f:899> [AHProbe]   STABILITY id=27
+LOG  : Lua          f:905> [AHProbe] chain STOP at getParent (room=Container)
+LOG  : Lua          f:905> [AHProbe] chain STOP at getParent (room=Container)
+LOG  : Lua          f:905> [AHProbe] CHAIN OK building id=26 roomTypeArg=shed roomName=shed
+LOG  : Lua          f:905> [AHProbe]   def bounds: x=10786 y=9756 x2=10789 y2=9758 w=3 h=2
+ERROR: General      f:905 at KahluaThread.flushErrorMessage      > dumping Lua stack trace
+-----------------------------------------
+STACK TRACE
+-----------------------------------------
+	Lua((MOD:American Household - Phase 0 Probe)).firstsquare(AHProbe.lua:141)
+	Lua((MOD:American Household - Phase 0 Probe)).try(AHProbe.lua:40)
+	Lua((MOD:American Household - Phase 0 Probe)).probeFill(AHProbe.lua:140)
+ERROR: General      f:905> Lua((MOD:American Household - Phase 0 Probe)).firstsquare> Exception thrown
+	java.lang.RuntimeException: Object tried to call nil in firstsquare at KahluaUtil.fail(KahluaUtil.java:100).
+	Stack trace:
+		se.krka.kahlua.vm.KahluaUtil.fail(KahluaUtil.java:100)
+		Lua((MOD:American Household - Phase 0 Probe)).firstsquare(AHProbe.lua:141)
+		Lua((MOD:American Household - Phase 0 Probe)).try(AHProbe.lua:40)
+		Lua((MOD:American Household - Phase 0 Probe)).probeFill(AHProbe.lua:140)
+		se.krka.kahlua.vm.KahluaThread.luaMainloop(KahluaThread.java:763)
+		se.krka.kahlua.vm.KahluaThread.call(KahluaThread.java:162)
+		se.krka.kahlua.vm.KahluaThread.pcall(KahluaThread.java:1740)
+		se.krka.kahlua.stdlib.BaseLib.pcall(BaseLib.java:313)
+		se.krka.kahlua.stdlib.BaseLib.call(BaseLib.java:111)
+		se.krka.kahlua.vm.KahluaThread.callJava(KahluaThread.java:178)
+		se.krka.kahlua.vm.KahluaThread.luaMainloop(KahluaThread.java:795)
+		se.krka.kahlua.vm.KahluaThread.call(KahluaThread.java:162)
+		se.krka.kahlua.vm.KahluaThread.pcall(KahluaThread.java:1740)
+		se.krka.kahlua.vm.KahluaThread.pcallvoid(KahluaThread.java:1572)
+		se.krka.kahlua.integration.LuaCaller.pcallvoid(LuaCaller.java:60)
+		se.krka.kahlua.integration.LuaCaller.protectedCallVoid(LuaCaller.java:131)
+		zombie.Lua.Event.trigger(Event.java:55)
+		zombie.Lua.LuaEventManager.triggerEvent(LuaEventManager.java:355)
+		zombie.inventory.ItemPickerJava.fillContainerInternal(ItemPickerJava.java:963)
+		zombie.inventory.ItemPickerJava.fillContainer(ItemPickerJava.java:841)
+		zombie.LoadGridsquarePerformanceWorkaround$ItemPicker.checkObject(LoadGridsquarePerformanceWorkaround.java:69)
+		zombie.LoadGridsquarePerformanceWorkaround.LoadGridsquare(LoadGridsquarePerformanceWorkaround.java:34)
+		zombie.iso.IsoChunk.loadGridSquareIfNeeded(IsoChunk.java:4153)
+		zombie.iso.IsoChunk.doLoadGridsquare(IsoChunk.java:4083)
+		zombie.iso.IsoChunkMap.updateInternal(IsoChunkMap.java:218)
+		zombie.iso.IsoChunkMap.update(IsoChunkMap.java:185)
+		zombie.iso.IsoCell.updateInternal(IsoCell.java:4883)
+		zombie.iso.IsoCell.update(IsoCell.java:4862)
+		zombie.iso.IsoWorld.updateWorld(IsoWorld.java:3336)
+		zombie.iso.IsoWorld.updateInternal(IsoWorld.java:3428)
+		zombie.iso.IsoWorld.update(IsoWorld.java:3361)
+		zombie.gameStates.IngameState.updateInternal(IngameState.java:1505)
+		zombie.gameStates.IngameState.update(IngameState.java:1325)
+		zombie.gameStates.GameStateMachine.update(GameStateMachine.java:65)
+		zombie.GameWindow.logic(GameWindow.java:390)
+		zombie.GameWindow.frameStep(GameWindow.java:790)
+		zombie.GameWindow.mainThreadStep(GameWindow.java:567)
+		zombie.MainThread.mainLoop(MainThread.java:69)
+		java.base/java.lang.Thread.run(Unknown Source)
+ERROR: General      f:905 at KahluaThread.flushErrorMessage      > dumping Lua stack trace
+-----------------------------------------
+STACK TRACE
+-----------------------------------------
+	Lua((MOD:American Household - Phase 0 Probe)).firstsquare(AHProbe.lua:141)
+	Lua((MOD:American Household - Phase 0 Probe)).try(AHProbe.lua:40)
+	Lua((MOD:American Household - Phase 0 Probe)).probeFill(AHProbe.lua:140)
+LOG  : Lua          f:905> [AHProbe] FAIL firstsquare :: Object tried to call nil in firstsquare java.lang.RuntimeException
+LOG  : Lua          f:905> [AHProbe]   STABILITY id=26
+LOG  : Lua          f:1078> [AHProbe] chain STOP at getParent (room=Container)
+LOG  : Lua          f:1078> [AHProbe] chain STOP at getParent (room=Container)
+LOG  : Lua          f:1078> [AHProbe] no room at square (outdoor container?) x=10841 y=9764 roomTypeArg=all
+LOG  : Lua          f:1078> [AHProbe] chain STOP at getParent (room=Container)
+LOG  : Lua          f:1078> [AHProbe] chain STOP at getParent (room=Container)
+LOG  : Lua          f:1078> [AHProbe] no room at square (outdoor container?) x=10841 y=9765 roomTypeArg=all
+LOG  : Lua          f:1081> [AHProbe] chain STOP at getParent (room=Container)
+LOG  : Lua          f:1081> [AHProbe] chain STOP at getParent (room=Container)
+LOG  : Lua          f:1081> [AHProbe] chain STOP at getParent (room=Container)
+LOG  : Lua          f:1081> [AHProbe] chain STOP at getParent (room=Container)
+LOG  : Lua          f:1081> [AHProbe] no room at square (outdoor container?) x=10874 y=9761 roomTypeArg=all
+LOG  : Lua          f:1082> [AHProbe] chain STOP at getParent (room=Container)
+LOG  : Lua          f:1082> [AHProbe] chain STOP at getParent (room=Container)
+LOG  : Lua          f:1082> [AHProbe] no room at square (outdoor container?) x=10827 y=9760 roomTypeArg=all
+LOG  : Lua          f:1082> [AHProbe] CHAIN OK building id=24 roomTypeArg=bathroom roomName=bathroom
+LOG  : Lua          f:1082> [AHProbe]   def bounds: x=10884 y=9743 x2=10914 y2=9766 w=30 h=23
+ERROR: General      f:1082 at KahluaThread.flushErrorMessage      > dumping Lua stack trace
+-----------------------------------------
+STACK TRACE
+-----------------------------------------
+	Lua((MOD:American Household - Phase 0 Probe)).firstsquare(AHProbe.lua:141)
+	Lua((MOD:American Household - Phase 0 Probe)).try(AHProbe.lua:40)
+	Lua((MOD:American Household - Phase 0 Probe)).probeFill(AHProbe.lua:140)
+ERROR: General      f:1082> Lua((MOD:American Household - Phase 0 Probe)).firstsquare> Exception thrown
+	java.lang.RuntimeException: Object tried to call nil in firstsquare at KahluaUtil.fail(KahluaUtil.java:100).
+	Stack trace:
+		se.krka.kahlua.vm.KahluaUtil.fail(KahluaUtil.java:100)
+		Lua((MOD:American Household - Phase 0 Probe)).firstsquare(AHProbe.lua:141)
+		Lua((MOD:American Household - Phase 0 Probe)).try(AHProbe.lua:40)
+		Lua((MOD:American Household - Phase 0 Probe)).probeFill(AHProbe.lua:140)
+		se.krka.kahlua.vm.KahluaThread.luaMainloop(KahluaThread.java:763)
+		se.krka.kahlua.vm.KahluaThread.call(KahluaThread.java:162)
+		se.krka.kahlua.vm.KahluaThread.pcall(KahluaThread.java:1740)
+		se.krka.kahlua.stdlib.BaseLib.pcall(BaseLib.java:313)
+		se.krka.kahlua.stdlib.BaseLib.call(BaseLib.java:111)
+		se.krka.kahlua.vm.KahluaThread.callJava(KahluaThread.java:178)
+		se.krka.kahlua.vm.KahluaThread.luaMainloop(KahluaThread.java:795)
+		se.krka.kahlua.vm.KahluaThread.call(KahluaThread.java:162)
+		se.krka.kahlua.vm.KahluaThread.pcall(KahluaThread.java:1740)
+		se.krka.kahlua.vm.KahluaThread.pcallvoid(KahluaThread.java:1572)
+		se.krka.kahlua.integration.LuaCaller.pcallvoid(LuaCaller.java:60)
+		se.krka.kahlua.integration.LuaCaller.protectedCallVoid(LuaCaller.java:131)
+		zombie.Lua.Event.trigger(Event.java:55)
+		zombie.Lua.LuaEventManager.triggerEvent(LuaEventManager.java:355)
+		zombie.inventory.ItemPickerJava.fillContainerInternal(ItemPickerJava.java:963)
+		zombie.inventory.ItemPickerJava.fillContainer(ItemPickerJava.java:841)
+		zombie.LoadGridsquarePerformanceWorkaround$ItemPicker.checkObject(LoadGridsquarePerformanceWorkaround.java:69)
+		zombie.LoadGridsquarePerformanceWorkaround.LoadGridsquare(LoadGridsquarePerformanceWorkaround.java:34)
+		zombie.iso.IsoChunk.loadGridSquareIfNeeded(IsoChunk.java:4153)
+		zombie.iso.IsoChunk.doLoadGridsquare(IsoChunk.java:4083)
+		zombie.iso.IsoChunkMap.updateInternal(IsoChunkMap.java:218)
+		zombie.iso.IsoChunkMap.update(IsoChunkMap.java:185)
+		zombie.iso.IsoCell.updateInternal(IsoCell.java:4883)
+		zombie.iso.IsoCell.update(IsoCell.java:4862)
+		zombie.iso.IsoWorld.updateWorld(IsoWorld.java:3336)
+		zombie.iso.IsoWorld.updateInternal(IsoWorld.java:3428)
+		zombie.iso.IsoWorld.update(IsoWorld.java:3361)
+		zombie.gameStates.IngameState.updateInternal(IngameState.java:1505)
+		zombie.gameStates.IngameState.update(IngameState.java:1325)
+		zombie.gameStates.GameStateMachine.update(GameStateMachine.java:65)
+		zombie.GameWindow.logic(GameWindow.java:390)
+		zombie.GameWindow.frameStep(GameWindow.java:790)
+		zombie.GameWindow.mainThreadStep(GameWindow.java:567)
+		zombie.MainThread.mainLoop(MainThread.java:69)
+		java.base/java.lang.Thread.run(Unknown Source)
+ERROR: General      f:1082 at KahluaThread.flushErrorMessage      > dumping Lua stack trace
+-----------------------------------------
+STACK TRACE
+-----------------------------------------
+	Lua((MOD:American Household - Phase 0 Probe)).firstsquare(AHProbe.lua:141)
+	Lua((MOD:American Household - Phase 0 Probe)).try(AHProbe.lua:40)
+	Lua((MOD:American Household - Phase 0 Probe)).probeFill(AHProbe.lua:140)
+LOG  : Lua          f:1082> [AHProbe] FAIL firstsquare :: Object tried to call nil in firstsquare java.lang.RuntimeException
+LOG  : Lua          f:1082> [AHProbe]   STABILITY id=24
+LOG  : Lua          f:1083> [AHProbe] no room at square (outdoor container?) x=10888 y=9766 roomTypeArg=all
+LOG  : Lua          f:1083> [AHProbe] no room at square (outdoor container?) x=10889 y=9766 roomTypeArg=all
+LOG  : Lua          f:1089> [AHProbe] CHAIN OK building id=28 roomTypeArg=kitchen roomName=kitchen
+LOG  : Lua          f:1089> [AHProbe]   def bounds: x=10774 y=9761 x2=10783 y2=9770 w=9 h=9
+ERROR: General      f:1089 at KahluaThread.flushErrorMessage      > dumping Lua stack trace
+-----------------------------------------
+STACK TRACE
+-----------------------------------------
+	Lua((MOD:American Household - Phase 0 Probe)).firstsquare(AHProbe.lua:141)
+	Lua((MOD:American Household - Phase 0 Probe)).try(AHProbe.lua:40)
+	Lua((MOD:American Household - Phase 0 Probe)).probeFill(AHProbe.lua:140)
+ERROR: General      f:1089> Lua((MOD:American Household - Phase 0 Probe)).firstsquare> Exception thrown
+	java.lang.RuntimeException: Object tried to call nil in firstsquare at KahluaUtil.fail(KahluaUtil.java:100).
+	Stack trace:
+		se.krka.kahlua.vm.KahluaUtil.fail(KahluaUtil.java:100)
+		Lua((MOD:American Household - Phase 0 Probe)).firstsquare(AHProbe.lua:141)
+		Lua((MOD:American Household - Phase 0 Probe)).try(AHProbe.lua:40)
+		Lua((MOD:American Household - Phase 0 Probe)).probeFill(AHProbe.lua:140)
+		se.krka.kahlua.vm.KahluaThread.luaMainloop(KahluaThread.java:763)
+		se.krka.kahlua.vm.KahluaThread.call(KahluaThread.java:162)
+		se.krka.kahlua.vm.KahluaThread.pcall(KahluaThread.java:1740)
+		se.krka.kahlua.stdlib.BaseLib.pcall(BaseLib.java:313)
+		se.krka.kahlua.stdlib.BaseLib.call(BaseLib.java:111)
+		se.krka.kahlua.vm.KahluaThread.callJava(KahluaThread.java:178)
+		se.krka.kahlua.vm.KahluaThread.luaMainloop(KahluaThread.java:795)
+		se.krka.kahlua.vm.KahluaThread.call(KahluaThread.java:162)
+		se.krka.kahlua.vm.KahluaThread.pcall(KahluaThread.java:1740)
+		se.krka.kahlua.vm.KahluaThread.pcallvoid(KahluaThread.java:1572)
+		se.krka.kahlua.integration.LuaCaller.pcallvoid(LuaCaller.java:60)
+		se.krka.kahlua.integration.LuaCaller.protectedCallVoid(LuaCaller.java:131)
+		zombie.Lua.Event.trigger(Event.java:55)
+		zombie.Lua.LuaEventManager.triggerEvent(LuaEventManager.java:355)
+		zombie.inventory.ItemPickerJava.fillContainerInternal(ItemPickerJava.java:963)
+		zombie.inventory.ItemPickerJava.fillContainer(ItemPickerJava.java:841)
+		zombie.LoadGridsquarePerformanceWorkaround$ItemPicker.checkObject(LoadGridsquarePerformanceWorkaround.java:69)
+		zombie.LoadGridsquarePerformanceWorkaround.LoadGridsquare(LoadGridsquarePerformanceWorkaround.java:34)
+		zombie.iso.IsoChunk.loadGridSquareIfNeeded(IsoChunk.java:4153)
+		zombie.iso.IsoChunk.doLoadGridsquare(IsoChunk.java:4083)
+		zombie.iso.IsoChunkMap.updateInternal(IsoChunkMap.java:218)
+		zombie.iso.IsoChunkMap.update(IsoChunkMap.java:185)
+		zombie.iso.IsoCell.updateInternal(IsoCell.java:4883)
+		zombie.iso.IsoCell.update(IsoCell.java:4862)
+		zombie.iso.IsoWorld.updateWorld(IsoWorld.java:3336)
+		zombie.iso.IsoWorld.updateInternal(IsoWorld.java:3428)
+		zombie.iso.IsoWorld.update(IsoWorld.java:3361)
+		zombie.gameStates.IngameState.updateInternal(IngameState.java:1505)
+		zombie.gameStates.IngameState.update(IngameState.java:1325)
+		zombie.gameStates.GameStateMachine.update(GameStateMachine.java:65)
+		zombie.GameWindow.logic(GameWindow.java:390)
+		zombie.GameWindow.frameStep(GameWindow.java:790)
+		zombie.GameWindow.mainThreadStep(GameWindow.java:567)
+		zombie.MainThread.mainLoop(MainThread.java:69)
+		java.base/java.lang.Thread.run(Unknown Source)
+ERROR: General      f:1089 at KahluaThread.flushErrorMessage      > dumping Lua stack trace
+-----------------------------------------
+STACK TRACE
+-----------------------------------------
+	Lua((MOD:American Household - Phase 0 Probe)).firstsquare(AHProbe.lua:141)
+	Lua((MOD:American Household - Phase 0 Probe)).try(AHProbe.lua:40)
+	Lua((MOD:American Household - Phase 0 Probe)).probeFill(AHProbe.lua:140)
+LOG  : Lua          f:1089> [AHProbe] FAIL firstsquare :: Object tried to call nil in firstsquare java.lang.RuntimeException
+LOG  : Lua          f:1089> [AHProbe]   STABILITY id=28
+LOG  : Lua          f:1089> [AHProbe] chain STOP at getParent (room=Container)
+LOG  : Lua          f:1089> [AHProbe] chain STOP at getParent (room=Container)
+LOG  : Lua          f:1089> [AHProbe] no room at square (outdoor container?) x=10779 y=9760 roomTypeArg=all
+LOG  : General      f:1647> ClimbWall actual struggleChance 1 in 2
+LOG  : General      f:1647> ClimbWall struggle? true
+LOG  : General      f:1647> ClimbWall failure chance 1 in 4
+LOG  : General      f:1647> ClimbWall success? true
+LOG  : Lua          f:1806> [AHProbe] no room at square (outdoor container?) x=10825 y=9768 roomTypeArg=all
+LOG  : Lua          f:1813> [AHProbe] no room at square (outdoor container?) x=10909 y=9775 roomTypeArg=all
+LOG  : Lua          f:1813> [AHProbe] no room at square (outdoor container?) x=10910 y=9775 roomTypeArg=all
+LOG  : Lua          f:2208> [AHProbe] chain STOP at getParent (room=Container)
+LOG  : Lua          f:2208> [AHProbe] chain STOP at getParent (room=Container)
+LOG  : Lua          f:2208> [AHProbe] no room at square (outdoor container?) x=10849 y=9776 roomTypeArg=all
+LOG  : Lua          f:2213> [AHProbe] CHAIN OK building id=31 roomTypeArg=vacated roomName=vacated
+LOG  : Lua          f:2213> [AHProbe]   def bounds: x=10902 y=9778 x2=10920 y2=9798 w=18 h=20
+ERROR: General      f:2213 at KahluaThread.flushErrorMessage      > dumping Lua stack trace
+-----------------------------------------
+STACK TRACE
+-----------------------------------------
+	Lua((MOD:American Household - Phase 0 Probe)).firstsquare(AHProbe.lua:141)
+	Lua((MOD:American Household - Phase 0 Probe)).try(AHProbe.lua:40)
+	Lua((MOD:American Household - Phase 0 Probe)).probeFill(AHProbe.lua:140)
+ERROR: General      f:2213> Lua((MOD:American Household - Phase 0 Probe)).firstsquare> Exception thrown
+	java.lang.RuntimeException: Object tried to call nil in firstsquare at KahluaUtil.fail(KahluaUtil.java:100).
+	Stack trace:
+		se.krka.kahlua.vm.KahluaUtil.fail(KahluaUtil.java:100)
+		Lua((MOD:American Household - Phase 0 Probe)).firstsquare(AHProbe.lua:141)
+		Lua((MOD:American Household - Phase 0 Probe)).try(AHProbe.lua:40)
+		Lua((MOD:American Household - Phase 0 Probe)).probeFill(AHProbe.lua:140)
+		se.krka.kahlua.vm.KahluaThread.luaMainloop(KahluaThread.java:763)
+		se.krka.kahlua.vm.KahluaThread.call(KahluaThread.java:162)
+		se.krka.kahlua.vm.KahluaThread.pcall(KahluaThread.java:1740)
+		se.krka.kahlua.stdlib.BaseLib.pcall(BaseLib.java:313)
+		se.krka.kahlua.stdlib.BaseLib.call(BaseLib.java:111)
+		se.krka.kahlua.vm.KahluaThread.callJava(KahluaThread.java:178)
+		se.krka.kahlua.vm.KahluaThread.luaMainloop(KahluaThread.java:795)
+		se.krka.kahlua.vm.KahluaThread.call(KahluaThread.java:162)
+		se.krka.kahlua.vm.KahluaThread.pcall(KahluaThread.java:1740)
+		se.krka.kahlua.vm.KahluaThread.pcallvoid(KahluaThread.java:1572)
+		se.krka.kahlua.integration.LuaCaller.pcallvoid(LuaCaller.java:60)
+		se.krka.kahlua.integration.LuaCaller.protectedCallVoid(LuaCaller.java:131)
+		zombie.Lua.Event.trigger(Event.java:55)
+		zombie.Lua.LuaEventManager.triggerEvent(LuaEventManager.java:355)
+		zombie.inventory.ItemPickerJava.fillContainerInternal(ItemPickerJava.java:963)
+		zombie.inventory.ItemPickerJava.fillContainer(ItemPickerJava.java:841)
+		zombie.LoadGridsquarePerformanceWorkaround$ItemPicker.checkObject(LoadGridsquarePerformanceWorkaround.java:69)
+		zombie.LoadGridsquarePerformanceWorkaround.LoadGridsquare(LoadGridsquarePerformanceWorkaround.java:34)
+		zombie.iso.IsoChunk.loadGridSquareIfNeeded(IsoChunk.java:4153)
+		zombie.iso.IsoChunk.doLoadGridsquare(IsoChunk.java:4083)
+		zombie.iso.IsoChunkMap.updateInternal(IsoChunkMap.java:218)
+		zombie.iso.IsoChunkMap.update(IsoChunkMap.java:185)
+		zombie.iso.IsoCell.updateInternal(IsoCell.java:4883)
+		zombie.iso.IsoCell.update(IsoCell.java:4862)
+		zombie.iso.IsoWorld.updateWorld(IsoWorld.java:3336)
+		zombie.iso.IsoWorld.updateInternal(IsoWorld.java:3428)
+		zombie.iso.IsoWorld.update(IsoWorld.java:3361)
+		zombie.gameStates.IngameState.updateInternal(IngameState.java:1505)
+		zombie.gameStates.IngameState.update(IngameState.java:1325)
+		zombie.gameStates.GameStateMachine.update(GameStateMachine.java:65)
+		zombie.GameWindow.logic(GameWindow.java:390)
+		zombie.GameWindow.frameStep(GameWindow.java:790)
+		zombie.GameWindow.mainThreadStep(GameWindow.java:567)
+		zombie.MainThread.mainLoop(MainThread.java:69)
+		java.base/java.lang.Thread.run(Unknown Source)
+ERROR: General      f:2213 at KahluaThread.flushErrorMessage      > dumping Lua stack trace
+-----------------------------------------
+STACK TRACE
+-----------------------------------------
+	Lua((MOD:American Household - Phase 0 Probe)).firstsquare(AHProbe.lua:141)
+	Lua((MOD:American Household - Phase 0 Probe)).try(AHProbe.lua:40)
+	Lua((MOD:American Household - Phase 0 Probe)).probeFill(AHProbe.lua:140)
+LOG  : Lua          f:2213> [AHProbe] FAIL firstsquare :: Object tried to call nil in firstsquare java.lang.RuntimeException
+LOG  : Lua          f:2213> [AHProbe]   STABILITY id=31
+LOG  : Lua          f:2214> [AHProbe] chain STOP at getParent (room=Container)
+LOG  : Lua          f:2214> [AHProbe] chain STOP at getParent (room=Container)
+LOG  : Lua          f:2220> [AHProbe] no room at square (outdoor container?) x=10781 y=9778 roomTypeArg=all
+LOG  : Lua          f:2220> [AHProbe] chain STOP at getParent (room=Container)
+LOG  : Lua          f:2220> [AHProbe] chain STOP at getParent (room=Container)
+LOG  : Lua          f:2220> [AHProbe] no room at square (outdoor container?) x=10782 y=9778 roomTypeArg=all
+LOG  : Lua          f:2738> [AHProbe] chain STOP at getParent (room=Container)
+LOG  : Lua          f:2738> [AHProbe] chain STOP at getParent (room=Container)
+LOG  : Lua          f:2738> [AHProbe] CHAIN OK building id=30 roomTypeArg=garagestorage roomName=garagestorage
+LOG  : Lua          f:2738> [AHProbe]   def bounds: x=10844 y=9785 x2=10848 y2=9790 w=4 h=5
+ERROR: General      f:2738 at KahluaThread.flushErrorMessage      > dumping Lua stack trace
+-----------------------------------------
+STACK TRACE
+-----------------------------------------
+	Lua((MOD:American Household - Phase 0 Probe)).firstsquare(AHProbe.lua:141)
+	Lua((MOD:American Household - Phase 0 Probe)).try(AHProbe.lua:40)
+	Lua((MOD:American Household - Phase 0 Probe)).probeFill(AHProbe.lua:140)
+ERROR: General      f:2738> Lua((MOD:American Household - Phase 0 Probe)).firstsquare> Exception thrown
+	java.lang.RuntimeException: Object tried to call nil in firstsquare at KahluaUtil.fail(KahluaUtil.java:100).
+	Stack trace:
+		se.krka.kahlua.vm.KahluaUtil.fail(KahluaUtil.java:100)
+		Lua((MOD:American Household - Phase 0 Probe)).firstsquare(AHProbe.lua:141)
+		Lua((MOD:American Household - Phase 0 Probe)).try(AHProbe.lua:40)
+		Lua((MOD:American Household - Phase 0 Probe)).probeFill(AHProbe.lua:140)
+		se.krka.kahlua.vm.KahluaThread.luaMainloop(KahluaThread.java:763)
+		se.krka.kahlua.vm.KahluaThread.call(KahluaThread.java:162)
+		se.krka.kahlua.vm.KahluaThread.pcall(KahluaThread.java:1740)
+		se.krka.kahlua.stdlib.BaseLib.pcall(BaseLib.java:313)
+		se.krka.kahlua.stdlib.BaseLib.call(BaseLib.java:111)
+		se.krka.kahlua.vm.KahluaThread.callJava(KahluaThread.java:178)
+		se.krka.kahlua.vm.KahluaThread.luaMainloop(KahluaThread.java:795)
+		se.krka.kahlua.vm.KahluaThread.call(KahluaThread.java:162)
+		se.krka.kahlua.vm.KahluaThread.pcall(KahluaThread.java:1740)
+		se.krka.kahlua.vm.KahluaThread.pcallvoid(KahluaThread.java:1572)
+		se.krka.kahlua.integration.LuaCaller.pcallvoid(LuaCaller.java:60)
+		se.krka.kahlua.integration.LuaCaller.protectedCallVoid(LuaCaller.java:131)
+		zombie.Lua.Event.trigger(Event.java:55)
+		zombie.Lua.LuaEventManager.triggerEvent(LuaEventManager.java:355)
+		zombie.inventory.ItemPickerJava.fillContainerInternal(ItemPickerJava.java:963)
+		zombie.inventory.ItemPickerJava.fillContainer(ItemPickerJava.java:841)
+		zombie.LoadGridsquarePerformanceWorkaround$ItemPicker.checkObject(LoadGridsquarePerformanceWorkaround.java:69)
+		zombie.LoadGridsquarePerformanceWorkaround.LoadGridsquare(LoadGridsquarePerformanceWorkaround.java:34)
+		zombie.iso.IsoChunk.loadGridSquareIfNeeded(IsoChunk.java:4153)
+		zombie.iso.IsoChunk.doLoadGridsquare(IsoChunk.java:4083)
+		zombie.iso.IsoChunkMap.updateInternal(IsoChunkMap.java:218)
+		zombie.iso.IsoChunkMap.update(IsoChunkMap.java:185)
+		zombie.iso.IsoCell.updateInternal(IsoCell.java:4883)
+		zombie.iso.IsoCell.update(IsoCell.java:4862)
+		zombie.iso.IsoWorld.updateWorld(IsoWorld.java:3336)
+		zombie.iso.IsoWorld.updateInternal(IsoWorld.java:3428)
+		zombie.iso.IsoWorld.update(IsoWorld.java:3361)
+		zombie.gameStates.IngameState.updateInternal(IngameState.java:1505)
+		zombie.gameStates.IngameState.update(IngameState.java:1325)
+		zombie.gameStates.GameStateMachine.update(GameStateMachine.java:65)
+		zombie.GameWindow.logic(GameWindow.java:390)
+		zombie.GameWindow.frameStep(GameWindow.java:790)
+		zombie.GameWindow.mainThreadStep(GameWindow.java:567)
+		zombie.MainThread.mainLoop(MainThread.java:69)
+		java.base/java.lang.Thread.run(Unknown Source)
+ERROR: General      f:2738 at KahluaThread.flushErrorMessage      > dumping Lua stack trace
+-----------------------------------------
+STACK TRACE
+-----------------------------------------
+	Lua((MOD:American Household - Phase 0 Probe)).firstsquare(AHProbe.lua:141)
+	Lua((MOD:American Household - Phase 0 Probe)).try(AHProbe.lua:40)
+	Lua((MOD:American Household - Phase 0 Probe)).probeFill(AHProbe.lua:140)
+LOG  : Lua          f:2738> [AHProbe] FAIL firstsquare :: Object tried to call nil in firstsquare java.lang.RuntimeException
+LOG  : Lua          f:2738> [AHProbe]   STABILITY id=30
+LOG  : Lua          f:2742> [AHProbe] chain STOP at getParent (room=Container)
+LOG  : Lua          f:2742> [AHProbe] chain STOP at getParent (room=Container)
+LOG  : Lua          f:2742> [AHProbe] no room at square (outdoor container?) x=10906 y=9785 roomTypeArg=all
+LOG  : Lua          f:2742> [AHProbe] chain STOP at getParent (room=Container)
+LOG  : Lua          f:2742> [AHProbe] chain STOP at getParent (room=Container)
+LOG  : Lua          f:2742> [AHProbe] no room at square (outdoor container?) x=10907 y=9785 roomTypeArg=all
+LOG  : Lua          f:2742> [AHProbe] no room at square (outdoor container?) x=10908 y=9785 roomTypeArg=all
+LOG  : Lua          f:2743> [AHProbe] chain STOP at getParent (room=Container)
+LOG  : Lua          f:2743> [AHProbe] chain STOP at getParent (room=Container)
+LOG  : Lua          f:2743> [AHProbe] chain STOP at getParent (room=Container)
+LOG  : Lua          f:2743> [AHProbe] chain STOP at getParent (room=Container)
+LOG  : Lua          f:2748> [AHProbe] no room at square (outdoor container?) x=10784 y=9787 roomTypeArg=all
+WARN : General      f:3111 at GameEntityFactory.CreateIsoEntityFromCellLoading> Entity has custom item 'true' set, and entity script 'Coffin' defined
+WARN : General      f:3111 at GameEntityFactory.CreateIsoEntityFromCellLoading> Entity has custom item 'true' set, and entity script 'Coffin' defined
+WARN : General      f:3112 at GameEntityFactory.CreateIsoEntityFromCellLoading> Entity has custom item 'true' set, and entity script 'Coffin' defined
+WARN : General      f:3112 at GameEntityFactory.CreateIsoEntityFromCellLoading> Entity has custom item 'true' set, and entity script 'Coffin' defined
+LOG  : Lua          f:3117> [AHProbe] CHAIN OK building id=37 roomTypeArg=toolstore roomName=toolstore
+LOG  : Lua          f:3117> [AHProbe]   def bounds: x=10896 y=9798 x2=10900 y2=9801 w=4 h=3
+ERROR: General      f:3117 at KahluaThread.flushErrorMessage      > dumping Lua stack trace
+-----------------------------------------
+STACK TRACE
+-----------------------------------------
+	Lua((MOD:American Household - Phase 0 Probe)).firstsquare(AHProbe.lua:141)
+	Lua((MOD:American Household - Phase 0 Probe)).try(AHProbe.lua:40)
+	Lua((MOD:American Household - Phase 0 Probe)).probeFill(AHProbe.lua:140)
+ERROR: General      f:3117> Lua((MOD:American Household - Phase 0 Probe)).firstsquare> Exception thrown
+	java.lang.RuntimeException: Object tried to call nil in firstsquare at KahluaUtil.fail(KahluaUtil.java:100).
+	Stack trace:
+		se.krka.kahlua.vm.KahluaUtil.fail(KahluaUtil.java:100)
+		Lua((MOD:American Household - Phase 0 Probe)).firstsquare(AHProbe.lua:141)
+		Lua((MOD:American Household - Phase 0 Probe)).try(AHProbe.lua:40)
+		Lua((MOD:American Household - Phase 0 Probe)).probeFill(AHProbe.lua:140)
+		se.krka.kahlua.vm.KahluaThread.luaMainloop(KahluaThread.java:763)
+		se.krka.kahlua.vm.KahluaThread.call(KahluaThread.java:162)
+		se.krka.kahlua.vm.KahluaThread.pcall(KahluaThread.java:1740)
+		se.krka.kahlua.stdlib.BaseLib.pcall(BaseLib.java:313)
+		se.krka.kahlua.stdlib.BaseLib.call(BaseLib.java:111)
+		se.krka.kahlua.vm.KahluaThread.callJava(KahluaThread.java:178)
+		se.krka.kahlua.vm.KahluaThread.luaMainloop(KahluaThread.java:795)
+		se.krka.kahlua.vm.KahluaThread.call(KahluaThread.java:162)
+		se.krka.kahlua.vm.KahluaThread.pcall(KahluaThread.java:1740)
+		se.krka.kahlua.vm.KahluaThread.pcallvoid(KahluaThread.java:1572)
+		se.krka.kahlua.integration.LuaCaller.pcallvoid(LuaCaller.java:60)
+		se.krka.kahlua.integration.LuaCaller.protectedCallVoid(LuaCaller.java:131)
+		zombie.Lua.Event.trigger(Event.java:55)
+		zombie.Lua.LuaEventManager.triggerEvent(LuaEventManager.java:355)
+		zombie.inventory.ItemPickerJava.fillContainerInternal(ItemPickerJava.java:963)
+		zombie.inventory.ItemPickerJava.fillContainer(ItemPickerJava.java:841)
+		zombie.LoadGridsquarePerformanceWorkaround$ItemPicker.checkObject(LoadGridsquarePerformanceWorkaround.java:69)
+		zombie.LoadGridsquarePerformanceWorkaround.LoadGridsquare(LoadGridsquarePerformanceWorkaround.java:34)
+		zombie.iso.IsoChunk.loadGridSquareIfNeeded(IsoChunk.java:4153)
+		zombie.iso.IsoChunk.doLoadGridsquare(IsoChunk.java:4083)
+		zombie.iso.IsoChunkMap.updateInternal(IsoChunkMap.java:218)
+		zombie.iso.IsoChunkMap.update(IsoChunkMap.java:185)
+		zombie.iso.IsoCell.updateInternal(IsoCell.java:4883)
+		zombie.iso.IsoCell.update(IsoCell.java:4862)
+		zombie.iso.IsoWorld.updateWorld(IsoWorld.java:3336)
+		zombie.iso.IsoWorld.updateInternal(IsoWorld.java:3428)
+		zombie.iso.IsoWorld.update(IsoWorld.java:3361)
+		zombie.gameStates.IngameState.updateInternal(IngameState.java:1505)
+		zombie.gameStates.IngameState.update(IngameState.java:1325)
+		zombie.gameStates.GameStateMachine.update(GameStateMachine.java:65)
+		zombie.GameWindow.logic(GameWindow.java:390)
+		zombie.GameWindow.frameStep(GameWindow.java:790)
+		zombie.GameWindow.mainThreadStep(GameWindow.java:567)
+		zombie.MainThread.mainLoop(MainThread.java:69)
+		java.base/java.lang.Thread.run(Unknown Source)
+ERROR: General      f:3117 at KahluaThread.flushErrorMessage      > dumping Lua stack trace
+-----------------------------------------
+STACK TRACE
+-----------------------------------------
+	Lua((MOD:American Household - Phase 0 Probe)).firstsquare(AHProbe.lua:141)
+	Lua((MOD:American Household - Phase 0 Probe)).try(AHProbe.lua:40)
+	Lua((MOD:American Household - Phase 0 Probe)).probeFill(AHProbe.lua:140)
+LOG  : Lua          f:3117> [AHProbe] FAIL firstsquare :: Object tried to call nil in firstsquare java.lang.RuntimeException
+LOG  : Lua          f:3117> [AHProbe]   STABILITY id=37
+LOG  : Lua          f:3120> [AHProbe] no room at square (outdoor container?) x=10845 y=9796 roomTypeArg=PickUpTruck
+LOG  : Lua          f:3120> [AHProbe] no room at square (outdoor container?) x=10845 y=9796 roomTypeArg=PickUpTruck
+LOG  : Lua          f:3120> [AHProbe] no room at square (outdoor container?) x=10845 y=9796 roomTypeArg=PickUpTruck
+LOG  : Lua          f:3120> [AHProbe] no room at square (outdoor container?) x=10845 y=9796 roomTypeArg=PickUpTruck
+LOG  : Lua          f:3122> [AHProbe] CHAIN OK building id=29 roomTypeArg=kitchen roomName=kitchen
+LOG  : Lua          f:3122> [AHProbe]   def bounds: x=10830 y=9791 x2=10840 y2=9802 w=10 h=11
+ERROR: General      f:3122 at KahluaThread.flushErrorMessage      > dumping Lua stack trace
+-----------------------------------------
+STACK TRACE
+-----------------------------------------
+	Lua((MOD:American Household - Phase 0 Probe)).firstsquare(AHProbe.lua:141)
+	Lua((MOD:American Household - Phase 0 Probe)).try(AHProbe.lua:40)
+	Lua((MOD:American Household - Phase 0 Probe)).probeFill(AHProbe.lua:140)
+ERROR: General      f:3122> Lua((MOD:American Household - Phase 0 Probe)).firstsquare> Exception thrown
+	java.lang.RuntimeException: Object tried to call nil in firstsquare at KahluaUtil.fail(KahluaUtil.java:100).
+	Stack trace:
+		se.krka.kahlua.vm.KahluaUtil.fail(KahluaUtil.java:100)
+		Lua((MOD:American Household - Phase 0 Probe)).firstsquare(AHProbe.lua:141)
+		Lua((MOD:American Household - Phase 0 Probe)).try(AHProbe.lua:40)
+		Lua((MOD:American Household - Phase 0 Probe)).probeFill(AHProbe.lua:140)
+		se.krka.kahlua.vm.KahluaThread.luaMainloop(KahluaThread.java:763)
+		se.krka.kahlua.vm.KahluaThread.call(KahluaThread.java:162)
+		se.krka.kahlua.vm.KahluaThread.pcall(KahluaThread.java:1740)
+		se.krka.kahlua.stdlib.BaseLib.pcall(BaseLib.java:313)
+		se.krka.kahlua.stdlib.BaseLib.call(BaseLib.java:111)
+		se.krka.kahlua.vm.KahluaThread.callJava(KahluaThread.java:178)
+		se.krka.kahlua.vm.KahluaThread.luaMainloop(KahluaThread.java:795)
+		se.krka.kahlua.vm.KahluaThread.call(KahluaThread.java:162)
+		se.krka.kahlua.vm.KahluaThread.pcall(KahluaThread.java:1740)
+		se.krka.kahlua.vm.KahluaThread.pcallvoid(KahluaThread.java:1572)
+		se.krka.kahlua.integration.LuaCaller.pcallvoid(LuaCaller.java:60)
+		se.krka.kahlua.integration.LuaCaller.protectedCallVoid(LuaCaller.java:131)
+		zombie.Lua.Event.trigger(Event.java:55)
+		zombie.Lua.LuaEventManager.triggerEvent(LuaEventManager.java:355)
+		zombie.inventory.ItemPickerJava.fillContainerInternal(ItemPickerJava.java:963)
+		zombie.inventory.ItemPickerJava.fillContainer(ItemPickerJava.java:841)
+		zombie.LoadGridsquarePerformanceWorkaround$ItemPicker.checkObject(LoadGridsquarePerformanceWorkaround.java:69)
+		zombie.LoadGridsquarePerformanceWorkaround.LoadGridsquare(LoadGridsquarePerformanceWorkaround.java:34)
+		zombie.iso.IsoChunk.loadGridSquareIfNeeded(IsoChunk.java:4153)
+		zombie.iso.IsoChunk.doLoadGridsquare(IsoChunk.java:4083)
+		zombie.iso.IsoChunkMap.updateInternal(IsoChunkMap.java:218)
+		zombie.iso.IsoChunkMap.update(IsoChunkMap.java:185)
+		zombie.iso.IsoCell.updateInternal(IsoCell.java:4883)
+		zombie.iso.IsoCell.update(IsoCell.java:4862)
+		zombie.iso.IsoWorld.updateWorld(IsoWorld.java:3336)
+		zombie.iso.IsoWorld.updateInternal(IsoWorld.java:3428)
+		zombie.iso.IsoWorld.update(IsoWorld.java:3361)
+		zombie.gameStates.IngameState.updateInternal(IngameState.java:1505)
+		zombie.gameStates.IngameState.update(IngameState.java:1325)
+		zombie.gameStates.GameStateMachine.update(GameStateMachine.java:65)
+		zombie.GameWindow.logic(GameWindow.java:390)
+		zombie.GameWindow.frameStep(GameWindow.java:790)
+		zombie.GameWindow.mainThreadStep(GameWindow.java:567)
+		zombie.MainThread.mainLoop(MainThread.java:69)
+		java.base/java.lang.Thread.run(Unknown Source)
+ERROR: General      f:3122 at KahluaThread.flushErrorMessage      > dumping Lua stack trace
+-----------------------------------------
+STACK TRACE
+-----------------------------------------
+	Lua((MOD:American Household - Phase 0 Probe)).firstsquare(AHProbe.lua:141)
+	Lua((MOD:American Household - Phase 0 Probe)).try(AHProbe.lua:40)
+	Lua((MOD:American Household - Phase 0 Probe)).probeFill(AHProbe.lua:140)
+LOG  : Lua          f:3122> [AHProbe] FAIL firstsquare :: Object tried to call nil in firstsquare java.lang.RuntimeException
+LOG  : Lua          f:3122> [AHProbe]   STABILITY id=29
+LOG  : Lua          f:3122> [AHProbe] chain STOP at getParent (room=Container)
+LOG  : Lua          f:3122> [AHProbe] chain STOP at getParent (room=Container)
+LOG  : Lua          f:3209> [AHProbe] CHAIN OK building id=36 roomTypeArg=kitchen roomName=kitchen
+LOG  : Lua          f:3209> [AHProbe]   def bounds: x=10944 y=9781 x2=10948 y2=9794 w=4 h=13
+ERROR: General      f:3209 at KahluaThread.flushErrorMessage      > dumping Lua stack trace
+-----------------------------------------
+STACK TRACE
+-----------------------------------------
+	Lua((MOD:American Household - Phase 0 Probe)).firstsquare(AHProbe.lua:141)
+	Lua((MOD:American Household - Phase 0 Probe)).try(AHProbe.lua:40)
+	Lua((MOD:American Household - Phase 0 Probe)).probeFill(AHProbe.lua:140)
+ERROR: General      f:3209> Lua((MOD:American Household - Phase 0 Probe)).firstsquare> Exception thrown
+	java.lang.RuntimeException: Object tried to call nil in firstsquare at KahluaUtil.fail(KahluaUtil.java:100).
+	Stack trace:
+		se.krka.kahlua.vm.KahluaUtil.fail(KahluaUtil.java:100)
+		Lua((MOD:American Household - Phase 0 Probe)).firstsquare(AHProbe.lua:141)
+		Lua((MOD:American Household - Phase 0 Probe)).try(AHProbe.lua:40)
+		Lua((MOD:American Household - Phase 0 Probe)).probeFill(AHProbe.lua:140)
+		se.krka.kahlua.vm.KahluaThread.luaMainloop(KahluaThread.java:763)
+		se.krka.kahlua.vm.KahluaThread.call(KahluaThread.java:162)
+		se.krka.kahlua.vm.KahluaThread.pcall(KahluaThread.java:1740)
+		se.krka.kahlua.stdlib.BaseLib.pcall(BaseLib.java:313)
+		se.krka.kahlua.stdlib.BaseLib.call(BaseLib.java:111)
+		se.krka.kahlua.vm.KahluaThread.callJava(KahluaThread.java:178)
+		se.krka.kahlua.vm.KahluaThread.luaMainloop(KahluaThread.java:795)
+		se.krka.kahlua.vm.KahluaThread.call(KahluaThread.java:162)
+		se.krka.kahlua.vm.KahluaThread.pcall(KahluaThread.java:1740)
+		se.krka.kahlua.vm.KahluaThread.pcallvoid(KahluaThread.java:1572)
+		se.krka.kahlua.integration.LuaCaller.pcallvoid(LuaCaller.java:60)
+		se.krka.kahlua.integration.LuaCaller.protectedCallVoid(LuaCaller.java:131)
+		zombie.Lua.Event.trigger(Event.java:55)
+		zombie.Lua.LuaEventManager.triggerEvent(LuaEventManager.java:355)
+		zombie.inventory.ItemPickerJava.fillContainerInternal(ItemPickerJava.java:963)
+		zombie.inventory.ItemPickerJava.fillContainer(ItemPickerJava.java:841)
+		zombie.LoadGridsquarePerformanceWorkaround$ItemPicker.checkObject(LoadGridsquarePerformanceWorkaround.java:69)
+		zombie.LoadGridsquarePerformanceWorkaround.LoadGridsquare(LoadGridsquarePerformanceWorkaround.java:34)
+		zombie.iso.IsoChunk.loadGridSquareIfNeeded(IsoChunk.java:4153)
+		zombie.iso.IsoChunk.doLoadGridsquare(IsoChunk.java:4083)
+		zombie.iso.IsoChunkMap.updateInternal(IsoChunkMap.java:218)
+		zombie.iso.IsoChunkMap.update(IsoChunkMap.java:185)
+		zombie.iso.IsoCell.updateInternal(IsoCell.java:4883)
+		zombie.iso.IsoCell.update(IsoCell.java:4862)
+		zombie.iso.IsoWorld.updateWorld(IsoWorld.java:3336)
+		zombie.iso.IsoWorld.updateInternal(IsoWorld.java:3428)
+		zombie.iso.IsoWorld.update(IsoWorld.java:3361)
+		zombie.gameStates.IngameState.updateInternal(IngameState.java:1505)
+		zombie.gameStates.IngameState.update(IngameState.java:1325)
+		zombie.gameStates.GameStateMachine.update(GameStateMachine.java:65)
+		zombie.GameWindow.logic(GameWindow.java:390)
+		zombie.GameWindow.frameStep(GameWindow.java:790)
+		zombie.GameWindow.mainThreadStep(GameWindow.java:567)
+		zombie.MainThread.mainLoop(MainThread.java:69)
+		java.base/java.lang.Thread.run(Unknown Source)
+ERROR: General      f:3209 at KahluaThread.flushErrorMessage      > dumping Lua stack trace
+-----------------------------------------
+STACK TRACE
+-----------------------------------------
+	Lua((MOD:American Household - Phase 0 Probe)).firstsquare(AHProbe.lua:141)
+	Lua((MOD:American Household - Phase 0 Probe)).try(AHProbe.lua:40)
+	Lua((MOD:American Household - Phase 0 Probe)).probeFill(AHProbe.lua:140)
+LOG  : Lua          f:3209> [AHProbe] FAIL firstsquare :: Object tried to call nil in firstsquare java.lang.RuntimeException
+LOG  : Lua          f:3209> [AHProbe]   STABILITY id=36
+LOG  : Lua          f:3209> [AHProbe] chain STOP at getParent (room=Container)
+LOG  : Lua          f:3209> [AHProbe] chain STOP at getParent (room=Container)
+LOG  : Lua          f:3209> [AHProbe] chain STOP at getParent (room=Container)
+LOG  : Lua          f:3209> [AHProbe] chain STOP at getParent (room=Container)
+LOG  : Lua          f:3209> [AHProbe] chain STOP at getParent (room=Container)
+LOG  : Lua          f:3209> [AHProbe] chain STOP at getParent (room=Container)
+LOG  : Lua          f:3209> [AHProbe] no room at square (outdoor container?) x=10950 y=9786 roomTypeArg=all
+WARN : General      f:3631 at GameEntityFactory.CreateIsoEntityFromCellLoading> Entity has custom item 'true' set, and entity script 'Coffin' defined
+WARN : General      f:3631 at GameEntityFactory.CreateIsoEntityFromCellLoading> Entity has custom item 'true' set, and entity script 'Coffin' defined
+WARN : General      f:3633 at GameEntityFactory.CreateIsoEntityFromCellLoading> Entity has custom item 'true' set, and entity script 'Coffin' defined
+WARN : General      f:3633 at GameEntityFactory.CreateIsoEntityFromCellLoading> Entity has custom item 'true' set, and entity script 'Coffin' defined
+LOG  : Lua          f:3635> [AHProbe] no room at square (outdoor container?) x=10865 y=9801 roomTypeArg=all
+LOG  : Lua          f:3638> [AHProbe] no room at square (outdoor container?) x=10917 y=9803 roomTypeArg=VanSeats
+LOG  : Lua          f:3638> [AHProbe] no room at square (outdoor container?) x=10917 y=9803 roomTypeArg=VanSeats
+LOG  : Lua          f:3638> [AHProbe] no room at square (outdoor container?) x=10917 y=9803 roomTypeArg=VanSeats
+LOG  : Lua          f:3638> [AHProbe] no room at square (outdoor container?) x=10917 y=9803 roomTypeArg=VanSeats
+LOG  : Lua          f:3638> [AHProbe] no room at square (outdoor container?) x=10917 y=9803 roomTypeArg=VanSeats
+LOG  : Lua          f:3638> [AHProbe] chain STOP at getParent (room=Container)
+LOG  : Lua          f:3638> [AHProbe] chain STOP at getParent (room=Container)
+LOG  : Lua          f:3638> [AHProbe] chain STOP at getParent (room=Container)
+LOG  : Lua          f:3638> [AHProbe] chain STOP at getParent (room=Container)
+LOG  : Lua          f:3638> [AHProbe] chain STOP at getParent (room=Container)
+LOG  : Lua          f:3638> [AHProbe] chain STOP at getParent (room=Container)
+LOG  : Lua          f:3638> [AHProbe] chain STOP at getParent (room=Container)
+LOG  : Lua          f:3638> [AHProbe] chain STOP at getParent (room=Container)
+LOG  : Lua          f:3638> [AHProbe] chain STOP at getParent (room=Container)
+LOG  : Lua          f:3638> [AHProbe] chain STOP at getParent (room=Container)
+LOG  : Lua          f:3638> [AHProbe] chain STOP at getParent (room=Container)
+LOG  : Lua          f:3638> [AHProbe] chain STOP at getParent (room=Container)
+LOG  : Lua          f:3638> [AHProbe] chain STOP at getParent (room=Container)
+LOG  : Lua          f:3638> [AHProbe] chain STOP at getParent (room=Container)
+LOG  : Lua          f:3638> [AHProbe] chain STOP at getParent (room=Container)
+LOG  : Lua          f:3638> [AHProbe] chain STOP at getParent (room=Container)
+LOG  : Lua          f:3638> [AHProbe] chain STOP at getParent (room=Container)
+LOG  : Lua          f:3638> [AHProbe] chain STOP at getParent (room=Container)
+LOG  : Lua          f:3638> [AHProbe] chain STOP at getParent (room=Container)
+LOG  : Lua          f:3638> [AHProbe] chain STOP at getParent (room=Container)
+LOG  : Lua          f:3638> [AHProbe] chain STOP at getParent (room=Container)
+LOG  : Lua          f:3638> [AHProbe] chain STOP at getParent (room=Container)
+LOG  : Lua          f:3638> [AHProbe] chain STOP at getParent (room=Container)
+LOG  : Lua          f:3638> [AHProbe] chain STOP at getParent (room=Container)
+LOG  : Lua          f:3638> [AHProbe] chain STOP at getParent (room=Container)
+LOG  : Lua          f:3638> [AHProbe] chain STOP at getParent (room=Container)
+LOG  : Lua          f:3638> [AHProbe] chain STOP at getParent (room=Container)
+LOG  : Lua          f:3638> [AHProbe] chain STOP at getParent (room=Container)
+LOG  : Lua          f:3638> [AHProbe] chain STOP at getParent (room=Container)
+LOG  : Lua          f:3638> [AHProbe] chain STOP at getParent (room=Container)
+LOG  : Lua          f:3638> [AHProbe] no room at square (outdoor container?) x=10917 y=9803 roomTypeArg=VanSeats
+LOG  : Lua          f:3638> [AHProbe] no room at square (outdoor container?) x=10917 y=9803 roomTypeArg=VanSeats
+LOG  : Lua          f:3638> [AHProbe] no room at square (outdoor container?) x=10917 y=9803 roomTypeArg=VanSeats
+LOG  : Lua          f:3642> [AHProbe] no room at square (outdoor container?) x=10931 y=9806 roomTypeArg=all
+LOG  : Lua          f:3642> [AHProbe] chain STOP at getParent (room=Container)
+LOG  : Lua          f:3642> [AHProbe] chain STOP at getParent (room=Container)
+LOG  : Lua          f:3642> [AHProbe] no room at square (outdoor container?) x=10931 y=9807 roomTypeArg=all
+LOG  : Lua          f:3642> [AHProbe] chain STOP at getParent (room=Container)
+LOG  : Lua          f:3642> [AHProbe] chain STOP at getParent (room=Container)
+LOG  : Lua          f:3642> [AHProbe] chain STOP at getParent (room=Container)
+LOG  : Lua          f:3642> [AHProbe] chain STOP at getParent (room=Container)
+LOG  : Lua          f:3642> [AHProbe] chain STOP at getParent (room=Container)
+LOG  : Lua          f:3642> [AHProbe] chain STOP at getParent (room=Container)
+LOG  : Lua          f:3642> [AHProbe] chain STOP at getParent (room=Container)
+LOG  : Lua          f:3642> [AHProbe] no room at square (outdoor container?) x=10932 y=9806 roomTypeArg=all
+LOG  : Lua          f:3642> [AHProbe] no room at square (outdoor container?) x=10932 y=9807 roomTypeArg=all
+LOG  : Lua          f:3642> [AHProbe] chain STOP at getParent (room=Container)
+LOG  : Lua          f:3642> [AHProbe] chain STOP at getParent (room=Container)
+LOG  : Lua          f:3642> [AHProbe] no room at square (outdoor container?) x=10933 y=9806 roomTypeArg=all
+LOG  : Lua          f:3642> [AHProbe] no room at square (outdoor container?) x=10934 y=9806 roomTypeArg=all
+LOG  : Lua          f:3858> [AHProbe] no room at square (outdoor container?) x=10911 y=9811 roomTypeArg=all
+LOG  : Lua          f:3858> [AHProbe] chain STOP at getParent (room=Container)
+LOG  : Lua          f:3858> [AHProbe] chain STOP at getParent (room=Container)
+LOG  : Lua          f:3858> [AHProbe] chain STOP at getParent (room=Container)
+LOG  : Lua          f:3858> [AHProbe] no room at square (outdoor container?) x=10911 y=9812 roomTypeArg=all
+LOG  : Lua          f:3860> [AHProbe] no room at square (outdoor container?) x=10824 y=9812 roomTypeArg=all
+LOG  : Lua          f:3860> [AHProbe] no room at square (outdoor container?) x=10824 y=9813 roomTypeArg=all
+LOG  : Lua          f:3862> [AHProbe] no room at square (outdoor container?) x=10823 y=9811 roomTypeArg=all
+LOG  : Lua          f:4055> [AHProbe] CHAIN OK building id=42 roomTypeArg=laundry roomName=laundry
+LOG  : Lua          f:4055> [AHProbe]   def bounds: x=10903 y=9812 x2=10909 y2=9835 w=6 h=23
+ERROR: General      f:4055 at KahluaThread.flushErrorMessage      > dumping Lua stack trace
+-----------------------------------------
+STACK TRACE
+-----------------------------------------
+	Lua((MOD:American Household - Phase 0 Probe)).firstsquare(AHProbe.lua:141)
+	Lua((MOD:American Household - Phase 0 Probe)).try(AHProbe.lua:40)
+	Lua((MOD:American Household - Phase 0 Probe)).probeFill(AHProbe.lua:140)
+ERROR: General      f:4055> Lua((MOD:American Household - Phase 0 Probe)).firstsquare> Exception thrown
+	java.lang.RuntimeException: Object tried to call nil in firstsquare at KahluaUtil.fail(KahluaUtil.java:100).
+	Stack trace:
+		se.krka.kahlua.vm.KahluaUtil.fail(KahluaUtil.java:100)
+		Lua((MOD:American Household - Phase 0 Probe)).firstsquare(AHProbe.lua:141)
+		Lua((MOD:American Household - Phase 0 Probe)).try(AHProbe.lua:40)
+		Lua((MOD:American Household - Phase 0 Probe)).probeFill(AHProbe.lua:140)
+		se.krka.kahlua.vm.KahluaThread.luaMainloop(KahluaThread.java:763)
+		se.krka.kahlua.vm.KahluaThread.call(KahluaThread.java:162)
+		se.krka.kahlua.vm.KahluaThread.pcall(KahluaThread.java:1740)
+		se.krka.kahlua.stdlib.BaseLib.pcall(BaseLib.java:313)
+		se.krka.kahlua.stdlib.BaseLib.call(BaseLib.java:111)
+		se.krka.kahlua.vm.KahluaThread.callJava(KahluaThread.java:178)
+		se.krka.kahlua.vm.KahluaThread.luaMainloop(KahluaThread.java:795)
+		se.krka.kahlua.vm.KahluaThread.call(KahluaThread.java:162)
+		se.krka.kahlua.vm.KahluaThread.pcall(KahluaThread.java:1740)
+		se.krka.kahlua.vm.KahluaThread.pcallvoid(KahluaThread.java:1572)
+		se.krka.kahlua.integration.LuaCaller.pcallvoid(LuaCaller.java:60)
+		se.krka.kahlua.integration.LuaCaller.protectedCallVoid(LuaCaller.java:131)
+		zombie.Lua.Event.trigger(Event.java:55)
+		zombie.Lua.LuaEventManager.triggerEvent(LuaEventManager.java:355)
+		zombie.inventory.ItemPickerJava.fillContainerInternal(ItemPickerJava.java:963)
+		zombie.inventory.ItemPickerJava.fillContainer(ItemPickerJava.java:841)
+		zombie.LoadGridsquarePerformanceWorkaround$ItemPicker.checkObject(LoadGridsquarePerformanceWorkaround.java:69)
+		zombie.LoadGridsquarePerformanceWorkaround.LoadGridsquare(LoadGridsquarePerformanceWorkaround.java:34)
+		zombie.iso.IsoChunk.loadGridSquareIfNeeded(IsoChunk.java:4153)
+		zombie.iso.IsoChunk.doLoadGridsquare(IsoChunk.java:4083)
+		zombie.iso.IsoChunkMap.updateInternal(IsoChunkMap.java:218)
+		zombie.iso.IsoChunkMap.update(IsoChunkMap.java:185)
+		zombie.iso.IsoCell.updateInternal(IsoCell.java:4883)
+		zombie.iso.IsoCell.update(IsoCell.java:4862)
+		zombie.iso.IsoWorld.updateWorld(IsoWorld.java:3336)
+		zombie.iso.IsoWorld.updateInternal(IsoWorld.java:3428)
+		zombie.iso.IsoWorld.update(IsoWorld.java:3361)
+		zombie.gameStates.IngameState.updateInternal(IngameState.java:1505)
+		zombie.gameStates.IngameState.update(IngameState.java:1325)
+		zombie.gameStates.GameStateMachine.update(GameStateMachine.java:65)
+		zombie.GameWindow.logic(GameWindow.java:390)
+		zombie.GameWindow.frameStep(GameWindow.java:790)
+		zombie.GameWindow.mainThreadStep(GameWindow.java:567)
+		zombie.MainThread.mainLoop(MainThread.java:69)
+		java.base/java.lang.Thread.run(Unknown Source)
+ERROR: General      f:4055 at KahluaThread.flushErrorMessage      > dumping Lua stack trace
+-----------------------------------------
+STACK TRACE
+-----------------------------------------
+	Lua((MOD:American Household - Phase 0 Probe)).firstsquare(AHProbe.lua:141)
+	Lua((MOD:American Household - Phase 0 Probe)).try(AHProbe.lua:40)
+	Lua((MOD:American Household - Phase 0 Probe)).probeFill(AHProbe.lua:140)
+LOG  : Lua          f:4055> [AHProbe] FAIL firstsquare :: Object tried to call nil in firstsquare java.lang.RuntimeException
+LOG  : Lua          f:4055> [AHProbe]   STABILITY id=42
+LOG  : Lua          f:4057> [AHProbe] chain STOP at getParent (room=Container)
+LOG  : Lua          f:4057> [AHProbe] chain STOP at getParent (room=Container)
+LOG  : Lua          f:4059> [AHProbe] no room at square (outdoor container?) x=10915 y=9819 roomTypeArg=CarNormal
+LOG  : Lua          f:4059> [AHProbe] no room at square (outdoor container?) x=10915 y=9819 roomTypeArg=CarNormal
+LOG  : Lua          f:4059> [AHProbe] no room at square (outdoor container?) x=10915 y=9819 roomTypeArg=CarNormal
+LOG  : Lua          f:4059> [AHProbe] no room at square (outdoor container?) x=10915 y=9819 roomTypeArg=CarNormal
+LOG  : Lua          f:4059> [AHProbe] no room at square (outdoor container?) x=10915 y=9819 roomTypeArg=CarNormal
+LOG  : Lua          f:4059> [AHProbe] no room at square (outdoor container?) x=10915 y=9819 roomTypeArg=CarNormal
+LOG  : Lua          f:4238> [AHProbe] CHAIN OK building id=43 roomTypeArg=garagestorage roomName=garagestorage
+LOG  : Lua          f:4238> [AHProbe]   def bounds: x=10892 y=9827 x2=10895 y2=9830 w=3 h=3
+ERROR: General      f:4238 at KahluaThread.flushErrorMessage      > dumping Lua stack trace
+-----------------------------------------
+STACK TRACE
+-----------------------------------------
+	Lua((MOD:American Household - Phase 0 Probe)).firstsquare(AHProbe.lua:141)
+	Lua((MOD:American Household - Phase 0 Probe)).try(AHProbe.lua:40)
+	Lua((MOD:American Household - Phase 0 Probe)).probeFill(AHProbe.lua:140)
+ERROR: General      f:4238> Lua((MOD:American Household - Phase 0 Probe)).firstsquare> Exception thrown
+	java.lang.RuntimeException: Object tried to call nil in firstsquare at KahluaUtil.fail(KahluaUtil.java:100).
+	Stack trace:
+		se.krka.kahlua.vm.KahluaUtil.fail(KahluaUtil.java:100)
+		Lua((MOD:American Household - Phase 0 Probe)).firstsquare(AHProbe.lua:141)
+		Lua((MOD:American Household - Phase 0 Probe)).try(AHProbe.lua:40)
+		Lua((MOD:American Household - Phase 0 Probe)).probeFill(AHProbe.lua:140)
+		se.krka.kahlua.vm.KahluaThread.luaMainloop(KahluaThread.java:763)
+		se.krka.kahlua.vm.KahluaThread.call(KahluaThread.java:162)
+		se.krka.kahlua.vm.KahluaThread.pcall(KahluaThread.java:1740)
+		se.krka.kahlua.stdlib.BaseLib.pcall(BaseLib.java:313)
+		se.krka.kahlua.stdlib.BaseLib.call(BaseLib.java:111)
+		se.krka.kahlua.vm.KahluaThread.callJava(KahluaThread.java:178)
+		se.krka.kahlua.vm.KahluaThread.luaMainloop(KahluaThread.java:795)
+		se.krka.kahlua.vm.KahluaThread.call(KahluaThread.java:162)
+		se.krka.kahlua.vm.KahluaThread.pcall(KahluaThread.java:1740)
+		se.krka.kahlua.vm.KahluaThread.pcallvoid(KahluaThread.java:1572)
+		se.krka.kahlua.integration.LuaCaller.pcallvoid(LuaCaller.java:60)
+		se.krka.kahlua.integration.LuaCaller.protectedCallVoid(LuaCaller.java:131)
+		zombie.Lua.Event.trigger(Event.java:55)
+		zombie.Lua.LuaEventManager.triggerEvent(LuaEventManager.java:355)
+		zombie.inventory.ItemPickerJava.fillContainerInternal(ItemPickerJava.java:963)
+		zombie.inventory.ItemPickerJava.fillContainer(ItemPickerJava.java:841)
+		zombie.LoadGridsquarePerformanceWorkaround$ItemPicker.checkObject(LoadGridsquarePerformanceWorkaround.java:69)
+		zombie.LoadGridsquarePerformanceWorkaround.LoadGridsquare(LoadGridsquarePerformanceWorkaround.java:34)
+		zombie.iso.IsoChunk.loadGridSquareIfNeeded(IsoChunk.java:4153)
+		zombie.iso.IsoChunk.doLoadGridsquare(IsoChunk.java:4083)
+		zombie.iso.IsoChunkMap.updateInternal(IsoChunkMap.java:218)
+		zombie.iso.IsoChunkMap.update(IsoChunkMap.java:185)
+		zombie.iso.IsoCell.updateInternal(IsoCell.java:4883)
+		zombie.iso.IsoCell.update(IsoCell.java:4862)
+		zombie.iso.IsoWorld.updateWorld(IsoWorld.java:3336)
+		zombie.iso.IsoWorld.updateInternal(IsoWorld.java:3428)
+		zombie.iso.IsoWorld.update(IsoWorld.java:3361)
+		zombie.gameStates.IngameState.updateInternal(IngameState.java:1505)
+		zombie.gameStates.IngameState.update(IngameState.java:1325)
+		zombie.gameStates.GameStateMachine.update(GameStateMachine.java:65)
+		zombie.GameWindow.logic(GameWindow.java:390)
+		zombie.GameWindow.frameStep(GameWindow.java:790)
+		zombie.GameWindow.mainThreadStep(GameWindow.java:567)
+		zombie.MainThread.mainLoop(MainThread.java:69)
+		java.base/java.lang.Thread.run(Unknown Source)
+ERROR: General      f:4238 at KahluaThread.flushErrorMessage      > dumping Lua stack trace
+-----------------------------------------
+STACK TRACE
+-----------------------------------------
+	Lua((MOD:American Household - Phase 0 Probe)).firstsquare(AHProbe.lua:141)
+	Lua((MOD:American Household - Phase 0 Probe)).try(AHProbe.lua:40)
+	Lua((MOD:American Household - Phase 0 Probe)).probeFill(AHProbe.lua:140)
+LOG  : Lua          f:4238> [AHProbe] FAIL firstsquare :: Object tried to call nil in firstsquare java.lang.RuntimeException
+LOG  : Lua          f:4238> [AHProbe]   STABILITY id=43
+LOG  : Lua          f:4239> [AHProbe] CHAIN OK building id=44 roomTypeArg=leatherclothesstore roomName=leatherclothesstore
+LOG  : Lua          f:4239> [AHProbe]   def bounds: x=10864 y=9831 x2=10872 y2=9838 w=8 h=7
+ERROR: General      f:4239 at KahluaThread.flushErrorMessage      > dumping Lua stack trace
+-----------------------------------------
+STACK TRACE
+-----------------------------------------
+	Lua((MOD:American Household - Phase 0 Probe)).firstsquare(AHProbe.lua:141)
+	Lua((MOD:American Household - Phase 0 Probe)).try(AHProbe.lua:40)
+	Lua((MOD:American Household - Phase 0 Probe)).probeFill(AHProbe.lua:140)
+ERROR: General      f:4239> Lua((MOD:American Household - Phase 0 Probe)).firstsquare> Exception thrown
+	java.lang.RuntimeException: Object tried to call nil in firstsquare at KahluaUtil.fail(KahluaUtil.java:100).
+	Stack trace:
+		se.krka.kahlua.vm.KahluaUtil.fail(KahluaUtil.java:100)
+		Lua((MOD:American Household - Phase 0 Probe)).firstsquare(AHProbe.lua:141)
+		Lua((MOD:American Household - Phase 0 Probe)).try(AHProbe.lua:40)
+		Lua((MOD:American Household - Phase 0 Probe)).probeFill(AHProbe.lua:140)
+		se.krka.kahlua.vm.KahluaThread.luaMainloop(KahluaThread.java:763)
+		se.krka.kahlua.vm.KahluaThread.call(KahluaThread.java:162)
+		se.krka.kahlua.vm.KahluaThread.pcall(KahluaThread.java:1740)
+		se.krka.kahlua.stdlib.BaseLib.pcall(BaseLib.java:313)
+		se.krka.kahlua.stdlib.BaseLib.call(BaseLib.java:111)
+		se.krka.kahlua.vm.KahluaThread.callJava(KahluaThread.java:178)
+		se.krka.kahlua.vm.KahluaThread.luaMainloop(KahluaThread.java:795)
+		se.krka.kahlua.vm.KahluaThread.call(KahluaThread.java:162)
+		se.krka.kahlua.vm.KahluaThread.pcall(KahluaThread.java:1740)
+		se.krka.kahlua.vm.KahluaThread.pcallvoid(KahluaThread.java:1572)
+		se.krka.kahlua.integration.LuaCaller.pcallvoid(LuaCaller.java:60)
+		se.krka.kahlua.integration.LuaCaller.protectedCallVoid(LuaCaller.java:131)
+		zombie.Lua.Event.trigger(Event.java:55)
+		zombie.Lua.LuaEventManager.triggerEvent(LuaEventManager.java:355)
+		zombie.inventory.ItemPickerJava.fillContainerInternal(ItemPickerJava.java:963)
+		zombie.inventory.ItemPickerJava.fillContainer(ItemPickerJava.java:841)
+		zombie.LoadGridsquarePerformanceWorkaround$ItemPicker.checkObject(LoadGridsquarePerformanceWorkaround.java:69)
+		zombie.LoadGridsquarePerformanceWorkaround.LoadGridsquare(LoadGridsquarePerformanceWorkaround.java:34)
+		zombie.iso.IsoChunk.loadGridSquareIfNeeded(IsoChunk.java:4153)
+		zombie.iso.IsoChunk.doLoadGridsquare(IsoChunk.java:4083)
+		zombie.iso.IsoChunkMap.updateInternal(IsoChunkMap.java:218)
+		zombie.iso.IsoChunkMap.update(IsoChunkMap.java:185)
+		zombie.iso.IsoCell.updateInternal(IsoCell.java:4883)
+		zombie.iso.IsoCell.update(IsoCell.java:4862)
+		zombie.iso.IsoWorld.updateWorld(IsoWorld.java:3336)
+		zombie.iso.IsoWorld.updateInternal(IsoWorld.java:3428)
+		zombie.iso.IsoWorld.update(IsoWorld.java:3361)
+		zombie.gameStates.IngameState.updateInternal(IngameState.java:1505)
+		zombie.gameStates.IngameState.update(IngameState.java:1325)
+		zombie.gameStates.GameStateMachine.update(GameStateMachine.java:65)
+		zombie.GameWindow.logic(GameWindow.java:390)
+		zombie.GameWindow.frameStep(GameWindow.java:790)
+		zombie.GameWindow.mainThreadStep(GameWindow.java:567)
+		zombie.MainThread.mainLoop(MainThread.java:69)
+		java.base/java.lang.Thread.run(Unknown Source)
+ERROR: General      f:4239 at KahluaThread.flushErrorMessage      > dumping Lua stack trace
+-----------------------------------------
+STACK TRACE
+-----------------------------------------
+	Lua((MOD:American Household - Phase 0 Probe)).firstsquare(AHProbe.lua:141)
+	Lua((MOD:American Household - Phase 0 Probe)).try(AHProbe.lua:40)
+	Lua((MOD:American Household - Phase 0 Probe)).probeFill(AHProbe.lua:140)
+LOG  : Lua          f:4239> [AHProbe] FAIL firstsquare :: Object tried to call nil in firstsquare java.lang.RuntimeException
+LOG  : Lua          f:4239> [AHProbe]   STABILITY id=44
+LOG  : Lua          f:4240> [AHProbe] CHAIN OK building id=45 roomTypeArg=garagestorage roomName=garagestorage
+LOG  : Lua          f:4240> [AHProbe]   def bounds: x=10860 y=9827 x2=10863 y2=9830 w=3 h=3
+ERROR: General      f:4240 at KahluaThread.flushErrorMessage      > dumping Lua stack trace
+-----------------------------------------
+STACK TRACE
+-----------------------------------------
+	Lua((MOD:American Household - Phase 0 Probe)).firstsquare(AHProbe.lua:141)
+	Lua((MOD:American Household - Phase 0 Probe)).try(AHProbe.lua:40)
+	Lua((MOD:American Household - Phase 0 Probe)).probeFill(AHProbe.lua:140)
+ERROR: General      f:4240> Lua((MOD:American Household - Phase 0 Probe)).firstsquare> Exception thrown
+	java.lang.RuntimeException: Object tried to call nil in firstsquare at KahluaUtil.fail(KahluaUtil.java:100).
+	Stack trace:
+		se.krka.kahlua.vm.KahluaUtil.fail(KahluaUtil.java:100)
+		Lua((MOD:American Household - Phase 0 Probe)).firstsquare(AHProbe.lua:141)
+		Lua((MOD:American Household - Phase 0 Probe)).try(AHProbe.lua:40)
+		Lua((MOD:American Household - Phase 0 Probe)).probeFill(AHProbe.lua:140)
+		se.krka.kahlua.vm.KahluaThread.luaMainloop(KahluaThread.java:763)
+		se.krka.kahlua.vm.KahluaThread.call(KahluaThread.java:162)
+		se.krka.kahlua.vm.KahluaThread.pcall(KahluaThread.java:1740)
+		se.krka.kahlua.stdlib.BaseLib.pcall(BaseLib.java:313)
+		se.krka.kahlua.stdlib.BaseLib.call(BaseLib.java:111)
+		se.krka.kahlua.vm.KahluaThread.callJava(KahluaThread.java:178)
+		se.krka.kahlua.vm.KahluaThread.luaMainloop(KahluaThread.java:795)
+		se.krka.kahlua.vm.KahluaThread.call(KahluaThread.java:162)
+		se.krka.kahlua.vm.KahluaThread.pcall(KahluaThread.java:1740)
+		se.krka.kahlua.vm.KahluaThread.pcallvoid(KahluaThread.java:1572)
+		se.krka.kahlua.integration.LuaCaller.pcallvoid(LuaCaller.java:60)
+		se.krka.kahlua.integration.LuaCaller.protectedCallVoid(LuaCaller.java:131)
+		zombie.Lua.Event.trigger(Event.java:55)
+		zombie.Lua.LuaEventManager.triggerEvent(LuaEventManager.java:355)
+		zombie.inventory.ItemPickerJava.fillContainerInternal(ItemPickerJava.java:963)
+		zombie.inventory.ItemPickerJava.fillContainer(ItemPickerJava.java:841)
+		zombie.LoadGridsquarePerformanceWorkaround$ItemPicker.checkObject(LoadGridsquarePerformanceWorkaround.java:69)
+		zombie.LoadGridsquarePerformanceWorkaround.LoadGridsquare(LoadGridsquarePerformanceWorkaround.java:34)
+		zombie.iso.IsoChunk.loadGridSquareIfNeeded(IsoChunk.java:4153)
+		zombie.iso.IsoChunk.doLoadGridsquare(IsoChunk.java:4083)
+		zombie.iso.IsoChunkMap.updateInternal(IsoChunkMap.java:218)
+		zombie.iso.IsoChunkMap.update(IsoChunkMap.java:185)
+		zombie.iso.IsoCell.updateInternal(IsoCell.java:4883)
+		zombie.iso.IsoCell.update(IsoCell.java:4862)
+		zombie.iso.IsoWorld.updateWorld(IsoWorld.java:3336)
+		zombie.iso.IsoWorld.updateInternal(IsoWorld.java:3428)
+		zombie.iso.IsoWorld.update(IsoWorld.java:3361)
+		zombie.gameStates.IngameState.updateInternal(IngameState.java:1505)
+		zombie.gameStates.IngameState.update(IngameState.java:1325)
+		zombie.gameStates.GameStateMachine.update(GameStateMachine.java:65)
+		zombie.GameWindow.logic(GameWindow.java:390)
+		zombie.GameWindow.frameStep(GameWindow.java:790)
+		zombie.GameWindow.mainThreadStep(GameWindow.java:567)
+		zombie.MainThread.mainLoop(MainThread.java:69)
+		java.base/java.lang.Thread.run(Unknown Source)
+ERROR: General      f:4240 at KahluaThread.flushErrorMessage      > dumping Lua stack trace
+-----------------------------------------
+STACK TRACE
+-----------------------------------------
+	Lua((MOD:American Household - Phase 0 Probe)).firstsquare(AHProbe.lua:141)
+	Lua((MOD:American Household - Phase 0 Probe)).try(AHProbe.lua:40)
+	Lua((MOD:American Household - Phase 0 Probe)).probeFill(AHProbe.lua:140)
+LOG  : Lua          f:4240> [AHProbe] FAIL firstsquare :: Object tried to call nil in firstsquare java.lang.RuntimeException
+LOG  : Lua          f:4240> [AHProbe]   STABILITY id=45
+LOG  : Lua          f:4245> [AHProbe] no room at square (outdoor container?) x=10915 y=9828 roomTypeArg=PickUpTruck
+LOG  : Lua          f:4245> [AHProbe] no room at square (outdoor container?) x=10915 y=9828 roomTypeArg=PickUpTruck
+LOG  : Lua          f:4245> [AHProbe] no room at square (outdoor container?) x=10915 y=9828 roomTypeArg=PickUpTruck
+LOG  : Lua          f:4245> [AHProbe] no room at square (outdoor container?) x=10915 y=9828 roomTypeArg=PickUpTruck
+LOG  : Lua          f:6191> [AHProbe] CHAIN OK building id=47 roomTypeArg=kitchen roomName=kitchen
+LOG  : Lua          f:6191> [AHProbe]   def bounds: x=10972 y=9781 x2=10978 y2=9791 w=6 h=10
+ERROR: General      f:6191 at KahluaThread.flushErrorMessage      > dumping Lua stack trace
+-----------------------------------------
+STACK TRACE
+-----------------------------------------
+	Lua((MOD:American Household - Phase 0 Probe)).firstsquare(AHProbe.lua:141)
+	Lua((MOD:American Household - Phase 0 Probe)).try(AHProbe.lua:40)
+	Lua((MOD:American Household - Phase 0 Probe)).probeFill(AHProbe.lua:140)
+ERROR: General      f:6191> Lua((MOD:American Household - Phase 0 Probe)).firstsquare> Exception thrown
+	java.lang.RuntimeException: Object tried to call nil in firstsquare at KahluaUtil.fail(KahluaUtil.java:100).
+	Stack trace:
+		se.krka.kahlua.vm.KahluaUtil.fail(KahluaUtil.java:100)
+		Lua((MOD:American Household - Phase 0 Probe)).firstsquare(AHProbe.lua:141)
+		Lua((MOD:American Household - Phase 0 Probe)).try(AHProbe.lua:40)
+		Lua((MOD:American Household - Phase 0 Probe)).probeFill(AHProbe.lua:140)
+		se.krka.kahlua.vm.KahluaThread.luaMainloop(KahluaThread.java:763)
+		se.krka.kahlua.vm.KahluaThread.call(KahluaThread.java:162)
+		se.krka.kahlua.vm.KahluaThread.pcall(KahluaThread.java:1740)
+		se.krka.kahlua.stdlib.BaseLib.pcall(BaseLib.java:313)
+		se.krka.kahlua.stdlib.BaseLib.call(BaseLib.java:111)
+		se.krka.kahlua.vm.KahluaThread.callJava(KahluaThread.java:178)
+		se.krka.kahlua.vm.KahluaThread.luaMainloop(KahluaThread.java:795)
+		se.krka.kahlua.vm.KahluaThread.call(KahluaThread.java:162)
+		se.krka.kahlua.vm.KahluaThread.pcall(KahluaThread.java:1740)
+		se.krka.kahlua.vm.KahluaThread.pcallvoid(KahluaThread.java:1572)
+		se.krka.kahlua.integration.LuaCaller.pcallvoid(LuaCaller.java:60)
+		se.krka.kahlua.integration.LuaCaller.protectedCallVoid(LuaCaller.java:131)
+		zombie.Lua.Event.trigger(Event.java:55)
+		zombie.Lua.LuaEventManager.triggerEvent(LuaEventManager.java:355)
+		zombie.inventory.ItemPickerJava.fillContainerInternal(ItemPickerJava.java:963)
+		zombie.inventory.ItemPickerJava.fillContainer(ItemPickerJava.java:841)
+		zombie.LoadGridsquarePerformanceWorkaround$ItemPicker.checkObject(LoadGridsquarePerformanceWorkaround.java:69)
+		zombie.LoadGridsquarePerformanceWorkaround.LoadGridsquare(LoadGridsquarePerformanceWorkaround.java:34)
+		zombie.iso.IsoChunk.loadGridSquareIfNeeded(IsoChunk.java:4153)
+		zombie.iso.IsoChunk.doLoadGridsquare(IsoChunk.java:4083)
+		zombie.iso.IsoChunkMap.updateInternal(IsoChunkMap.java:218)
+		zombie.iso.IsoChunkMap.update(IsoChunkMap.java:185)
+		zombie.iso.IsoCell.updateInternal(IsoCell.java:4883)
+		zombie.iso.IsoCell.update(IsoCell.java:4862)
+		zombie.iso.IsoWorld.updateWorld(IsoWorld.java:3336)
+		zombie.iso.IsoWorld.updateInternal(IsoWorld.java:3428)
+		zombie.iso.IsoWorld.update(IsoWorld.java:3361)
+		zombie.gameStates.IngameState.updateInternal(IngameState.java:1505)
+		zombie.gameStates.IngameState.update(IngameState.java:1325)
+		zombie.gameStates.GameStateMachine.update(GameStateMachine.java:65)
+		zombie.GameWindow.logic(GameWindow.java:390)
+		zombie.GameWindow.frameStep(GameWindow.java:790)
+		zombie.GameWindow.mainThreadStep(GameWindow.java:567)
+		zombie.MainThread.mainLoop(MainThread.java:69)
+		java.base/java.lang.Thread.run(Unknown Source)
+ERROR: General      f:6191 at KahluaThread.flushErrorMessage      > dumping Lua stack trace
+-----------------------------------------
+STACK TRACE
+-----------------------------------------
+	Lua((MOD:American Household - Phase 0 Probe)).firstsquare(AHProbe.lua:141)
+	Lua((MOD:American Household - Phase 0 Probe)).try(AHProbe.lua:40)
+	Lua((MOD:American Household - Phase 0 Probe)).probeFill(AHProbe.lua:140)
+LOG  : Lua          f:6191> [AHProbe] FAIL firstsquare :: Object tried to call nil in firstsquare java.lang.RuntimeException
+LOG  : Lua          f:6191> [AHProbe]   STABILITY id=47
+LOG  : Lua          f:6191> [AHProbe] chain STOP at getParent (room=Container)
+LOG  : Lua          f:6191> [AHProbe] chain STOP at getParent (room=Container)
+LOG  : Lua          f:11808> [AHProbe] CHAIN OK building id=32 roomTypeArg=kitchen roomName=kitchen
+LOG  : Lua          f:11808> [AHProbe]   def bounds: x=10935 y=9753 x2=10941 y2=9766 w=6 h=13
+ERROR: General      f:11808 at KahluaThread.flushErrorMessage      > dumping Lua stack trace
+-----------------------------------------
+STACK TRACE
+-----------------------------------------
+	Lua((MOD:American Household - Phase 0 Probe)).firstsquare(AHProbe.lua:141)
+	Lua((MOD:American Household - Phase 0 Probe)).try(AHProbe.lua:40)
+	Lua((MOD:American Household - Phase 0 Probe)).probeFill(AHProbe.lua:140)
+	Lua(Vanilla).checkExplored(ISInventoryPage.lua:1518)
+	Lua(Vanilla).refreshBackpacks(ISInventoryPage.lua:1755)
+	Lua(Vanilla).update(ISInventoryPage.lua:506)
+ERROR: General      f:11808> Lua((MOD:American Household - Phase 0 Probe)).firstsquare> Exception thrown
+	java.lang.RuntimeException: Object tried to call nil in firstsquare at KahluaUtil.fail(KahluaUtil.java:100).
+	Stack trace:
+		se.krka.kahlua.vm.KahluaUtil.fail(KahluaUtil.java:100)
+		Lua((MOD:American Household - Phase 0 Probe)).firstsquare(AHProbe.lua:141)
+		Lua((MOD:American Household - Phase 0 Probe)).try(AHProbe.lua:40)
+		Lua((MOD:American Household - Phase 0 Probe)).probeFill(AHProbe.lua:140)
+		Lua(Vanilla).checkExplored(ISInventoryPage.lua:1518)
+		Lua(Vanilla).refreshBackpacks(ISInventoryPage.lua:1755)
+		Lua(Vanilla).update(ISInventoryPage.lua:506)
+		se.krka.kahlua.vm.KahluaThread.luaMainloop(KahluaThread.java:763)
+		se.krka.kahlua.vm.KahluaThread.call(KahluaThread.java:162)
+		se.krka.kahlua.vm.KahluaThread.pcall(KahluaThread.java:1740)
+		se.krka.kahlua.stdlib.BaseLib.pcall(BaseLib.java:313)
+		se.krka.kahlua.stdlib.BaseLib.call(BaseLib.java:111)
+		se.krka.kahlua.vm.KahluaThread.callJava(KahluaThread.java:178)
+		se.krka.kahlua.vm.KahluaThread.luaMainloop(KahluaThread.java:795)
+		se.krka.kahlua.vm.KahluaThread.call(KahluaThread.java:162)
+		se.krka.kahlua.vm.KahluaThread.pcall(KahluaThread.java:1740)
+		se.krka.kahlua.vm.KahluaThread.pcallvoid(KahluaThread.java:1572)
+		se.krka.kahlua.integration.LuaCaller.pcallvoid(LuaCaller.java:60)
+		se.krka.kahlua.integration.LuaCaller.protectedCallVoid(LuaCaller.java:131)
+		zombie.Lua.Event.trigger(Event.java:55)
+		zombie.Lua.LuaEventManager.triggerEvent(LuaEventManager.java:355)
+		zombie.inventory.ItemPickerJava.fillContainerInternal(ItemPickerJava.java:963)
+		zombie.inventory.ItemPickerJava.fillContainer(ItemPickerJava.java:841)
+		java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(Unknown Source)
+		java.base/java.lang.reflect.Method.invoke(Unknown Source)
+		se.krka.kahlua.integration.expose.caller.MethodCaller.call(MethodCaller.java:58)
+		se.krka.kahlua.integration.expose.LuaJavaInvoker.call(LuaJavaInvoker.java:194)
+		se.krka.kahlua.integration.expose.LuaJavaInvoker.call(LuaJavaInvoker.java:184)
+		se.krka.kahlua.vm.KahluaThread.callJava(KahluaThread.java:178)
+		se.krka.kahlua.vm.KahluaThread.luaMainloop(KahluaThread.java:795)
+		se.krka.kahlua.vm.KahluaThread.call(KahluaThread.java:162)
+		se.krka.kahlua.vm.KahluaThread.pcall(KahluaThread.java:1740)
+		se.krka.kahlua.vm.KahluaThread.pcallvoid(KahluaThread.java:1584)
+		se.krka.kahlua.integration.LuaCaller.pcallvoid(LuaCaller.java:35)
+		zombie.ui.UIElement.update(UIElement.java:1756)
+		zombie.ui.UIManager.updateUIElements(UIManager.java:878)
+		zombie.ui.UIManager.update(UIManager.java:696)
+		zombie.GameWindow.logic(GameWindow.java:347)
+		zombie.GameWindow.frameStep(GameWindow.java:790)
+		zombie.GameWindow.mainThreadStep(GameWindow.java:567)
+		zombie.MainThread.mainLoop(MainThread.java:69)
+		java.base/java.lang.Thread.run(Unknown Source)
+ERROR: General      f:11808 at KahluaThread.flushErrorMessage      > dumping Lua stack trace
+-----------------------------------------
+STACK TRACE
+-----------------------------------------
+	Lua((MOD:American Household - Phase 0 Probe)).firstsquare(AHProbe.lua:141)
+	Lua((MOD:American Household - Phase 0 Probe)).try(AHProbe.lua:40)
+	Lua((MOD:American Household - Phase 0 Probe)).probeFill(AHProbe.lua:140)
+	Lua(Vanilla).checkExplored(ISInventoryPage.lua:1518)
+	Lua(Vanilla).refreshBackpacks(ISInventoryPage.lua:1755)
+	Lua(Vanilla).update(ISInventoryPage.lua:506)
+LOG  : Lua          f:11808> [AHProbe] FAIL firstsquare :: Object tried to call nil in firstsquare java.lang.RuntimeException
+LOG  : Lua          f:11808> [AHProbe]   STABILITY id=32
+LOG  : General      f:12978> ItemPickInfo -> cannot get ID for container: inventorymale
+LOG  : General      f:14067> Saving worldgen params
+LOG  : Lua          f:14067> [AHProbe] SUMMARY fills=340 pickerContainers=0 uniqueBuildings=17
+LOG  : General      f:14067> Saving GlobalModData
+LOG  : Lua          f:14067> removing all player data
+LOG  : Lua          f:14067> - player: 0
+LOG  : Lua          f:14067> removing all player data
+LOG  : Lua          f:14067> - player: 0
+LOG  : General      f:14067> GameThread exited.
