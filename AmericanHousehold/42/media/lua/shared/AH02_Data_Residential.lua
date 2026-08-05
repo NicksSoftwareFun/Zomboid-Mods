@@ -6,11 +6,11 @@
 -- lands here in Phase 2 as more entries in the same shape — no code changes.
 --
 -- Entry shape:
---   item    = full item name.  !! IDs marked unverified=true are GUESSES
---             pending a read of the B42 scripts (Code-session task: verify
---             against steamapps/common/ProjectZomboid/media/scripts). The
---             merge pass validates via FindItem and skips+warns on unknowns,
---             so a wrong guess costs a log line, not a crash.
+--   item    = full item name. ALL IDs below VERIFIED against the B42.20
+--             media/scripts item definitions (Aug 2026 upload; index kept in
+--             reference/b42.20_item_ids.txt). The merge pass still validates
+--             via FindItem and skips+warns on unknowns, so a future game
+--             update that renames an item costs a log line, not a crash.
 --   pool    = probe-confirmed pool the item lives in (Approach A placement)
 --   tier    = T0..T3 (AH01 targets)
 --   nContainers = estimated containers per room drawing this pool (for
@@ -27,8 +27,8 @@ AH.Data.Residential = {
     -- precision is Mod B's Approach C. This gets us to ~"almost every
     -- kitchen, occasionally two" — acceptable for the Phase 1 signal.
     { item = "Base.KitchenKnife",  pool = "KitchenRandom", tier = "T0", nContainers = 3 },
-    { item = "Base.BreadKnife",    pool = "KitchenRandom", tier = "T1", nContainers = 3, unverified = true },
-    { item = "Base.KnifeParing",   pool = "KitchenRandom", tier = "T1", nContainers = 3, unverified = true },
+    { item = "Base.BreadKnife",    pool = "KitchenRandom", tier = "T1", nContainers = 3 },
+    { item = "Base.KnifeParing",   pool = "KitchenRandom", tier = "T1", nContainers = 3 },
     { item = "Base.TinOpener",     pool = "KitchenRandom", tier = "T0", nContainers = 3 },
     { item = "Base.Scissors",      pool = "KitchenRandom", tier = "T1", nContainers = 3 },
 
@@ -37,17 +37,27 @@ AH.Data.Residential = {
     { item = "Base.Pan",           pool = "KitchenPots", tier = "T0", nContainers = 1 },
     { item = "Base.Pot",           pool = "KitchenPots", tier = "T1", nContainers = 1 },
     { item = "Base.Saucepan",      pool = "KitchenPots", tier = "T1", nContainers = 1 },
-    { item = "Base.GridlePan",     pool = "KitchenPots", tier = "T2", nContainers = 1, unverified = true },
+    { item = "Base.GridlePan",     pool = "KitchenPots", tier = "T2", nContainers = 1 },
 
-    -- Baking / prep
+    -- Cutting boards: vanilla splits the concept into two items and already
+    -- places both in KitchenPots (w=4 each) — we follow that placement.
+    -- Two variants at T2 each gives combined presence 1-(1-.425)^2 ≈ 0.67,
+    -- an acceptable Phase 1 approximation of the design's T1 target for
+    -- "a cutting board, either kind" (exact split solving is not worth the
+    -- machinery at this scope; revisit only if route metrics miss).
+    { item = "Base.CuttingBoardWooden",  pool = "KitchenPots", tier = "T2", nContainers = 1 },
+    { item = "Base.CuttingBoardPlastic", pool = "KitchenPots", tier = "T2", nContainers = 1 },
+
+    -- Baking / prep. "MixingBowl" does not exist in B42 — the generic
+    -- Base.Bowl is the mixing/prep bowl (and the cooking-recipe vessel).
     { item = "Base.BakingTray",    pool = "KitchenBaking", tier = "T1", nContainers = 1 },
     { item = "Base.RoastingPan",   pool = "KitchenBaking", tier = "T1", nContainers = 1 },
-    { item = "Base.MixingBowl",    pool = "KitchenBaking", tier = "T1", nContainers = 1, unverified = true },
+    { item = "Base.Bowl",          pool = "KitchenBaking", tier = "T1", nContainers = 1 },
     { item = "Base.RollingPin",    pool = "KitchenBaking", tier = "T2", nContainers = 1 },
-    { item = "Base.CuttingBoard",  pool = "KitchenRandom", tier = "T1", nContainers = 3, unverified = true },
 
-    -- Utensils
-    { item = "Base.Spatula",       pool = "KitchenDishes", tier = "T1", nContainers = 2, unverified = true },
-    { item = "Base.SpoonWooden",   pool = "KitchenDishes", tier = "T1", nContainers = 2, unverified = true },
-    { item = "Base.Whisk",         pool = "KitchenDishes", tier = "T2", nContainers = 2, unverified = true },
+    -- Utensils. "SpoonWooden" does not exist in B42 — Base.Spoon is the
+    -- stirring spoon (vanilla puts it in both KitchenDishes and KitchenBaking).
+    { item = "Base.Spatula",       pool = "KitchenDishes", tier = "T1", nContainers = 2 },
+    { item = "Base.Spoon",         pool = "KitchenDishes", tier = "T1", nContainers = 2 },
+    { item = "Base.Whisk",         pool = "KitchenDishes", tier = "T2", nContainers = 2 },
 }
