@@ -1,0 +1,4 @@
+name=Knox County Households
+id=KnoxCountyHouseholds
+require=AmericanHousehold
+description=Per-building household archetypes (military, canning, hunting, survivalist...) crossed with dispositions (never came home, evacuated, sheltered, looted) — every house tells you who lived there and what they did when it happened. Requires The American Household. Design doc v0.6.
