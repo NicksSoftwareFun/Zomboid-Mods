@@ -140,7 +140,9 @@ Worked example in comments of AH01 required, with the kitchen knife numbers from
 
 ### 2.6 Vehicles (AH13)
 
-[PROBED] Surface confirmed: `VehicleZoneDistribution` (55 zone keys — `parkingstall`, `trailerpark`, `bad`, `medium`, `good`, `sport`, `junkyard`, `trafficjamw/e/n/s`, `police`, `fire`, `ranger`, plus branded/specialty zones) and `VehicleDistributions` both exist as globals at merge time. Relevant sandbox vars observed: `CarSpawnRate`, `VehicleStoryChance`, `CarGeneralCondition`, `LockedCar`, `RecentlySurvivorVehicles`. Remaining ticket-6 task: inspect one zone entry's field names to find the per-zone chance field before writing the multiplier loop. Requirements regardless of field names:
+[PROBED] Surface confirmed: `VehicleZoneDistribution` (55 zone keys — `parkingstall`, `trailerpark`, `bad`, `medium`, `good`, `sport`, `junkyard`, `trafficjamw/e/n/s`, `police`, `fire`, `ranger`, plus branded/specialty zones) and `VehicleDistributions` both exist as globals at merge time. Relevant sandbox vars observed: `CarSpawnRate`, `VehicleStoryChance`, `CarGeneralCondition`, `LockedCar`, `RecentlySurvivorVehicles`.
+
+**[VERIFIED Aug 2026]** Field names resolved from `media/lua/shared/Vehicles/VehicleZoneDefinition.lua` (verbatim copy in `reference/`): the per-zone spawn chance is `zone.spawnRate` (%, implicit game default **16** when absent — the multiplier must write `(spawnRate or 16) * m`). Per-vehicle `spawnChance` is a pick-share out of ~100 selecting WHICH model and is never scaled. `business2`–`business12` are aliases of the single `business` table — iterate with table-identity dedupe or the multiplier compounds 12×. AH13 implemented + unit-tested (`tests/test_vehicles.lua`). Requirements met:
 - Multiplier from sandbox option, default 1.5, range 1.0–3.0, step 0.1.
 - Apply by scaling per-zone spawn *chance* fields only — never touch fuel/condition fields (settled decision 3).
 - 1.0 must be a true no-op (skip the loop entirely).
@@ -326,7 +328,7 @@ Tickets 1–8 are Mod A and can proceed **regardless of probe outcome**. Tickets
 
 ## 8. Open items this spec inherits (do not resolve silently)
 
-1. ~~Vehicle table names~~ — **resolved by probe** (§2.6). Per-zone chance *field name* still open: `VehicleZoneDistribution` is NOT defined in `media/lua/server/Vehicles/` (checked Aug 2026) — obtain the file that defines it (B41: `VehicleZoneDefinition.lua`; search the install for that global) before writing AH13.
+1. ~~Vehicle table names / per-zone chance field~~ — **fully resolved Aug 2026**: `VehicleZoneDistribution` lives in `media/lua/shared/Vehicles/VehicleZoneDefinition.lua` in B42; chance field is `spawnRate` (§2.6). AH13 written and unit-tested.
 2. ~~B42 pool *entry* shape~~ — **resolved Aug 2026 from game files**: B41-style flat pairs confirmed; short names, module Base implied; optional pool flags. See §2.2 and `reference/README.md`. AH10 updated + unit-tested (`tests/test_distrib.lua`).
 3. Item-tag patching syntax in B42 — research against current Workshop mods (§2.5).
 4. World-seed accessor for the determinism stack (§3.3).

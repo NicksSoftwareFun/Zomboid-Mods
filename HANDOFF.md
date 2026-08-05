@@ -6,8 +6,9 @@
 - `AH01_Data_Tiers.lua` — tier→weight solver, presence math, per-container targets, pool-share clamp. 19 passing tests including design-doc §1.1 worked example.
 - `AHB03_Hash.lua` — Kahlua-safe FNV-1a (no bitops, split-multiply mod 2^32) verified against independently generated reference vectors, incl. a real probe building key; deterministic LCG rng; pickWeighted. 13 passing tests.
 - `AH10_DistribHelpers.lua` — pool mutation, now against the **confirmed** B42.20 pool shape, with `Base.X`↔short-name normalization. New `tests/test_distrib.lua` (21 checks) guards the upsert/remove/exclude paths against a verbatim-shaped fake pool.
+- `AH13_Vehicles.lua` — §2.6 vehicle spawn multiplier, written against the verified `spawnRate` field (implicit default 16), with business2–12 alias dedupe and the 1.0 true-no-op. `tests/test_vehicles.lua` (12 checks) covers scaling, cap at 100, alias-once, and the no-op.
 
-Run tests: `cd tests && lua5.1 test_tiers.lua && lua5.1 test_hash.lua && lua5.1 test_distrib.lua`
+Run tests: `cd tests && lua5.1 test_tiers.lua && lua5.1 test_hash.lua && lua5.1 test_distrib.lua && lua5.1 test_vehicles.lua`
 
 ## Resolved this session (from uploaded B42.20 game files — extracts in `reference/`)
 - **Pool entry shape (was open item 2): CONFIRMED** — B41-style flat `{name,w,...}` pairs + `junk` sub-table + optional flags (`ignoreZombieDensity`, `cookFood`, `onlyOne`). `shapeOf()` was already correct.
@@ -15,15 +16,15 @@ Run tests: `cd tests && lua5.1 test_tiers.lua && lua5.1 test_hash.lua && lua5.1 
 - **Solver correctness fix:** nearly every AH02 item already exists in its vanilla pool, and the AH01 solve assumes the item is *added* — `totalWeight(pool, excludeItem)` now excludes the item's own vanilla weight from W (AH11 passes it).
 - **All AH02 item IDs verified** against the 5,120-id index (`reference/b42.20_item_ids.txt`). Three were wrong and are fixed: `MixingBowl`→`Bowl`, `SpoonWooden`→`Spoon`, `CuttingBoard`→`CuttingBoardWooden`+`CuttingBoardPlastic` (moved to KitchenPots, vanilla's placement, T2 each ≈ combined T1). No `unverified` flags remain.
 - **Sandbox options (was open item 6):** B42 format = B41 format (verified against a live B42 mod). `sandbox-options.txt` + EN translations written for both mods, matching AH00's `SandboxVars.AmericanHousehold.*` accessors exactly.
+- **Vehicle zones (was open item 1):** `VehicleZoneDistribution` moved to `media/lua/shared/Vehicles/VehicleZoneDefinition.lua` in B42. Chance field = `spawnRate` (%, implicit default 16). `spawnChance` inside `vehicles` is a model pick-share — never scale it. `business2`–`business12` alias one table (dedupe by identity). AH13 written + tested; ticket 6 code-complete pending in-game verify.
 
-## Still blocked / open
-- **AH13 vehicles (ticket 6):** `VehicleZoneDistribution` is NOT in `media/lua/server/Vehicles/` — need the file that defines it (B41 name: `VehicleZoneDefinition.lua`; search the install). Everything else about §2.6 is ready to write once the per-zone chance field is visible.
+## Still open
 - Item-tag patching syntax (open item 3), world-seed accessor (4), junk-drawer trigger (5) — unchanged.
 
 ## Immediate next actions
-1. **In-game smoke test (user):** copy both mod folders into `Zomboid/mods/`, enable American Household only, new save, read console. Expected now: **zero shape warnings, zero item-ID warnings**, and a `residential pass: 17 applied, 0 skipped` line (turn on Verbose in sandbox options to see per-change logDiff). Any warning at all is a finding — copy console.txt out before relaunching.
+1. **In-game smoke test (user):** copy both mod folders into `Zomboid/mods/`, enable American Household only, new save, read console. Expected now: **zero shape warnings, zero item-ID warnings**, a `residential pass: 17 applied, 0 skipped` line, and a `vehicle pass: multiplier 1.50` block listing every zone scaled once (business aliases logged as such). Turn on Verbose in sandbox options for per-change logDiff. Any warning at all is a finding — copy console.txt out before relaunching.
 2. Ticket 4 acceptance: ten fresh kitchens, count knives/pans/openers vs §4.1 tiers ±10%. Tune `nContainers` estimates from observation (vanilla pool weights for offline sanity checks are in `reference/b42.20_kitchen_pools.lua`).
-3. Upload the vehicle zone file → write AH13 (ticket 6).
+3. Ticket 6 acceptance: multiplier visibly raises street/parking vehicle counts; set VehicleMultiplier=1.0 and confirm the console shows the no-op line and counts match vanilla.
 4. Then tickets 5–8 (full residential, setpieces, recipes) per tech spec §7.
 5. Mod B: scaffold exists (mod.info + AHB03 only). Next file is `AHB10_Resolver.lua` per tech spec §3.4 — coordinate key from `getDef()` bounds (PROBED: `getX/getY/getX2/getY2` confirmed; `getID()` disqualified — sequential counters).
 
