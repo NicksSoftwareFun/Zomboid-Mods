@@ -55,6 +55,14 @@ Decisions the user has made explicitly (do not "improve" these):
 4. Firearms are common (per §6.4's archetype table); dispositions supply gun scarcity; ammo is caliber-matched to the gun rolled.
 5. Consolidated households (two-building pairing) are **deferred** — do not implement, the design is preserved in open question 10.
 6. B42 only. No B41 backport.
+7. **NO NEW ART ASSETS (Aug 2026 decision).** The mod ships as pure data +
+   Lua. Anything the design flagged as a `[new]` item (fridge notes, a
+   community cookbook, 1993-calendar paper, custom junk-drawer items) is
+   either **cut** or **repurposed from an existing B42 item** — never
+   authored as new art. Fridge notes (§6.6) now use existing lore items
+   (`Note`, `LetterHandwritten`, `Journal`, `Newspaper`, `Map` for the
+   survivalist cache) chosen by disposition. Phase 6/7's `[new]`-item work is
+   struck from scope. No `poster.png` or icons are required to ship.
 
 ---
 
@@ -79,8 +87,7 @@ PZ embeds **Kahlua**, a Lua 5.1-subset interpreter, with the game API exposed as
 ```
 AmericanHousehold/
   42/
-    mod.info
-    poster.png
+    mod.info                      -- (poster.png optional, not shipped — settled decision 7, no art)
     media/
       lua/
         shared/
@@ -288,7 +295,7 @@ Order of operations per container, and this order is load-bearing:
 3. **Firearm roll** (§6.4): archetype table -> gun pick -> `caliber` returned -> ammo insertion in same container using caliber-keyed ammo table (AHB02). One code path; no independent ammo rolls anywhere in Mod B.
 4. **Disposition filter**: category-based removal/depletion over the container's *final* contents: `{removeCategories={...}, depleteRanges={food={0.0,0.2}}, scatter=bool}`. Category membership = item tag / script category lookup, cached per item type. Scatter=true relocates a fraction of removed items into other containers *in the same room* (never across rooms; never spawns).
 5. **Condition variance** (design §1.3): final pass, sets condition on tools/durables from the archetype's condition profile.
-6. **Barter cache / fridge note** (v0.6): keyed off (disposition, rng) — cache is step-1-style insertion; notes are Phase 6 items, stub the hook now.
+6. **Barter cache / fridge note** (v0.6): keyed off (disposition, rng) — cache is step-1-style insertion. **IMPLEMENTED (no art, settled decision 7):** fridge notes use existing B42 lore items chosen by disposition (`Note`/`LetterHandwritten`/`Journal`/`Newspaper`, and `Map` for the survivalist cache), one per house, once-per-building memo. Not a stub.
 
 ### 3.7 Firearm data shape (AHB02)
 

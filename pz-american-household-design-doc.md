@@ -312,7 +312,13 @@ What becomes currency when currency dies is consistent across the historical rec
 
 **Worthless cash.** The other half of the same truth, applied at setpieces: registers open with bills scattered and left, cash on floors nobody bent down for, banks untouched (nothing inside could buy anything by day four), the jewelry store hit on day one and never entered again. Pure P12 texture — implemented as pool composition, costs nothing.
 
-### 6.6 Fridge notes *(new in v0.6 — [new] items, first in Phase 6)*
+### 6.6 Fridge notes *(new in v0.6)*
+
+> **SUPERSEDED — no new art (Aug 2026, tech spec settled decision 7).** Shipped
+> using EXISTING B42 lore items repurposed by disposition (`Note`,
+> `LetterHandwritten`, `Journal`, `Newspaper`; survivalist = `Map`). Not
+> `[new]` items, not deferred — implemented. The design intent below stands;
+> only the "authored paper item" part is replaced by repurposing.
 
 Real disasters leave paper: evacuation notes, door markings, "gone to mother's." One note style per disposition, spawned by the disposition filter: the organized evacuation leaves a note taped to the fridge for a relative who never came · the panicked one leaves nothing · sheltered-unprepared has a grocery list from the last normal day · the survivalist's is a hand-drawn cache map (§5.13). Cheapest possible [new] item class — paper and text, no real art — and it converts every disposition from a loot *pattern* into a legible *story*. Moved to the front of Phase 6 on value-per-effort.
 

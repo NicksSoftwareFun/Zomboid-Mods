@@ -361,9 +361,27 @@ local function applyBarter(container, roomType, containerType, r, base)
     end
 end
 
-function AH.B.fridgeNoteStub(container, r)
-    -- Phase 6: one note style per disposition ([new] paper items). Hook kept
-    -- so the disposition data can carry note ids without engine changes.
+-- Fridge notes (§6.6) — implemented with EXISTING items (no new art). One
+-- per house, in the kitchen, chosen by disposition (AHB01) — survivalist
+-- overrides to a cache Map (§5.13). Session-local once-per-building memo,
+-- same discipline as guarantees/barter.
+local fridgeNoted = {}
+local function applyFridgeNote(container, roomType, containerType, r, base)
+    if roomType ~= "kitchen" then return end
+    if containerType ~= "fridge" and containerType ~= "counter" then return end
+    if fridgeNoted[r.key] then return end
+    fridgeNoted[r.key] = true
+    local note
+    if r.arch == "survivalist" then
+        note = "Base.Map"                       -- hand-drawn cache map (§5.13)
+    else
+        local d = AH.B.Data.Dispositions[r.disp]
+        note = d and d.note
+    end
+    if note then
+        local rng = AH.B.rng(AH.B.hash(base .. "|note"))
+        insert(container, note, 1, nil, rng)
+    end
 end
 
 -- == The entry point ==========================================================
@@ -376,5 +394,5 @@ function AH.B.apply(container, roomType, containerType, r)
     applyDisposition(container, roomType, containerType, r, base, sqk)
     applyCondition(container, r, base, sqk)
     applyBarter(container, roomType, containerType, r, base)
-    AH.B.fridgeNoteStub(container, r)
+    applyFridgeNote(container, roomType, containerType, r, base)
 end

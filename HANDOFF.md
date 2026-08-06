@@ -29,8 +29,13 @@ Run: `cd tests && for t in test_tiers test_hash test_distrib test_vehicles test_
   hard-locked) · `AHB02_Data_Firearms` real gun/caliber/ammo IDs + coherent
   loose ammo · `AHB03_Hash` FNV-1a + PRNG (13 vectors).
 - `AHB10_Resolver` coordinate-key resolver + world-seed chain · `AHB11_FillHandler`
-  §3.5 contract · `AHB12_Apply` the six-step pass with anti-pile-up memos ·
+  §3.5 contract · `AHB12_Apply` the six-step pass with anti-pile-up memos +
+  fridge notes (§6.6, one existing lore item per disposition — no new art) ·
   `AHB13_Debug` `AHB_where/AHB_audit/AHB_recount/AHB_counters/AH_diff`.
+
+**Scope: NO NEW ART (settled decision 7).** The mod is pure data + Lua. Every
+`[new]`-item feature the design flagged is cut or repurposed from an existing
+B42 item; nothing waits on art. No `poster.png` or icons needed to ship.
 
 **Issue #2 (kitchen repetition) — FIXED.** Root cause: presence-targeting in a
 4-roll pool forces high counts and pool domination. Now: bounded expected
