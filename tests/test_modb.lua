@@ -7,16 +7,16 @@
 AH = { log = function() end, warnOnce = function() end,
        Options = { verbose = function() return false end } }
 
-dofile("../KnoxCountyHouseholds/42/media/lua/shared/AHB03_Hash.lua")
-dofile("../KnoxCountyHouseholds/42/media/lua/shared/AHB00_Data_Archetypes.lua")
-dofile("../KnoxCountyHouseholds/42/media/lua/shared/AHB01_Data_Dispositions.lua")
-dofile("../KnoxCountyHouseholds/42/media/lua/shared/AHB02_Data_Firearms.lua")
+dofile("../AmericanHousehold/42/media/lua/shared/AHB03_Hash.lua")
+dofile("../AmericanHousehold/42/media/lua/shared/AHB00_Data_Archetypes.lua")
+dofile("../AmericanHousehold/42/media/lua/shared/AHB01_Data_Dispositions.lua")
+dofile("../AmericanHousehold/42/media/lua/shared/AHB02_Data_Firearms.lua")
 
 -- stub getWorld so the resolver's world-seed chain resolves deterministically
 getWorld = function() return { getWorld = function() return "TestWorld" end } end
 SandboxVars = nil
 
-dofile("../KnoxCountyHouseholds/42/media/lua/server/AHB10_Resolver.lua")
+dofile("../AmericanHousehold/42/media/lua/server/AHB10_Resolver.lua")
 
 local fails = 0
 local function check(label, cond)

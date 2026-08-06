@@ -1,9 +1,0 @@
-VERSION = 1,
-
-option AmericanHousehold.ArchetypesEnabled
-{
-    type = boolean,
-    default = true,
-    page = AmericanHousehold,
-    translation = AHB_ArchetypesEnabled,
-}
