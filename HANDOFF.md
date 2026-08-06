@@ -53,6 +53,14 @@ signatures but need one live run. `TESTPLAN.md` is the script: boot
 expectations, the ten-house route, the setpiece route, F1–F8 checks, and the
 determinism/MP protocol.
 
+## Ledger (§8) — now fully wired
+- Quantity lines (Mod A merge-time) + charge lines D/E/F (`AHB14_Ledger`,
+  fill-time, residential-only, gated by `LedgerEnabled`): batteries spawn
+  ~30% dead, fuel/propane/lighter-fluid partial, pill bottles part-used.
+  `LedgerEnabled` is now actually consumed.
+- Line B bag-capacity −20% still needs item patching (open item 3). Line C
+  food scarcity ships neutral by decision (measure first).
+
 ## Open items (tech spec §8) still genuinely open
 - **3. Item-tag patching syntax** — the safe way to add a capability tag to a
   vanilla item (e.g. `base:wrench` on PipeWrench) is unresolved; the research
