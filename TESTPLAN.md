@@ -9,10 +9,16 @@ Protocol baseline: Muldraugh spawn, Apocalypse defaults, loot Normal, `-debug`.
 ## The playtest log — `Zomboid/Lua/AH_log.txt`
 
 Written automatically every run, **regardless of the Verbose sandbox option** —
-the console stays quiet, the file gets the detail. Truncated fresh each launch
-(like `console.txt`). Buffered, flushed every in-game minute + every 40 lines
-(force it now with `AH_flush()`). It lives one folder below `console.txt`
-because the game's file API is rooted at `Lua/`.
+the console stays quiet, the file gets the detail. Buffered, flushed every
+in-game minute + every 40 lines (force it now with `AH_flush()`). It lives one
+folder below `console.txt` because the game's file API is rooted at `Lua/`.
+
+**`LogMode` sandbox option** controls retention:
+- **Session** (default) — fresh file each launch, bounded to one run.
+- **Append** — accumulate across launches for multi-session debugging; each
+  session starts with a `==== SESSION ... ====` banner, and the file rotates
+  to `AH_log.1.txt` at 10 MB so total stays under ~20 MB. Use this when
+  collecting logs to hand off for analysis.
 
 Lines you'll see, and what each verifies:
 

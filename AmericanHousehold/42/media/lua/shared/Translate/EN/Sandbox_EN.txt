@@ -26,4 +26,9 @@ Sandbox_EN = {
 
     Sandbox_AHB_ArchetypesEnabled = "Enable household archetypes",
     Sandbox_AHB_ArchetypesEnabled_tooltip = "Per-building archetype and disposition system — every house tells you who lived there and what they did when it happened. Off = the global loot rebalance only (near-zero runtime cost).",
+
+    Sandbox_AH_LogMode = "Playtest log mode",
+    Sandbox_AH_LogMode_tooltip = "Controls Zomboid/Lua/AH_log.txt. Session: fresh file each launch. Append: accumulate across launches for multi-session debugging, rotating to AH_log.1.txt at 10 MB.",
+    Sandbox_AH_LogModeValues_option1 = "Session (fresh each launch)",
+    Sandbox_AH_LogModeValues_option2 = "Append (+ rotate at 10 MB)",
 }
