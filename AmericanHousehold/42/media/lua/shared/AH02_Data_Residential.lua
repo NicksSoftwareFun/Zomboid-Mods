@@ -233,3 +233,20 @@ add { item = "Base.Coffee2",           pool = "KitchenDryFood",    tier = "T1", 
 add { item = "Base.Whiskey",           pool = "KitchenBottles",    tier = "T2", nContainers = 2 } -- bourbon; wet/dry nuance is open question 4
 add { item = "Base.Lantern_Hurricane", pool = "ClosetShelfGeneric", tier = "T2", nContainers = 1 } -- §5.12 oil lamp
 add { item = "Base.CandleBox",         pool = "ClosetShelfGeneric", tier = "T3", nContainers = 1 }
+
+-- ===== Hall closet & storage/basement (§4.4/§4.8) =====
+-- Most §4.4 "closet" items are furniture (vacuum, iron, fire extinguisher)
+-- or vanilla clothing (coats) — not loot; skipped. What exists as items:
+-- the household toolbox (§4.9 dedupe: hall-closet OR garage), board games,
+-- a spare first-aid kit, an overflow bag. ClosetShelfGeneric is closet-
+-- exclusive so these don't leak to other rooms.
+add { item = "Base.Toolbox",           pool = "ClosetShelfGeneric", tier = "T2", nContainers = 1 } -- household toolbox
+add { item = "Base.CardDeck",          pool = "ClosetShelfGeneric", tier = "T2", nContainers = 1 } -- board/card games
+add { item = "Base.Dice",              pool = "ClosetShelfGeneric", tier = "T3", nContainers = 1 }
+add { item = "Base.FirstAidKit",       pool = "ClosetShelfGeneric", tier = "T3", nContainers = 1 }
+add { item = "Base.Bag_DuffelBag",     pool = "ClosetShelfGeneric", tier = "T3", nContainers = 1 } -- overflow luggage (ledger B)
+-- Basement/storage (room type 'storage'): the design's canning shelves,
+-- workbench overflow, holiday storage. Real items only. CrateCanning is a
+-- closet/storage crate; kept low-count (the count model caps it).
+add { item = "Base.EmptyJar",          pool = "CrateCanning",       tier = "T2", nContainers = 1 } -- baseline canning; Mod B canning archetype deepens
+add { item = "Base.CandleBox",         pool = "CrateCamping",       tier = "T3", nContainers = 1 }
