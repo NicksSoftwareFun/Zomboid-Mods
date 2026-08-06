@@ -53,3 +53,11 @@ option AmericanHousehold.Verbose
     page = AmericanHousehold,
     translation = AH_Verbose,
 }
+
+option AmericanHousehold.ArchetypesEnabled
+{
+    type = boolean,
+    default = true,
+    page = AmericanHousehold,
+    translation = AHB_ArchetypesEnabled,
+}

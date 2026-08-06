@@ -23,4 +23,7 @@ Sandbox_EN = {
 
     Sandbox_AH_Verbose = "Verbose logging",
     Sandbox_AH_Verbose_tooltip = "Per-fill and per-merge-change console logging. QA mode; leave off for normal play.",
+
+    Sandbox_AHB_ArchetypesEnabled = "Enable household archetypes",
+    Sandbox_AHB_ArchetypesEnabled_tooltip = "Per-building archetype and disposition system — every house tells you who lived there and what they did when it happened. Off = the global loot rebalance only (near-zero runtime cost).",
 }

@@ -1,5 +1,5 @@
 -- test_hash.lua — run with: lua5.1 test_hash.lua  (from mods/tests/)
-dofile("../KnoxCountyHouseholds/42/media/lua/shared/AHB03_Hash.lua")
+dofile("../AmericanHousehold/42/media/lua/shared/AHB03_Hash.lua")
 
 local fails = 0
 local function check(label, cond)

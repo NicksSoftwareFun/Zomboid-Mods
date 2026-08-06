@@ -1,4 +1,0 @@
-Sandbox_EN = {
-    Sandbox_AHB_ArchetypesEnabled = "Enable household archetypes",
-    Sandbox_AHB_ArchetypesEnabled_tooltip = "Per-building archetype and disposition system (Knox County Households). Off = Mod A loot rebalance only.",
-}

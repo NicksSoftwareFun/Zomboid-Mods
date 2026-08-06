@@ -87,6 +87,19 @@ function AH.Distrib.totalWeight(name, excludeItem)
     return total
 end
 
+-- Current weight of an item in a pool (either name spelling), or nil if
+-- the item is not present. Used by the residential planner to subtract the
+-- vanilla weight it is about to overwrite.
+function AH.Distrib.itemWeight(poolName, itemName)
+    local pool = AH.Distrib.getPool(poolName)
+    if not pool then return nil end
+    local it = pool.items
+    for i = 1, #it, 2 do
+        if sameItem(it[i], itemName) then return it[i + 1] end
+    end
+    return nil
+end
+
 -- Idempotent upsert: sets the item's weight, adding the entry if absent.
 -- Mutates IN PLACE (P8: other mods' earlier edits must survive). Matches
 -- vanilla's short-name entries; inserts short form for consistency.

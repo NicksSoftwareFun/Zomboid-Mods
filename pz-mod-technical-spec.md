@@ -14,6 +14,11 @@ You are implementing two Project Zomboid Build 42 mods:
 - **Mod A — "The American Household"**: global loot rebalance + full-tree recipe substitution + vehicle spawn multiplier. Pure data-table mutation at merge time plus `craftRecipe` script overrides. No novel API use. Build this first.
 - **Mod B — "Knox County Households"**: per-building archetype × disposition system. Depends on `OnFillContainer` and a container→building walk-up chain whose viability the Phase 0 probe (shipped separately as `AHProbe`) either confirmed or refuted. **Do not start Mod B until you have read the probe results.**
 
+> **UPDATE (Aug 2026): shipped as ONE mod.** The probe passed; A and B are now
+> a single `AmericanHousehold` mod (Mod B = the `AHB*` files, gated by the
+> `ArchetypesEnabled` sandbox option). See the §3 header. Read "Mod A / Mod B"
+> throughout this doc as "merge-time layer / fill-time layer."
+
 ### 0.1 Probe results gate — RESOLVED
 
 Probe run Aug 5 2026 on B42.20, two sessions (1,081 + 340 fills, 35 + 17 buildings). Results:
@@ -156,24 +161,45 @@ B42 mod sandbox options via `sandbox-options.txt` — **[VERIFIED Aug 2026]** fo
 
 ## 3. Mod B — architecture
 
-### 3.1 File layout
+> **SHIPPED AS ONE MOD (Aug 2026 decision).** The A/B split existed only to
+> gate Mod B behind the Phase 0 probe. The probe passed and all of B's
+> assumptions are proven, so the "Mod B" files now live inside the single
+> `AmericanHousehold` mod as the `AHB*` prefix family. There is no separate
+> mod, no `require`, no second Workshop item. The archetype/disposition layer
+> is gated at runtime by the `ArchetypesEnabled` sandbox option instead — off
+> = the global loot rebalance only, at near-zero cost (the fill handler
+> returns immediately). "Mod A" / "Mod B" below now mean the merge-time layer
+> vs. the fill-time layer of one mod.
+
+### 3.1 File layout (as shipped — one mod)
 
 ```
-KnoxCountyHouseholds/
+AmericanHousehold/
   42/
-    mod.info                       -- require=AHProbe removed; require=AmericanHousehold
-    media/lua/
-      shared/
-        AHB00_Data_Archetypes.lua  -- §5: 10 packages, declarative
-        AHB01_Data_Dispositions.lua-- §6: 6 filters + correlation matrix
-        AHB02_Data_Firearms.lua    -- §6.4: gun/caliber/ammo tables per archetype
-        AHB03_Hash.lua             -- FNV-1a + PRNG, pure functions
-      server/
-        AHB10_Resolver.lua         -- buildingKey -> {archetype, disposition}, cached
-        AHB11_FillHandler.lua      -- OnFillContainer entry point
-        AHB12_Apply.lua            -- package application + filter execution
-        AHB13_Debug.lua            -- debug commands (see §5)
+    mod.info                       -- single mod, no require
+    media/
+      sandbox-options.txt          -- all options incl. ArchetypesEnabled
+      lua/
+        shared/
+          AH00_Options … AH05_Data_Ledger.lua   -- merge-time layer (Mod A)
+          AHB00_Data_Archetypes.lua  -- §5: 10 packages, declarative
+          AHB01_Data_Dispositions.lua-- §6: 6 filters + correlation matrix
+          AHB02_Data_Firearms.lua    -- §6.4: gun/caliber/ammo + loose ammo
+          AHB03_Hash.lua             -- FNV-1a + PRNG, pure functions
+        server/
+          AH10 … AH13.lua            -- merge-time appliers (distrib/setpiece/vehicle)
+          AHB10_Resolver.lua         -- buildingKey -> {archetype, disposition}, cached
+          AHB11_FillHandler.lua      -- OnFillContainer entry point
+          AHB12_Apply.lua            -- package/guarantee/firearm/filter/condition
+          AHB13_Debug.lua            -- debug commands (see §5)
+      scripts/
+        AH_recipes_food.txt          -- §7 craftRecipe overrides + improvised
 ```
+
+Load order is alphabetical within `shared/` then `server/`: the `AH0x` data
+and `AH1x` appliers load before the `AHB*` family, so the fill-time layer sees
+a fully-populated `AH` namespace. This is exactly the old cross-mod ordering,
+now guaranteed within one mod instead of via `require`.
 
 ### 3.2 Building identity — DECIDED [PROBED]
 
