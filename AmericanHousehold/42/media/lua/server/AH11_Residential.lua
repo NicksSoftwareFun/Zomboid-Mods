@@ -91,10 +91,14 @@ local function applyResidential()
             end
             if info.scaled then
                 scaledPools = scaledPools + 1
-                AH.warnOnce("scaled:" .. poolName,
-                    poolName .. " hit the pool add-share cap (" ..
-                    string.format("%.0f%%", AH.Tiers.MAX_POOL_ADD_SHARE * 100) ..
-                    ") — targets scaled down to preserve vanilla variety")
+                -- NORMAL operation in the count model (the cap firing is what
+                -- keeps our edits a minority and rooms varied — issue #2). Info
+                -- only under verbose; the pass summary reports the total. Not a
+                -- WARN — a clean run must show zero [WARN] so a real one stands out.
+                if AH.Options.verbose() then
+                    AH.log(string.format("  %s scaled to the %.0f%% pool add-cap",
+                        poolName, AH.Tiers.MAX_POOL_ADD_SHARE * 100))
+                end
             end
             clamps = clamps + #info.clampedItems
         else

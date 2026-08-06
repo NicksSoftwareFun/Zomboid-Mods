@@ -1,0 +1,47 @@
+-- test_ledger.lua — run with: lua5.1 test_ledger.lua  (from mods/tests/)
+-- Data-integrity for the §8 ledger charge profiles: every entry must be a
+-- well-formed remaining-charge spec so the fill-time pass can't set an
+-- out-of-range UsedDelta. The fill handler itself is game-facing (pcall-
+-- guarded), but the DATA that drives it is checkable here.
+
+AH = { Data = {} }
+dofile("../AmericanHousehold/42/media/lua/shared/AH05_Data_Ledger.lua")
+
+local fails = 0
+local function check(label, cond)
+    if cond then print("PASS " .. label)
+    else fails = fails + 1; print("FAIL " .. label) end
+end
+
+local L = AH.Data.Ledger
+check("ledger table present", type(L) == "table")
+check("charge profiles present", type(L.charge) == "table")
+check("foodScale present", type(L.foodScale) == "table")
+
+-- every charge profile: lo/hi in [0,1], lo<=hi, deadChance in [0,1]
+local okAll, count = true, 0
+for id, p in pairs(L.charge) do
+    count = count + 1
+    if type(id) ~= "string" or id:sub(1, 5) ~= "Base." then okAll = false end
+    if not (p.lo and p.hi and p.lo >= 0 and p.hi <= 1 and p.lo <= p.hi) then okAll = false end
+    if p.deadChance and (p.deadChance < 0 or p.deadChance > 1) then okAll = false end
+end
+check("all charge profiles well-formed (" .. count .. ")", okAll and count > 0)
+
+-- foodScale factors are non-negative multipliers
+local okFood = true
+for pool, f in pairs(L.foodScale) do
+    if type(pool) ~= "string" or type(f) ~= "number" or f < 0 then okFood = false end
+end
+check("foodScale factors valid", okFood)
+
+-- the design's ledger lines D/E/F must each have at least one profile
+check("battery charge present (line D)", L.charge["Base.Battery"] ~= nil)
+check("medicine charge present (line E)", L.charge["Base.Pills"] ~= nil)
+check("fuel charge present (line F)",
+    L.charge["Base.PetrolCan"] ~= nil or L.charge["Base.PropaneTank"] ~= nil)
+-- battery must be able to spawn dead
+check("battery can spawn dead", (L.charge["Base.Battery"].deadChance or 0) > 0)
+
+print(fails == 0 and "ALL TESTS PASSED" or (fails .. " FAILURES"))
+os.exit(fails == 0 and 0 or 1)

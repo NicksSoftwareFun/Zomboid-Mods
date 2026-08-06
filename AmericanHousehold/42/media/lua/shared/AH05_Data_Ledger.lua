@@ -43,10 +43,14 @@ AH.Data.Ledger = {
     -- pass. deadChance: probability the item spawns fully spent; otherwise
     -- remaining charge is uniform in [lo, hi]. setUsedDelta semantics are
     -- pcall-guarded in AHB12 and verified in-game (TESTPLAN).
+    -- APPLIED by AHB14_Ledger.lua (fill-time, residential only, gated by
+    -- LedgerEnabled). Battery/Pills/PropaneTank/LighterFluid are base:drainable
+    -- (set via setUsedDelta); PetrolCan is base:normal + fluid container (set
+    -- via getFluidContainer:setAmount) — AHB14.setCharge handles both.
     charge = {
         ["Base.Battery"]    = { deadChance = 0.30, lo = 0.20, hi = 1.00 }, -- D
         ["Base.Pills"]      = { deadChance = 0.00, lo = 0.25, hi = 1.00 }, -- E: 10-40 doses of a full bottle
-        ["Base.PetrolCan"]  = { deadChance = 0.15, lo = 0.05, hi = 0.40 }, -- F: 0-40%
+        ["Base.PetrolCan"]  = { deadChance = 0.15, lo = 0.05, hi = 0.40 }, -- F: 0-40% (fluid)
         ["Base.PropaneTank"]= { deadChance = 0.10, lo = 0.10, hi = 0.60 }, -- F: 0-60%
         ["Base.LighterFluid"]={ deadChance = 0.10, lo = 0.20, hi = 0.80 },
     },

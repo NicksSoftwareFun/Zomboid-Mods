@@ -87,3 +87,26 @@ with only the input lines noted in Table 1 changed. On **any game update**:
   decides which version players get; there is no merging.
 - **Additions (Table 2):** the `AH_`-prefixed recipes are new names that exist
   in no other mod or in vanilla — they **never conflict**.
+
+## Why the §7.4 trades matrix is not overridden (audit conclusion)
+
+Design §7.4 asks for tool-requirement widening across the trades (wrenching,
+sawing, hammering, drilling, prying, etc.). An audit of all **1,171** B42.20
+craftRecipes (`reference/`-backed, `recipes_stats.md`) found:
+
+- **808** recipes have kept-tool inputs; **246** distinct tool specs.
+- Tool inputs are **already tag-based** in B42 — e.g. `tags[base:hammer]`,
+  `tags[base:saw;base:smallsaw;base:crudesaw]`, `tags[base:wrench]` — and a
+  tag matches *every* item carrying it (29 knives satisfy `base:sharpknife`,
+  6 openers satisfy `base:canopener`, etc.). This is exactly the
+  "capability, not a SKU" model §7.1 asks for; vanilla already implements it.
+- Only **42** kept-tool lines hard-require a single specific item. **All 42**
+  are molds, crucibles, presses, glass-blowing pipes, or calipers — i.e. the
+  tool *is* the physical form (a brick mold, a crucible). These are P11
+  physics gates, not SKU gates, and are correctly left alone.
+
+**Conclusion:** the only capability-widening that vanilla did NOT already do
+was food mixing-vessels and rolling-pins (Table 1) and the improvised
+can-opener path (Table 2). Those are shipped. The trades matrix needs no
+overrides — B42's tag system already satisfies it. Documented here so the
+absence is a verified decision, not an oversight.

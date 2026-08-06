@@ -70,4 +70,18 @@ AH.Data.Panic = {
         "LiquorStoreRum","LiquorStoreGin","LiquorStoreScotch","LiquorStoreTequila",
         "LiquorStoreBrandy","LiquorStoreWine","LiquorStoreWineFancy","LiquorStoreMix",
     } },
+
+    -- Jewelry: old-world wealth, stripped DAY ONE (§6.5 "the jewelry store
+    -- hit on day one and never entered again"; P12 — pre-crisis valuables go
+    -- first). The same worthless-valuable law as electronics/liquor.
+    -- COMPLEMENT (worthless cash, §6.5): banks and registers are deliberately
+    -- NOT reduced — vanilla already scatters Money through ~62 register pools,
+    -- and leaving BankDeposit full is exactly "banks untouched, nothing inside
+    -- could buy anything by day four." The P12 monument is pool composition
+    -- that costs nothing: gold stripped, cash left to rot.
+    { rollsFactor = 0.2, note = "jewelry retail stripped day one (P12)", pools = {
+        "DepartmentStoreJewelry","JewelryGems","JewelryGold","JewelrySilver",
+        "JewelryWrist","JewelryWeddingRings","JewelryNavelRings","JewelryOthers",
+        "JewelryStorageAll",
+    } },
 }

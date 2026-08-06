@@ -17,19 +17,27 @@ AH = AH or {}
 AH.B = AH.B or {}
 AH.B.Data = AH.B.Data or {}
 
+-- Fridge notes (§6.6) — NO NEW ART. Each disposition's note is an EXISTING
+-- B42 lore item repurposed (verified ids), placed once per house in the
+-- kitchen by AHB12. This turns each disposition from a loot pattern into a
+-- legible story with zero art cost. nil = the disposition leaves no paper.
+-- (survivalist overrides to a hand-drawn cache Map in AHB12 per §5.13.)
 AH.B.Data.Dispositions = {
     -- The jackpot — and the diegetic cover for the mod's abundance (§1.5).
-    never_came_home = {},
+    -- The newspaper on the counter, never read: life stopped mid-morning.
+    never_came_home = { note = "Base.Newspaper" },
 
     -- First thing packed: guns, ammo, meds, cash, photos, BAGS. Food,
     -- cookware, tools untouched — nobody flees with a socket set.
+    -- A handwritten note left for a relative who never came.
     evac_organized = {
         removeCategories = { gun = true, ammo = true, bag = true, med = true },
+        note = "Base.LetterHandwritten",
     },
 
     -- Grabbed the handgun, left the long guns; house in disarray. The
     -- partial fractions are the "randomized removal"; scatter is the
-    -- documented v1 simplification (AHB12 header).
+    -- documented v1 simplification (AHB12 header). No note — no time.
     evac_panicked = {
         partialRemove = { gun = 0.5, ammo = 0.5, bag = 0.4, med = 0.3 },
         scatter = true,
@@ -37,15 +45,19 @@ AH.B.Data.Dispositions = {
 
     -- Food heavily depleted, candles burned, guns present with ammo
     -- 30-70% spent, tools present. §6.5: barter caches live here.
+    -- A journal kept through the sheltering.
     sheltered_prepared = {
         deplete = { food = { 0.6, 0.9 }, ammo = { 0.3, 0.7 } },
         barterEligible = true,
+        note = "Base.Journal",
     },
 
-    -- Food consumed to near-zero; else untouched.
+    -- Food consumed to near-zero; else untouched. A grocery list from the
+    -- last normal day (a plain Note, repurposed).
     sheltered_unprepared = {
         deplete = { food = { 0.85, 1.0 } },
         barterEligible = true,
+        note = "Base.Note",
     },
 
     -- Pre-quarantine looting: guns and ammo first, then food and meds.

@@ -55,6 +55,14 @@ Decisions the user has made explicitly (do not "improve" these):
 4. Firearms are common (per §6.4's archetype table); dispositions supply gun scarcity; ammo is caliber-matched to the gun rolled.
 5. Consolidated households (two-building pairing) are **deferred** — do not implement, the design is preserved in open question 10.
 6. B42 only. No B41 backport.
+7. **NO NEW ART ASSETS (Aug 2026 decision).** The mod ships as pure data +
+   Lua. Anything the design flagged as a `[new]` item (fridge notes, a
+   community cookbook, 1993-calendar paper, custom junk-drawer items) is
+   either **cut** or **repurposed from an existing B42 item** — never
+   authored as new art. Fridge notes (§6.6) now use existing lore items
+   (`Note`, `LetterHandwritten`, `Journal`, `Newspaper`, `Map` for the
+   survivalist cache) chosen by disposition. Phase 6/7's `[new]`-item work is
+   struck from scope. No `poster.png` or icons are required to ship.
 
 ---
 
@@ -79,8 +87,7 @@ PZ embeds **Kahlua**, a Lua 5.1-subset interpreter, with the game API exposed as
 ```
 AmericanHousehold/
   42/
-    mod.info
-    poster.png
+    mod.info                      -- (poster.png optional, not shipped — settled decision 7, no art)
     media/
       lua/
         shared/
@@ -288,7 +295,7 @@ Order of operations per container, and this order is load-bearing:
 3. **Firearm roll** (§6.4): archetype table -> gun pick -> `caliber` returned -> ammo insertion in same container using caliber-keyed ammo table (AHB02). One code path; no independent ammo rolls anywhere in Mod B.
 4. **Disposition filter**: category-based removal/depletion over the container's *final* contents: `{removeCategories={...}, depleteRanges={food={0.0,0.2}}, scatter=bool}`. Category membership = item tag / script category lookup, cached per item type. Scatter=true relocates a fraction of removed items into other containers *in the same room* (never across rooms; never spawns).
 5. **Condition variance** (design §1.3): final pass, sets condition on tools/durables from the archetype's condition profile.
-6. **Barter cache / fridge note** (v0.6): keyed off (disposition, rng) — cache is step-1-style insertion; notes are Phase 6 items, stub the hook now.
+6. **Barter cache / fridge note** (v0.6): keyed off (disposition, rng) — cache is step-1-style insertion. **IMPLEMENTED (no art, settled decision 7):** fridge notes use existing B42 lore items chosen by disposition (`Note`/`LetterHandwritten`/`Journal`/`Newspaper`, and `Map` for the survivalist cache), one per house, once-per-building memo. Not a stub.
 
 ### 3.7 Firearm data shape (AHB02)
 
@@ -356,9 +363,26 @@ Tickets 1–8 are Mod A and can proceed **regardless of probe outcome**. Tickets
 
 1. ~~Vehicle table names / per-zone chance field~~ — **fully resolved Aug 2026**: `VehicleZoneDistribution` lives in `media/lua/shared/Vehicles/VehicleZoneDefinition.lua` in B42; chance field is `spawnRate` (§2.6). AH13 written and unit-tested.
 2. ~~B42 pool *entry* shape~~ — **resolved Aug 2026 from game files**: B41-style flat pairs confirmed; short names, module Base implied; optional pool flags. See §2.2 and `reference/README.md`. AH10 updated + unit-tested (`tests/test_distrib.lua`).
-3. Item-tag patching syntax in B42 — research against current Workshop mods (§2.5).
-4. World-seed accessor for the determinism stack (§3.3).
-5. Junk-drawer trigger-container choice (§3.6 step 2 simplification) — pick during ticket 4, document in code.
-6. ~~B42 `sandbox-options.txt` format~~ — **resolved Aug 2026**: matches B41 (§2.7); both mods' options files written.
-7. **New (from probe):** what map data selects the vanilla themed pool variants (`WardrobeRedneck`, `FridgeTrailerPark`, `DerelictHouse*`) — room def property or building class? If accessible at fill time, Mod B's archetype system can piggyback on the game's own house-character signal. Investigate during ticket 10.
-8. **New (from probe):** farm supply has no dedicated room pools (§0.3 gap) — that §10.3 category needs new room-type mapping; schedule last within ticket 7.
+3. Item-tag patching syntax in B42 — **DEFERRED, BLOCKED.** Research was interrupted (session limit) before a verified mechanism was found. Only two things want it: the ledger-B bag-capacity −20% (item property patch) and a handful of cosmetic tag adds. Nothing ships blocked on it — the recipe overrides widen item lists directly, not via tags (§2.5). Pick up the research here.
+4. ~~World-seed accessor~~ — **resolved in-game Aug 2026**: the defensive chain (`AHB10`) resolves to `getWorld():getWorld()` (`worldName`) on B42.20.2 — a stable, unique-per-save source, not the constant fallback. Confirmed in a live console log.
+5. ~~Junk-drawer trigger container~~ — **resolved**: `KitchenRandom` via the `counter` trigger; documented in `AH02`/`AHB00`.
+6. ~~B42 `sandbox-options.txt` format~~ — **resolved Aug 2026**: matches B41 (§2.7); options file written and read correctly in-game (all values logged at boot).
+7. **DEFERRED (design-uncertain):** what map data selects the vanilla themed pool variants (`WardrobeRedneck`, `FridgeTrailerPark`, `DerelictHouse*`). Mod B's archetype system works without it (coordinate-key resolver); piggybacking on the game's signal is a possible future refinement, not required.
+8. ~~Farm supply has no dedicated room pools~~ — **resolved**: assembled from `ToolStoreFarming`/`ToolCabinetFarming`/`BarnTools`/`FarmerTools`/`ProduceStorage*` in `AH03` (§10.3).
+
+### 8.1 Implementation status (Aug 2026) — what is built vs. deferred
+
+**Built and unit-tested (6 suites green; not yet in-game beyond the boot/kitchen check):**
+all 14 tickets · issue-#2 count model · one merged mod · residential §4 (incl.
+closet/basement) · setpieces §10 (auto/mechanic/hardware/tool-store/farm/gun/
+police/surplus/medical/church/**schools**/**fire stations**) · panic layer §10.2
+(food/gun/pharmacy/electronics/liquor/**jewelry**) · vehicles §9 · recipes §7
+(food + improvised; trades need none — see `OVERRIDES.md`) · archetypes §5 ·
+dispositions §6 · firearms §6.4 (+ independent coherent ammo) · barter §6.5 ·
+fridge notes §6.6 (existing items) · **ledger charge D/E/F** (`AHB14`).
+
+**Deferred, with reasons (not oversights):**
+- **Ledger-B bag capacity −20%** — needs item-property patching (open item 3, blocked).
+- **Ledger-C food scarcity** — factors ship neutral (1.0) by decision; tune from the ten-house route metrics (design §13: measure before cutting).
+- **Typed warehouse categories (§10.5)** — needs `Distributions.lua` room-mapping and is an open *design* question (§15 Q8). Generic bulk crates ship as-is.
+- **Consolidated households (§15 Q10)** and **§5.14 calendar `[new]` paper** — deferred/cut by decision (no new art, settled decision 7).
