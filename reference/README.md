@@ -10,6 +10,7 @@ game updates and something misbehaves, regenerate these before debugging code.
 | `b42.20_pool_stats.tsv` | parsed `media/lua/server/Items/ProceduralDistributions.lua` (1,424 pools) | pool name / rolls / item count / total weight — offline solver estimates |
 | `b42.20_kitchen_pools.lua` | same file, verbatim blocks | the ten `Kitchen*` pools with exact vanilla weights; ticket 4 tuning |
 | `b42.20_VehicleZoneDefinition.lua` | `media/lua/shared/Vehicles/VehicleZoneDefinition.lua`, verbatim | zone spawn tables; AH13 field ground truth |
+| `b42.20_ISFluidEmptyAction.lua` | `media/lua/**/Fluids/ISFluidEmptyAction.lua`, verbatim | proves the FluidContainer API: `adjustAmount()` is an ABSOLUTE setter (`updateEmpty` sets `startAmount*(1-progress)` through it), and there is no capacity getter — so AHB14 charges petrol cans by absolute litres from the item's declared Capacity |
 
 Facts these files settled (tech spec §8):
 

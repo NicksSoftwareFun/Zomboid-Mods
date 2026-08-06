@@ -40,21 +40,24 @@ local floor = math.floor
 -- Drainable path (Battery/Pills/PropaneTank/LighterFluid) is confirmed
 -- working in-game via setUsedDelta (fraction remaining; 1 = full).
 --
--- Fluid-container path (PetrolCan is base:normal + a FluidContainer): B42's
--- FluidContainer does NOT expose getCapacity()/setAmount() — verified from a
--- live stack trace — so this no-ops today (petrol cans stay full) rather than
--- throwing. Left guarded so it self-heals if a build adds those accessors;
--- charging fuel-can *fluid* is otherwise a deferred item (needs the confirmed
--- B42 fluid API). Exposed for the no-throw regression test.
-function AH.B.setLedgerCharge(item, frac)
+-- Fluid-container path (PetrolCan is base:normal + a FluidContainer). B42's
+-- FluidContainer exposes getAmount() and adjustAmount() — the latter is an
+-- ABSOLUTE setter (verified from vanilla ISFluidEmptyAction:updateEmpty,
+-- which sets targetFillAmount = startAmount*(1-progress) through it). There
+-- is NO capacity getter in the accessible API, so we pass the capacity in
+-- from data (the item script's declared Capacity) and set an absolute litre
+-- target = capacity*frac. Absolute (not relative to current amount) makes it
+-- IDEMPOTENT across loot respawn — re-running sets the same litres, no
+-- compounding. `capacity` is nil for non-fluid items.
+function AH.B.setLedgerCharge(item, frac, capacity)
     if item.setUsedDelta then
         item:setUsedDelta(frac)
         return true
     end
-    if item.getFluidContainer then
+    if capacity and item.getFluidContainer then
         local fc = item:getFluidContainer()
-        if fc and fc.getCapacity and fc.setAmount then
-            fc:setAmount(fc:getCapacity() * frac)
+        if fc and fc.adjustAmount then
+            fc:adjustAmount(capacity * frac)
             return true
         end
     end
@@ -82,7 +85,7 @@ local function chargeContainer(roomType, container, seedBase)
                 else
                     frac = prof.lo + rng() * (prof.hi - prof.lo)
                 end
-                setCharge(item, frac)
+                setCharge(item, frac, prof.capacity)
             end
         end
     end)
