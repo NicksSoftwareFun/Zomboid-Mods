@@ -66,29 +66,40 @@ check("drainable: no throw", okDrain)
 check("drainable: setUsedDelta called with frac", gotDelta == 0.4)
 check("drainable: returns true", (function() gotDelta=nil; return setC(drainable, 0.5) end)())
 
--- a fluid container whose API is MISSING getCapacity/setAmount (the B42.20.2
--- PetrolCan case) -> must NOT throw, must NOT call anything, returns false
+-- a fluid item WITHOUT a capacity supplied -> must not charge (returns false,
+-- no throw). Guards against emptying a can we can't size.
+local noCapCalled = false
+local fluidNoCap = { getFluidContainer = function(self)
+    return { adjustAmount = function() noCapCalled = true end } end }
+local okNC, resNC = pcall(setC, fluidNoCap, 0.3, nil)
+check("fluid without capacity: no throw", okNC)
+check("fluid without capacity: returns false", resNC == false)
+check("fluid without capacity: adjustAmount not called", noCapCalled == false)
+
+-- a fluid container missing adjustAmount -> no throw, no missing-method call
 local badFluidCalled = false
 local badFluid = { getFluidContainer = function(self)
     return { getAmount = function() badFluidCalled = true end } end }
-local okBad, resBad = pcall(setC, badFluid, 0.3)
-check("missing fluid API: no throw", okBad)
-check("missing fluid API: returns false", resBad == false)
-check("missing fluid API: never called a missing method", badFluidCalled == false)
+local okBad, resBad = pcall(setC, badFluid, 0.3, 10)
+check("missing adjustAmount: no throw", okBad)
+check("missing adjustAmount: returns false", resBad == false)
+check("missing adjustAmount: never called a missing method", badFluidCalled == false)
 
 -- a plain item (no charge methods at all) -> no throw, false
-local okPlain, resPlain = pcall(setC, {}, 0.2)
+local okPlain, resPlain = pcall(setC, {}, 0.2, nil)
 check("plain item: no throw", okPlain)
 check("plain item: returns false", resPlain == false)
 
--- a fluid container WITH the accessors -> charges, no throw
+-- a fluid container with adjustAmount + capacity -> absolute litre set,
+-- and IDEMPOTENT (same input -> same absolute value, no compounding)
 local setTo = nil
 local goodFluid = { getFluidContainer = function(self)
-    return { getCapacity = function() return 10 end,
-             setAmount = function(_, a) setTo = a end } end }
-local okGood = select(1, pcall(setC, goodFluid, 0.4))
+    return { adjustAmount = function(_, a) setTo = a end } end }
+local okGood = select(1, pcall(setC, goodFluid, 0.4, 10.0))
 check("working fluid API: no throw", okGood)
-check("working fluid API: setAmount = capacity*frac", setTo == 4)
+check("working fluid API: adjustAmount = capacity*frac", setTo == 4)
+setC(goodFluid, 0.4, 10.0)  -- run again
+check("fluid charge idempotent (absolute, no compounding)", setTo == 4)
 
 print(fails == 0 and "ALL TESTS PASSED" or (fails .. " FAILURES"))
 os.exit(fails == 0 and 0 or 1)

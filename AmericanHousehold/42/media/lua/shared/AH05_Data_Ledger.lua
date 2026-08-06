@@ -45,17 +45,16 @@ AH.Data.Ledger = {
     -- pcall-guarded in AHB12 and verified in-game (TESTPLAN).
     -- APPLIED by AHB14_Ledger.lua (fill-time, residential only, gated by
     -- LedgerEnabled). Battery/Pills/PropaneTank/LighterFluid are base:drainable
-    -- and charge correctly via setUsedDelta (confirmed in-game).
-    -- PetrolCan is base:normal + a FluidContainer; B42.20.2's FluidContainer
-    -- exposes no getCapacity()/setAmount(), so its charge NO-OPS today (the
-    -- can spawns full) — kept here so it self-heals if a build adds those
-    -- accessors. Charging fuel-can fluid is otherwise DEFERRED (needs the
-    -- confirmed B42 fluid API). It never throws (AHB14.setLedgerCharge guards
-    -- every call) — the earlier console spam is fixed.
+    -- and charge via setUsedDelta (fraction remaining; confirmed in-game).
+    -- PetrolCan is base:normal + a FluidContainer: charged via adjustAmount
+    -- (absolute litre setter, confirmed from vanilla ISFluidEmptyAction). It
+    -- has no capacity getter, so `capacity` here is the item script's declared
+    -- Capacity (B42.20.2 PetrolCan = 10.0 L); the pass sets an ABSOLUTE target
+    -- of capacity*frac so it stays idempotent across loot respawn.
     charge = {
         ["Base.Battery"]    = { deadChance = 0.30, lo = 0.20, hi = 1.00 }, -- D
         ["Base.Pills"]      = { deadChance = 0.00, lo = 0.25, hi = 1.00 }, -- E: 10-40 doses of a full bottle
-        ["Base.PetrolCan"]  = { deadChance = 0.15, lo = 0.05, hi = 0.40 }, -- F: 0-40% (fluid — no-ops until API confirmed)
+        ["Base.PetrolCan"]  = { deadChance = 0.15, lo = 0.05, hi = 0.40, capacity = 10.0 }, -- F: 0-40% of 10 L (fluid)
         ["Base.PropaneTank"]= { deadChance = 0.10, lo = 0.10, hi = 0.60 }, -- F: 0-60%
         ["Base.LighterFluid"]={ deadChance = 0.10, lo = 0.20, hi = 0.80 },
     },
