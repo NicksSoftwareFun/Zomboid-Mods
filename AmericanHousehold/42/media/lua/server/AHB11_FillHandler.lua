@@ -17,6 +17,10 @@ AH.B = AH.B or {}
 AH.B.counters = { fills = 0, applied = 0, skippedNested = 0, skippedOutdoor = 0,
                   skippedPicker = 0, skippedNoChain = 0, skippedNonRes = 0 }
 
+-- session-local: buildings already written to the playtest log (one [BLDG]
+-- line each). Not persisted; re-derived each session like the resolver cache.
+local loggedBuildings = {}
+
 local function onFill(roomType, containerType, container)
     local C = AH.B.counters
     C.fills = C.fills + 1
@@ -81,6 +85,14 @@ local function onFill(roomType, containerType, container)
     local r = AH.B.resolve(building)
     if not r then return end -- keyOf already warned
 
+    -- playtest log: one [BLDG] line per building the first time we touch it —
+    -- the archetype/disposition distribution as you explore (F2/weights check).
+    if not loggedBuildings[r.key] then
+        loggedBuildings[r.key] = true
+        AH.vlog(string.format("[BLDG] %s region=%s arch=%s disp=%s",
+            r.key, r.region, r.arch, r.disp))
+    end
+
     -- 6. apply (AHB12): packages -> guarantees -> firearms -> filters -> condition
     local okApply, err = pcall(AH.B.apply, container, roomType, containerType, r)
     if not okApply then
@@ -90,10 +102,9 @@ local function onFill(roomType, containerType, container)
     end
     C.applied = C.applied + 1
 
-    if AH.Options.verbose() then
-        AH.log(string.format("[AHB] fill %s/%s -> %s/%s (%s)",
-            tostring(roomType), tostring(containerType), r.arch, r.disp, r.region))
-    end
+    -- per-fill line: always to AH_log.txt, to console only if Verbose
+    AH.vlog(string.format("[FILL] %s/%s -> %s/%s (%s)",
+        tostring(roomType), tostring(containerType), r.arch, r.disp, r.region))
 end
 
 if Events and Events.OnFillContainer then

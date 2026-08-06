@@ -105,13 +105,23 @@ function AH_diff()
     end
 end
 
--- Fill-handler counters (skip-path accounting; §3.5 steps 2a-2c/3/5).
+-- Fill-handler counters (skip-path accounting; §3.5 steps 2a-2c/3/5). Also
+-- written to the playtest log so the run's totals are captured there.
 function AHB_counters()
     local C = AH.B.counters
-    print(string.format(
-        "[AHB] fills=%d applied=%d nested=%d outdoor=%d picker=%d nochain=%d nonres=%d",
+    local line = string.format(
+        "fills=%d applied=%d nested=%d outdoor=%d picker=%d nochain=%d nonres=%d",
         C.fills, C.applied, C.skippedNested, C.skippedOutdoor,
-        C.skippedPicker, C.skippedNoChain, C.skippedNonRes))
+        C.skippedPicker, C.skippedNoChain, C.skippedNonRes)
+    print("[AHB] " .. line)
+    if AH.FLog then AH.FLog.line("[COUNTERS] " .. line); AH.FLog.flush() end
 end
 
-AH.log("[AHB] debug commands: AHB_where() AHB_audit(n) AHB_recount() AHB_counters() AH_diff()")
+-- Force the playtest-log buffer to disk (it also auto-flushes every in-game
+-- minute and every 40 lines).
+function AH_flush()
+    if AH.FLog then AH.FLog.flush() end
+    print("[AH] playtest log flushed -> <Zomboid>/Lua/" .. (AH.FLog and AH.FLog.FILE or "AH_log.txt"))
+end
+
+AH.log("[AHB] debug commands: AHB_where() AHB_audit(n) AHB_recount() AHB_counters() AH_diff() AH_flush()")
