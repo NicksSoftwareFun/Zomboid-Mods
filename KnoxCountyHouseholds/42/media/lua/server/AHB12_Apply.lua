@@ -157,6 +157,18 @@ local function applyGuarantees(container, roomType, containerType, r, base)
     end
 end
 
+-- insert `rounds` worth of a caliber as retail boxes.
+local function insertAmmoByCaliber(container, caliber, rounds, rng)
+    local a = AH.B.Data.Firearms.ammoByCaliber[caliber]
+    if not a then
+        AH.warnOnce("ammo:" .. tostring(caliber),
+            "[AHB] no ammo mapping for caliber " .. tostring(caliber))
+        return
+    end
+    local boxes = math.max(1, floor(rounds / a.perBox + 0.5))
+    insert(container, a.box, boxes, nil, rng)
+end
+
 -- == Step 3: firearm roll + caliber-matched ammo (§6.4) =======================
 local function applyFirearms(container, roomType, containerType, r, base, sqk)
     local prof = AH.B.Data.Firearms.archetypeProfiles[r.arch]
@@ -164,31 +176,45 @@ local function applyFirearms(container, roomType, containerType, r, base, sqk)
     if prof.rooms and not prof.rooms[roomType] then return end
     if prof.containers and not prof.containers[containerType] then return end
 
-    local rng = AH.B.rng(AH.B.hash(base .. "|guns|" .. sqk))
-    if rng() >= perContainer(prof.chance, prof.nContainers) then return end
-
-    local nGuns = rint(rng, prof.gunCount[1], prof.gunCount[2])
-    local calibers = {}
-    for _ = 1, nGuns do
-        local gun = AH.B.pickWeighted(prof.guns, rng)
-        if gun then
-            insert(container, gun.item, 1, prof.gunCondition or { 0.5, 0.95 }, rng)
-            calibers[#calibers + 1] = gun.caliber
+    -- 3a. gun roll: guns come with matched ammo (same container). Uses its
+    --     own stream so it is independent of the loose-ammo stream below.
+    local grng = AH.B.rng(AH.B.hash(base .. "|guns|" .. sqk))
+    if grng() < perContainer(prof.chance, prof.nContainers) then
+        local nGuns = rint(grng, prof.gunCount[1], prof.gunCount[2])
+        local calibers = {}
+        for _ = 1, nGuns do
+            local gun = AH.B.pickWeighted(prof.guns, grng)
+            if gun then
+                insert(container, gun.item, 1, prof.gunCondition or { 0.5, 0.95 }, grng)
+                calibers[#calibers + 1] = gun.caliber
+            end
+        end
+        if #calibers > 0 then
+            local rounds = rint(grng, prof.ammoRounds[1], prof.ammoRounds[2])
+            local per = floor(rounds / #calibers)
+            for i = 1, #calibers do
+                insertAmmoByCaliber(container, calibers[i], per, grng)
+            end
         end
     end
-    -- ONE code path for ammo: caliber comes only from the guns just rolled
-    -- (F7 guard). Rounds split evenly across the calibers present.
-    if #calibers == 0 then return end
-    local rounds = rint(rng, prof.ammoRounds[1], prof.ammoRounds[2])
-    local per = floor(rounds / #calibers)
-    for i = 1, #calibers do
-        local a = AH.B.Data.Firearms.ammoByCaliber[calibers[i]]
-        if a then
-            local boxes = math.max(1, floor(per / a.perBox + 0.5))
-            insert(container, a.box, boxes, nil, rng)
-        else
-            AH.warnOnce("ammo:" .. tostring(calibers[i]),
-                "[AHB] no ammo mapping for caliber " .. tostring(calibers[i]))
+
+    -- 3b. loose ammo: INDEPENDENT of whether a gun spawned here, but still
+    --     drawn from THIS archetype's calibers (coherent, not gun-locked).
+    --     "Rare to be a gun owner with no ammo" — separate stream so a house
+    --     can have ammo in a drawer with the rifle in the closet, or ammo
+    --     the evacuee left behind. Disposition filters strip it where the
+    --     story removes ammo (evac_organized/looted).
+    local la = prof.looseAmmo
+    if la then
+        local lrng = AH.B.rng(AH.B.hash(base .. "|loose|" .. sqk))
+        if lrng() < perContainer(la.chance, la.nContainers) then
+            local caliber = AH.B.pickWeighted(la.calibers, lrng)
+            if caliber then
+                local rounds = rint(lrng, la.rounds[1], la.rounds[2])
+                if rounds > 0 then
+                    insertAmmoByCaliber(container, caliber, rounds, lrng)
+                end
+            end
         end
     end
 end

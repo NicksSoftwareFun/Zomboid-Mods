@@ -1,7 +1,12 @@
 --------------------------------------------------------------------------------
 -- AH11_Residential.lua — applies AH02 at merge time. Tech spec §2.2.
--- Reads live pool weight/rolls (never hardcoded), solves per-container
--- targets, clamps at the pool-competition ceiling with a warning.
+--
+-- COUNT MODEL (issue #2 fix). Entries are GROUPED BY POOL and solved together
+-- through AH01's order-independent planPool, which targets a bounded expected
+-- COUNT per tier and enforces two caps: per-item share (no 3-of-a-kind) and
+-- per-pool total added share (our edits stay a minority so vanilla variety
+-- survives and rooms stop looking identical). Reads live pool weight/rolls;
+-- never hardcodes. True T0 certainty is Mod B's guarantee pass, not weight.
 --------------------------------------------------------------------------------
 
 AH = AH or {}
@@ -13,67 +18,84 @@ local function applyResidential()
     end
 
     local abundance = AH.Options.abundanceFactor()
-    local applied, skipped, clamps = 0, 0, 0
     -- true iff Mod B is enabled AND its guarantee data actually loaded
     -- (evaluated at merge time — all mods' shared files are loaded by then)
-    local modBGuarantees = AH.B and AH.B.Data and AH.B.Data.Guarantees and true or false
+    local modBGuarantees = (AH.B and AH.B.Data and AH.B.Data.Guarantees) and true or false
     if modBGuarantees then
-        AH.log("Mod B guarantees detected — approachC entries solve at T2")
+        AH.log("Mod B guarantees detected — approachC entries drop to minimal pool presence")
     end
 
+    -- Pass 1: validate items, resolve per-item target COUNT, bucket by pool.
+    local buckets = {}          -- poolName -> { entries = {{key,mu,n}}, order }
+    local order = {}
+    local skipped = 0
     for _, e in ipairs(AH.Data.Residential) do
         repeat
             if not AH.Distrib.itemExists(e.item) then
-                AH.warnOnce("item:" .. e.item,
-                    "unknown item id " .. e.item ..
-                    (e.unverified and " (was flagged unverified — fix the ID in AH02)" or
-                     " (was VERIFIED-marked; investigate)"))
+                AH.warnOnce("item:" .. e.item, "unknown item id " .. e.item)
                 skipped = skipped + 1
                 break
             end
-
-            -- exclude the item's own vanilla entry (if any) from W: the
-            -- solver assumes the item is being ADDED to the pool.
-            local W = AH.Distrib.totalWeight(e.pool, e.item)
-            local R = AH.Distrib.rolls(e.pool)
-            if not W or W <= 0 or not R then
-                skipped = skipped + 1
-                break -- getPool already warned
-            end
-
-            local tier = e.tier
-            -- Approach C handshake: when Mod B is present its guarantee pass
-            -- supplies the T0 certainty, so the pool entry drops to T2 —
-            -- pools supply variety, the guarantee supplies presence, and the
-            -- F3 duplicate expectation stays under control (design §3.1).
-            if e.approachC and AH.B and modBGuarantees then
-                tier = "T2"
-            end
-            local roomP = AH.Tiers.TARGET[tier]
-            if not roomP then
-                AH.warnOnce("tier:" .. tostring(tier), "unknown tier on " .. e.item)
+            local mu = AH.Tiers.COUNT[e.tier]
+            if not mu then
+                AH.warnOnce("tier:" .. tostring(e.tier), "unknown tier on " .. e.item)
                 skipped = skipped + 1
                 break
             end
-            -- abundance slider scales the presence target, capped sane
-            roomP = math.min(0.985, roomP * abundance)
-
-            local p = AH.Tiers.perContainerTarget(roomP, e.nContainers or 1)
-            local w, clamped = AH.Tiers.solveWeight(p, W, R)
-            if clamped then
-                clamps = clamps + 1
-                AH.warnOnce("clamp:" .. e.item,
-                    e.item .. " clamped at pool-share ceiling in " .. e.pool ..
-                    " — needs Approach C or a narrower pool (design §3.1)")
+            -- Approach C handshake: when Mod B guarantees this item, the pool
+            -- only needs to add flavor (minimal count) — the guarantee pass
+            -- delivers the certainty, and keeping the pool contribution tiny
+            -- is what prevents the issue-#2 duplication in the pool layer.
+            if e.approachC and modBGuarantees then
+                mu = AH.Tiers.COUNT.T3
             end
+            -- abundance slider scales the count target (±20%), never presence.
+            mu = mu * abundance
 
-            AH.Distrib.setItemWeight(e.pool, e.item, w)
-            applied = applied + 1
+            local b = buckets[e.pool]
+            if not b then
+                b = { entries = {} }
+                buckets[e.pool] = b
+                order[#order + 1] = e.pool
+            end
+            b.entries[#b.entries + 1] = { key = e.item, mu = mu, n = e.nContainers or 1 }
         until true
     end
 
-    AH.log(string.format("residential pass: %d applied, %d skipped, %d clamped",
-        applied, skipped, clamps))
+    -- Pass 2: solve each pool as a group and apply.
+    local applied, clamps, scaledPools = 0, 0, 0
+    for _, poolName in ipairs(order) do
+        local entries = buckets[poolName].entries
+        local R = AH.Distrib.rolls(poolName)
+        local Worig = AH.Distrib.totalWeight(poolName)   -- live original total
+        if R and Worig and Worig > 0 then
+            -- summed vanilla weight of the entries we will overwrite
+            local w0sum = 0
+            for i = 1, #entries do
+                w0sum = w0sum + (AH.Distrib.itemWeight(poolName, entries[i].key) or 0)
+            end
+            local weights, info = AH.Tiers.planPool(entries, Worig, w0sum, R)
+            for i = 1, #entries do
+                local key = entries[i].key
+                AH.Distrib.setItemWeight(poolName, key, weights[key])
+                applied = applied + 1
+            end
+            if info.scaled then
+                scaledPools = scaledPools + 1
+                AH.warnOnce("scaled:" .. poolName,
+                    poolName .. " hit the pool add-share cap (" ..
+                    string.format("%.0f%%", AH.Tiers.MAX_POOL_ADD_SHARE * 100) ..
+                    ") — targets scaled down to preserve vanilla variety")
+            end
+            clamps = clamps + #info.clampedItems
+        else
+            skipped = skipped + #entries -- getPool/rolls already warned
+        end
+    end
+
+    AH.log(string.format(
+        "residential pass: %d applied, %d skipped, %d item-clamps, %d pools scaled",
+        applied, skipped, clamps, scaledPools))
     if AH.Options.verbose() then AH.Distrib.logDiff() end
 end
 
