@@ -61,3 +61,13 @@ option AmericanHousehold.ArchetypesEnabled
     page = AmericanHousehold,
     translation = AHB_ArchetypesEnabled,
 }
+
+option AmericanHousehold.LogMode
+{
+    type = enum,
+    numValues = 2,
+    default = 1,
+    page = AmericanHousehold,
+    translation = AH_LogMode,
+    valueTranslation = AH_LogModeValues,
+}
