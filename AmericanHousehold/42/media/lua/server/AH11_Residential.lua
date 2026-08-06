@@ -14,6 +14,12 @@ local function applyResidential()
 
     local abundance = AH.Options.abundanceFactor()
     local applied, skipped, clamps = 0, 0, 0
+    -- true iff Mod B is enabled AND its guarantee data actually loaded
+    -- (evaluated at merge time — all mods' shared files are loaded by then)
+    local modBGuarantees = AH.B and AH.B.Data and AH.B.Data.Guarantees and true or false
+    if modBGuarantees then
+        AH.log("Mod B guarantees detected — approachC entries solve at T2")
+    end
 
     for _, e in ipairs(AH.Data.Residential) do
         repeat
@@ -35,9 +41,17 @@ local function applyResidential()
                 break -- getPool already warned
             end
 
-            local roomP = AH.Tiers.TARGET[e.tier]
+            local tier = e.tier
+            -- Approach C handshake: when Mod B is present its guarantee pass
+            -- supplies the T0 certainty, so the pool entry drops to T2 —
+            -- pools supply variety, the guarantee supplies presence, and the
+            -- F3 duplicate expectation stays under control (design §3.1).
+            if e.approachC and AH.B and modBGuarantees then
+                tier = "T2"
+            end
+            local roomP = AH.Tiers.TARGET[tier]
             if not roomP then
-                AH.warnOnce("tier:" .. tostring(e.tier), "unknown tier on " .. e.item)
+                AH.warnOnce("tier:" .. tostring(tier), "unknown tier on " .. e.item)
                 skipped = skipped + 1
                 break
             end
