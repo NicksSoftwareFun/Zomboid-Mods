@@ -28,25 +28,39 @@ AH.B = AH.B or {}
 
 local floor = math.floor
 
--- Set an item's remaining charge to `frac` (0..1), trying drainable first,
--- then fluid. Returns true if something applied.
-local function setCharge(item, frac)
-    local okD = pcall(function()
-        if item.setUsedDelta then item:setUsedDelta(frac); return end
-        error("no drainable")
-    end)
-    if okD then return true end
-    local okF = pcall(function()
-        local fc = item.getFluidContainer and item:getFluidContainer()
-        if fc then
-            local cap = fc:getCapacity()
-            fc:setAmount(cap * frac)
-        else
-            error("no fluid")
+-- Set an item's remaining charge to `frac` (0..1). Returns true if applied.
+--
+-- MUST NOT THROW. PZ dumps *caught* pcall exceptions to console.txt with a
+-- full stack trace, so error()-for-control-flow and calling a missing Java
+-- method both spam the log — one pair per matching item, i.e. every gas can
+-- in every garage you drive past. So this uses pure capability checks and
+-- guards every method before calling it; a type it can't charge just returns
+-- false, silently.
+--
+-- Drainable path (Battery/Pills/PropaneTank/LighterFluid) is confirmed
+-- working in-game via setUsedDelta (fraction remaining; 1 = full).
+--
+-- Fluid-container path (PetrolCan is base:normal + a FluidContainer): B42's
+-- FluidContainer does NOT expose getCapacity()/setAmount() — verified from a
+-- live stack trace — so this no-ops today (petrol cans stay full) rather than
+-- throwing. Left guarded so it self-heals if a build adds those accessors;
+-- charging fuel-can *fluid* is otherwise a deferred item (needs the confirmed
+-- B42 fluid API). Exposed for the no-throw regression test.
+function AH.B.setLedgerCharge(item, frac)
+    if item.setUsedDelta then
+        item:setUsedDelta(frac)
+        return true
+    end
+    if item.getFluidContainer then
+        local fc = item:getFluidContainer()
+        if fc and fc.getCapacity and fc.setAmount then
+            fc:setAmount(fc:getCapacity() * frac)
+            return true
         end
-    end)
-    return okF
+    end
+    return false
 end
+local setCharge = AH.B.setLedgerCharge
 
 local function chargeContainer(roomType, container, seedBase)
     local profiles = AH.Data.Ledger and AH.Data.Ledger.charge
