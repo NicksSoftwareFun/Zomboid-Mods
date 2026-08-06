@@ -43,5 +43,52 @@ check("fuel charge present (line F)",
 -- battery must be able to spawn dead
 check("battery can spawn dead", (L.charge["Base.Battery"].deadChance or 0) > 0)
 
+-- setLedgerCharge must NEVER throw and must not call missing methods
+-- (regression: a PetrolCan in a garage spammed console.txt with caught
+-- pcall exceptions while driving). Load the pass with stubs; verify the
+-- charge function is well-behaved on each item shape.
+AH.B = AH.B or {}
+AH.Options = { enabled = function() return true end,
+               ledgerEnabled = function() return true end }
+AH.log = function() end
+AH.warnOnce = function() end
+Events = nil  -- skip the OnFillContainer registration branch
+dofile("../AmericanHousehold/42/media/lua/server/AHB14_Ledger.lua")
+
+local setC = AH.B.setLedgerCharge
+check("setLedgerCharge exposed", type(setC) == "function")
+
+-- a drainable: has setUsedDelta -> gets called, returns true
+local gotDelta = nil
+local drainable = { setUsedDelta = function(self, v) gotDelta = v end }
+local okDrain = select(1, pcall(setC, drainable, 0.4))
+check("drainable: no throw", okDrain)
+check("drainable: setUsedDelta called with frac", gotDelta == 0.4)
+check("drainable: returns true", (function() gotDelta=nil; return setC(drainable, 0.5) end)())
+
+-- a fluid container whose API is MISSING getCapacity/setAmount (the B42.20.2
+-- PetrolCan case) -> must NOT throw, must NOT call anything, returns false
+local badFluidCalled = false
+local badFluid = { getFluidContainer = function(self)
+    return { getAmount = function() badFluidCalled = true end } end }
+local okBad, resBad = pcall(setC, badFluid, 0.3)
+check("missing fluid API: no throw", okBad)
+check("missing fluid API: returns false", resBad == false)
+check("missing fluid API: never called a missing method", badFluidCalled == false)
+
+-- a plain item (no charge methods at all) -> no throw, false
+local okPlain, resPlain = pcall(setC, {}, 0.2)
+check("plain item: no throw", okPlain)
+check("plain item: returns false", resPlain == false)
+
+-- a fluid container WITH the accessors -> charges, no throw
+local setTo = nil
+local goodFluid = { getFluidContainer = function(self)
+    return { getCapacity = function() return 10 end,
+             setAmount = function(_, a) setTo = a end } end }
+local okGood = select(1, pcall(setC, goodFluid, 0.4))
+check("working fluid API: no throw", okGood)
+check("working fluid API: setAmount = capacity*frac", setTo == 4)
+
 print(fails == 0 and "ALL TESTS PASSED" or (fails .. " FAILURES"))
 os.exit(fails == 0 and 0 or 1)
