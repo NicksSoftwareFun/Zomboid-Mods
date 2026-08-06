@@ -106,9 +106,12 @@ local function applyResidential()
         end
     end
 
-    AH.log(string.format(
+    AH.FLog.boot()
+    local summary = string.format(
         "residential pass: %d applied, %d skipped, %d item-clamps, %d pools scaled",
-        applied, skipped, clamps, scaledPools))
+        applied, skipped, clamps, scaledPools)
+    AH.log(summary)
+    AH.FLog.line("[MERGE] " .. summary)
     if AH.Options.verbose() then AH.Distrib.logDiff() end
 end
 

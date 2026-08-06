@@ -60,6 +60,9 @@ function AH.Vehicles.apply()
         end
     end
     AH.log(string.format("vehicle pass: %d zones scaled", touched))
+    AH.FLog.boot()
+    AH.FLog.line(string.format("[MERGE] vehicle pass: x%.2f, %d zones scaled", mult, touched))
+    AH.FLog.flush()  -- boot block complete; get it on disk now
 end
 
 if Events and Events.OnPreDistributionMerge then

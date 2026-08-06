@@ -211,6 +211,7 @@ local function applyGuarantees(container, roomType, containerType, r, base)
         local set = g.sets[i]
         local pick = set.oneOf[rint(rng, 1, #set.oneOf)]
         insert(container, pick, set.count or 1, set.condition, rng)
+        AH.vlog("  [GUAR] " .. roomType .. " -> " .. tostring(pick))
     end
 end
 
@@ -244,6 +245,8 @@ local function applyFirearms(container, roomType, containerType, r, base, sqk)
             if gun then
                 insert(container, gun.item, 1, prof.gunCondition or { 0.5, 0.95 }, grng)
                 calibers[#calibers + 1] = gun.caliber
+                AH.vlog("  [GUN] " .. r.arch .. " " .. gun.item ..
+                    " (" .. gun.caliber .. ") in " .. roomType .. "/" .. containerType)
             end
         end
         if #calibers > 0 then
@@ -251,6 +254,7 @@ local function applyFirearms(container, roomType, containerType, r, base, sqk)
             local per = floor(rounds / #calibers)
             for i = 1, #calibers do
                 insertAmmoByCaliber(container, calibers[i], per, grng)
+                AH.vlog("  [AMMO] " .. calibers[i] .. " x~" .. per .. " (matched)")
             end
         end
     end
@@ -307,6 +311,10 @@ local function applyDisposition(container, roomType, containerType, r, base, sqk
     for i = 1, #toRemove do
         pcall(function() container:Remove(toRemove[i]) end)
     end
+    if #toRemove > 0 then
+        AH.vlog("  [DISP] " .. r.disp .. " removed " .. #toRemove ..
+            " from " .. roomType .. "/" .. containerType)
+    end
     if d.scatter and AH.Options.verbose() then
         -- documented v1 simplification, not an anomaly — info under verbose only
         AH.warnOnce("scatter",
@@ -356,9 +364,7 @@ local function applyBarter(container, roomType, containerType, r, base)
         local e = hoard.items[i]
         insert(container, e.item, rint(rng, e.count[1], e.count[2]), nil, rng)
     end
-    if AH.Options.verbose() then
-        AH.log("[AHB] barter cache (" .. hoard.name .. ") in " .. r.key)
-    end
+    AH.vlog("  [BARTER] " .. hoard.name .. " cache in " .. r.key)
 end
 
 -- Fridge notes (§6.6) — implemented with EXISTING items (no new art). One

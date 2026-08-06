@@ -60,12 +60,15 @@ local function applySetpieces()
             end
         end
     end
+    AH.FLog.boot()
     AH.log(string.format("setpiece pass: %d edits, %d skipped", edits, skipped))
+    AH.FLog.line(string.format("[MERGE] setpiece pass: %d edits, %d skipped", edits, skipped))
 
     -- Panic layer (AH04). Skipped entirely on Full stocking (P10: player asked
     -- for pre-outbreak stores). Reduces ROLLS on front-of-house retail.
     if AH.Options.setpieceStocking() ~= 1 then
         AH.log("panic layer: OFF (SetpieceStocking=Full)")
+        AH.FLog.line("[MERGE] panic layer: OFF (SetpieceStocking=Full)")
         return
     end
     local panic = AH.Data.Panic or {}
@@ -81,6 +84,7 @@ local function applySetpieces()
         end
     end
     AH.log(string.format("panic layer: %d pools reduced", scaled))
+    AH.FLog.line(string.format("[MERGE] panic layer: %d pools reduced", scaled))
 end
 
 if Events and Events.OnPreDistributionMerge then

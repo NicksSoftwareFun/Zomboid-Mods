@@ -6,6 +6,32 @@ first load. Copy `console.txt` out before every relaunch (it is overwritten).
 
 Protocol baseline: Muldraugh spawn, Apocalypse defaults, loot Normal, `-debug`.
 
+## The playtest log — `Zomboid/Lua/AH_log.txt`
+
+Written automatically every run, **regardless of the Verbose sandbox option** —
+the console stays quiet, the file gets the detail. Truncated fresh each launch
+(like `console.txt`). Buffered, flushed every in-game minute + every 40 lines
+(force it now with `AH_flush()`). It lives one folder below `console.txt`
+because the game's file API is rooted at `Lua/`.
+
+Lines you'll see, and what each verifies:
+
+| Tag | Meaning | Checks |
+|---|---|---|
+| `[OPTIONS]` / `[MERGE]` | boot: sandbox values + the four merge-pass summaries | mod loaded, pass counts |
+| `[BLDG]` | one per building: `key region arch disp` | F2 homogenization; archetype weights |
+| `[FILL]` | per residential container: `room/container -> arch/disp` | coverage, which rooms fired |
+| `[GUAR]` | Approach-C guarantee placed (knife/vessel/opener…) | the certainty layer |
+| `[GUN]` / `[AMMO]` | firearm rolled with its caliber, matched ammo | F7 caliber coherence; F4 gun counts |
+| `[DISP]` | disposition removed N items from a container | dispositions actually filtering |
+| `[LEDGER]` | a drainable/fluid charged (e.g. `Base.Battery -> 0.00 (empty)`) | F4 ledger (dead batteries, partial fuel) |
+| `[BARTER]` | a §6.5 cache placed | barter texture |
+| `[COUNTERS]` | on `AHB_counters()`: fills/applied/skip-path totals | handler reach |
+
+Grep it after a run — e.g. `grep "\[BLDG\]" AH_log.txt | sort | uniq -c` gives
+your archetype/disposition distribution across everything you visited, which is
+the F2 check without walking a fixed route.
+
 ## Console tooling
 
 | Command | What it gives you |

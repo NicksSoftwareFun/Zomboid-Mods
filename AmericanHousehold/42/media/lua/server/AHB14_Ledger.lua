@@ -85,7 +85,10 @@ local function chargeContainer(roomType, container, seedBase)
                 else
                     frac = prof.lo + rng() * (prof.hi - prof.lo)
                 end
-                setCharge(item, frac, prof.capacity)
+                if setCharge(item, frac, prof.capacity) and AH.vlog then
+                    AH.vlog(string.format("  [LEDGER] %s -> %.2f%s", ft, frac,
+                        frac == 0 and " (empty)" or ""))
+                end
             end
         end
     end)
