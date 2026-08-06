@@ -41,19 +41,43 @@ for _, p in ipairs({
     "MechanicShelfWheels","MechanicShelfBooks","MechanicShelfOutfit",
 }) do stock(p, 1.8) end
 
---== Hardware / industrial bulk (§10.3, §10.5) ================================
--- The base-building endgame pools. Already dense (Crate* 75-120 items) — a
--- modest roll bump makes them jackpots without runaway counts.
+--== Hardware store (§10.3) — the tool-store pools, commercial-only ===========
+-- NOTE (correctness): the generic Crate* pools (CrateTools/Mechanics/Farming/
+-- Lumber/SheetMetal/...) are DELIBERATELY NOT boosted here. They are SHARED
+-- with residential garages/sheds/closets (verified in the Distributions
+-- room->pool map), so raising their per-crate rolls would over-tool every
+-- house and bypass the residential count model (issue #2 discipline). A
+-- warehouse is deep because the map places MANY crate containers, not because
+-- each crate is deeper — that depth is container-count (map data), not ours
+-- to touch. So the industrial "jackpot" feel comes for free from the map; we
+-- only boost pools that exist ONLY in commercial buildings.
 for _, p in ipairs({
-    "CrateMechanics","CrateTools","CrateFarming","CrateLumber","CrateSheetMetal",
-    "CrateMetalBars","CratePropane","CrateFertilizer","CrateAnimalFeed",
-    "ToolStoreTools","ToolStoreBooks","BarnTools","FarmerTools",
+    "ToolStoreTools","ToolStoreCarpentry","ToolStoreMetalwork","ToolStoreAccessories",
+    "ToolStoreHandles","ToolStoreMisc","ToolStorePaint","ToolStoreKeymaking",
+    "ToolStoreBooks","BarnTools","FarmerTools","ToolCabinetMechanics",
 }) do stock(p, 1.6) end
 
 --== Farm supply (§10.3 gap — assembled from pieces, scheduled last) ==========
+-- ToolCabinetFarming/ToolStoreFarming are farm-store pools; ProduceStorage* is
+-- farm/grocery. CrateFarming excluded (shared with residential sheds).
 for _, p in ipairs({
-    "ToolCabinetFarming","ProduceStorageEquipment","ProduceStorageLooseVeg",
-    "ProduceStorageLooseFruit",
+    "ToolCabinetFarming","ToolStoreFarming","ProduceStorageEquipment",
+    "ProduceStorageLooseVeg","ProduceStorageLooseFruit",
+}) do stock(p, 1.6) end
+
+--== Schools (§10.6) — library knowledge, tool shop, gym, cafeteria ===========
+-- The library skill-book pools are the knowledge jackpot. LibraryBooks is
+-- already deep (80); a bump makes a school library worth the trip. SchoolLab
+-- (first-aid/science), gym gear, and the school-shop toolset.
+for _, p in ipairs({
+    "LibraryBooks","LibraryMedical","LibraryOutdoors","LibraryScience",
+    "CrateBooksSchool","SchoolLab","SchoolGymSportsGear","GigamartSchool",
+}) do stock(p, 1.6) end
+
+--== Fire stations (§10.6) — turnout gear, forcible-entry tools, first aid ====
+for _, p in ipairs({
+    "FireStorageTools","FireStorageOutfit","FireStorageMechanics",
+    "FireDeptLockers","BinFireStation",
 }) do stock(p, 1.6) end
 
 --== Gun retail deep stock (§10.4 — the panic layer AH04 strips the front) ====
@@ -89,7 +113,7 @@ for _, p in ipairs({
 -- ChurchStorageMisc is thin (6 items). The concurrent Great Flood (§5.14)
 -- made churches the relief infrastructure: the congregation BROUGHT things.
 -- Full resource-pool treatment, NO panic reduction — extend + deepen.
-stock("ChurchStorageMisc", 2.5)
+-- ONE entry (rolls + ensure together) so the roll factor is not compounded.
 S[#S + 1] = { pool = "ChurchStorageMisc", rollsFactor = 2.5, ensure = {
     { item = "Base.TinnedSoup",  weight = 30 },
     { item = "Base.TinnedBeans", weight = 30 },
