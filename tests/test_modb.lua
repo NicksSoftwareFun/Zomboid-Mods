@@ -113,5 +113,37 @@ check("loose ammo chance bounded", (function()
     return true
 end)())
 
+-- once-per-building flag on unique durables (anti-pile-up, issue #2 class)
+check("ALICE pack marked once", (function()
+    for _, e in ipairs(AH.B.Data.Archetypes.military.package) do
+        if e.item == "Base.Bag_ALICEpack_Army" then return e.once == true end
+    end
+    return false
+end)())
+check("generator marked once", (function()
+    for _, e in ipairs(AH.B.Data.Archetypes.survivalist.package) do
+        if e.item == "Base.Generator" then return e.once == true end
+    end
+    return false
+end)())
+-- consumables must NOT be once (they spread by design)
+check("jars NOT once (spread)", (function()
+    for _, e in ipairs(AH.B.Data.Archetypes.canning.package) do
+        if e.item == "Base.EmptyJar" then return e.once == nil end
+    end
+    return false
+end)())
+
+-- guarantee sets reference only real ids and non-empty oneOf lists
+check("guarantee sets well-formed", (function()
+    for _, g in pairs(AH.B.Data.Guarantees) do
+        if type(g.trigger) ~= "string" then return false end
+        for _, set in ipairs(g.sets) do
+            if #set.oneOf < 1 then return false end
+        end
+    end
+    return true
+end)())
+
 print(fails == 0 and "ALL TESTS PASSED" or (fails .. " FAILURES"))
 os.exit(fails == 0 and 0 or 1)

@@ -60,30 +60,56 @@ local function perContainer(P, n)
     return 1 - (1 - P) ^ (1 / n)
 end
 
--- Category predicates, pcall-guarded, cached per full type. Unknown -> "other".
+-- Known gun / ammo full-types from AHB02 — the reliable discriminator for
+-- the gun-vs-tool split (looted/evac removes guns, LEAVES heavy tools, so
+-- misclassifying either way corrupts the disposition). Built once, lazily.
+local gunSet, ammoSet
+local function buildFirearmSets()
+    gunSet, ammoSet = {}, {}
+    local F = AH.B.Data.Firearms
+    if not F then return end
+    for _, prof in pairs(F.archetypeProfiles or {}) do
+        for _, g in ipairs(prof.guns or {}) do gunSet[g.item] = true end
+    end
+    for _, a in pairs(F.ammoByCaliber or {}) do
+        if a.box then ammoSet[a.box] = true end
+    end
+end
+
+-- Category by VERIFIED DisplayCategory strings (B42.20: Ammo, FirstAid,
+-- Bandage, Food, Weapon, Tool, Bag, ...) plus the known-id sets. No reliance
+-- on unverified IsFood()/IsWeapon()/isRanged() method names. pcall-guarded;
+-- cached per full type. Unknown -> "other".
 local catCache = {}
 local function categoryOf(item)
+    if not gunSet then buildFirearmSets() end
     local ft
     local okFt, v = pcall(function() return item:getFullType() end)
     if okFt then ft = v end
     if ft and catCache[ft] then return catCache[ft] end
+
     local cat = "other"
-    local ok = pcall(function()
-        if item.IsFood and item:IsFood() then cat = "food" return end
-        if item.IsWeapon and item:IsWeapon() then
-            local okR, ranged = pcall(function() return item:isRanged() end)
-            cat = (okR and ranged) and "gun" or "tool"
-            return
+    if ft and gunSet[ft] then
+        cat = "gun"
+    elseif ft and ammoSet[ft] then
+        cat = "ammo"
+    else
+        local dc
+        local okDc, d = pcall(function() return item:getDisplayCategory() end)
+        if okDc then dc = d end
+        if dc == "Ammo" then cat = "ammo"
+        elseif dc == "FirstAid" or dc == "Bandage" then cat = "med"
+        elseif dc == "Food" then cat = "food"
+        elseif dc == "Bag" then cat = "bag"
+        elseif dc == "Tool" or dc == "ToolWeapon" or dc == "VehicleMaintenance" then cat = "tool"
+        elseif dc == "Weapon" then
+            -- Weapon covers guns and melee. Guns we didn't author (vanilla
+            -- pool spawns) get the gun tag only if they take ammo; else melee
+            -- reads as a tool (design: heavy tools left by looters).
+            local okA, ammoT = pcall(function() return item:getAmmoType() end)
+            cat = (okA and ammoT and ammoT ~= "") and "gun" or "tool"
         end
-        if item.IsInventoryContainer and item:IsInventoryContainer() then
-            cat = "bag" return
-        end
-        local dc = item.getDisplayCategory and item:getDisplayCategory()
-        if dc == "Ammo" then cat = "ammo" return end
-        if dc == "FirstAid" then cat = "med" return end
-        if dc == "Tool" then cat = "tool" return end
-    end)
-    if not ok then cat = "other" end
+    end
     if ft then catCache[ft] = cat end
     return cat
 end
@@ -120,35 +146,66 @@ local function squareKey(container)
     return "0:0:0" -- degraded: still deterministic, just shared stream
 end
 
+-- Session-local: (building, item) whose once-per-building package roll has
+-- fired. Unique durables (a good pack, a generator) carry once=true so they
+-- don't multiply across a house's many storage containers — the same
+-- anti-pile-up discipline as the guarantee/barter memos. Consumables
+-- (jars, ammo, nails) have no once flag and spread as designed (Approach B).
+local packageOnce = {}
+
 -- == Step 1: archetype package ================================================
 local function applyPackage(container, roomType, containerType, r, base, sqk)
     local arch = AH.B.Data.Archetypes[r.arch]
     if not arch or not arch.package then return end
-    local rng = AH.B.rng(AH.B.hash(base .. "|pkg|" .. sqk))
     for i = 1, #arch.package do
         local e = arch.package[i]
         local roomOk = (not e.rooms) or e.rooms[roomType]
         local contOk = (not e.containers) or e.containers[containerType]
         if roomOk and contOk then
-            local p = perContainer(e.chance or 1.0, e.nContainers)
-            if rng() < p then
-                local count = e.count and rint(rng, e.count[1], e.count[2]) or 1
-                insert(container, e.item, count, e.condition, rng)
+            if e.once then
+                -- one deterministic roll per building for this item, placed
+                -- in the first eligible container encountered.
+                local okKey = r.key .. "|" .. e.item
+                if not packageOnce[okKey] then
+                    packageOnce[okKey] = true
+                    local rng = AH.B.rng(AH.B.hash(base .. "|pkg1|" .. e.item))
+                    if rng() < (e.chance or 1.0) then
+                        local count = e.count and rint(rng, e.count[1], e.count[2]) or 1
+                        insert(container, e.item, count, e.condition, rng)
+                    end
+                end
             else
-                -- burn the draws the taken branch would have used, so entry
-                -- N+1's outcome never depends on entry N's roll result
-                rng()
+                -- probabilistic spread across the room's containers
+                local rng = AH.B.rng(AH.B.hash(base .. "|pkg|" .. sqk .. "|" .. i))
+                local p = perContainer(e.chance or 1.0, e.nContainers)
+                if rng() < p then
+                    local count = e.count and rint(rng, e.count[1], e.count[2]) or 1
+                    insert(container, e.item, count, e.condition, rng)
+                end
             end
         end
     end
 end
 
+-- Session-local memo: which (building, room) have already had their
+-- guarantee pass. WITHOUT this, the guarantee fires on EVERY trigger
+-- container in the room (a kitchen with 3 counters -> 3 identical knives —
+-- the exact pile-up issue #2 reported). Like the resolver cache (tech spec
+-- §3.4) this is session-local and pure: never persisted, re-derived
+-- identically each session, and it only SUPPRESSES duplicate inserts — so
+-- loot respawn never accumulates knives either. This is the "one knife in
+-- essentially every kitchen, low variance" the design (§1.1) asks for.
+local guaranteedRooms = {}
+
 -- == Step 2: Approach C guarantees (T0 + junk drawer) =========================
 local function applyGuarantees(container, roomType, containerType, r, base)
     local g = AH.B.Data.Guarantees[roomType]
     if not g or containerType ~= g.trigger then return end
-    -- keyed by room type only: ONE guarantee pass per room per building
-    -- (two kitchens = two passes; acceptable, F3 threshold is 3+)
+    local roomKey = r.key .. "|" .. roomType
+    if guaranteedRooms[roomKey] then return end   -- already done this room
+    guaranteedRooms[roomKey] = true
+    -- deterministic pick per (building, room): every trigger container would
+    -- pick the same items anyway; the memo just ensures ONE fires.
     local rng = AH.B.rng(AH.B.hash(base .. "|guar|" .. roomType))
     for i = 1, #g.sets do
         local set = g.sets[i]
@@ -279,12 +336,18 @@ local function applyCondition(container, r, base, sqk)
 end
 
 -- == Step 6: barter cache (§6.5) + fridge-note stub (§6.6) ====================
+-- Session-local: buildings whose single barter roll has already happened.
+-- Without it the 0.07 roll fires on EVERY "other" container, inflating both
+-- the per-house rate (10 containers -> ~52%) and the count (multiple caches).
+-- The design wants ONE roll per building: ~7% of eligible houses, one cache.
+local barterRolled = {}
 local function applyBarter(container, roomType, containerType, r, base)
     local d = AH.B.Data.Dispositions[r.disp]
     if not d or not d.barterEligible then return end
     local B = AH.B.Data.BarterCaches
     if not B or containerType ~= B.trigger then return end
-    -- per-building stream: at most one cache per house, ~5-8% of sheltered
+    if barterRolled[r.key] then return end      -- one roll per building
+    barterRolled[r.key] = true
     local rng = AH.B.rng(AH.B.hash(base .. "|barter"))
     if rng() >= B.chance then return end
     local hoard = B.hoards[rint(rng, 1, #B.hoards)]

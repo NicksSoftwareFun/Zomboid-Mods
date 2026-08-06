@@ -182,6 +182,31 @@ AH.B.Data.Archetypes = {
     },
 }
 
+--== once-per-building durables ================================================
+-- Unique/high-value items that must not multiply across a house's many
+-- storage containers (AHB12 honours the `once` flag with a single per-
+-- building roll). Consumables deliberately omitted — they spread (Approach B).
+do
+    local UNIQUE = {
+        ["Base.Bag_ALICEpack_Army"] = true, ["Base.EntrenchingTool"] = true,
+        ["Base.Shoes_ArmyBoots"] = true, ["Base.WoodAxe"] = true,
+        ["Base.Sledgehammer"] = true, ["Base.Hatchet_Bone"] = true,
+        ["Base.Lantern_Hurricane"] = true, ["Base.FishingRod"] = true,
+        ["Base.Tacklebox"] = true, ["Base.HuntingKnife"] = true,
+        ["Base.ViseGrips"] = true, ["Base.HandDrill"] = true,
+        ["Base.Woodglue"] = true, ["Base.Briefcase"] = true,
+        ["Base.CDplayer"] = true, ["Base.SewingKit"] = true,
+        ["Base.PhotoAlbum"] = true, ["Base.PropaneTank"] = true,
+        ["Base.Cooler"] = true, ["Base.Generator"] = true,
+        ["Base.Machete"] = true, ["Base.Pot"] = true,
+    }
+    for _, arch in pairs(AH.B.Data.Archetypes) do
+        for _, e in ipairs(arch.package) do
+            if UNIQUE[e.item] then e.once = true end
+        end
+    end
+end
+
 --== Approach-C guarantees (§3.1, §4.1) — the certainty layer ==================
 -- Fires once per (building, roomType) on the trigger container. The rng
 -- decides WHICH item, never WHETHER — this is what makes "a knife in every

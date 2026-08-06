@@ -18,11 +18,19 @@ local function applyResidential()
     end
 
     local abundance = AH.Options.abundanceFactor()
-    -- true iff Mod B is enabled AND its guarantee data actually loaded
-    -- (evaluated at merge time — all mods' shared files are loaded by then)
-    local modBGuarantees = (AH.B and AH.B.Data and AH.B.Data.Guarantees) and true or false
-    if modBGuarantees then
-        AH.log("Mod B guarantees detected — approachC entries drop to minimal pool presence")
+    -- Build the set of item ids Mod B's guarantee pass actually delivers. An
+    -- approachC item only drops to minimal pool presence if the guarantee
+    -- truly backfills it; approachC items NOT in any guarantee set keep their
+    -- full tier count (else they'd go rare with nothing supplying them).
+    local guaranteedItems = nil
+    if AH.B and AH.B.Data and AH.B.Data.Guarantees then
+        guaranteedItems = {}
+        for _, g in pairs(AH.B.Data.Guarantees) do
+            for _, set in ipairs(g.sets or {}) do
+                for _, id in ipairs(set.oneOf or {}) do guaranteedItems[id] = true end
+            end
+        end
+        AH.log("Mod B guarantees detected — guaranteed items drop to minimal pool presence")
     end
 
     -- Pass 1: validate items, resolve per-item target COUNT, bucket by pool.
@@ -42,11 +50,12 @@ local function applyResidential()
                 skipped = skipped + 1
                 break
             end
-            -- Approach C handshake: when Mod B guarantees this item, the pool
-            -- only needs to add flavor (minimal count) — the guarantee pass
-            -- delivers the certainty, and keeping the pool contribution tiny
-            -- is what prevents the issue-#2 duplication in the pool layer.
-            if e.approachC and modBGuarantees then
+            -- Approach C handshake: when Mod B's guarantee pass ACTUALLY
+            -- delivers this item, the pool only needs flavor (minimal count) —
+            -- the guarantee supplies the certainty, and keeping the pool
+            -- contribution tiny is what prevents the issue-#2 duplication.
+            -- approachC items with no matching guarantee keep full tier count.
+            if e.approachC and guaranteedItems and guaranteedItems[e.item] then
                 mu = AH.Tiers.COUNT.T3
             end
             -- abundance slider scales the count target (±20%), never presence.
