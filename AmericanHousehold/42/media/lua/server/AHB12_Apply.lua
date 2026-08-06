@@ -307,9 +307,10 @@ local function applyDisposition(container, roomType, containerType, r, base, sqk
     for i = 1, #toRemove do
         pcall(function() container:Remove(toRemove[i]) end)
     end
-    if d.scatter then
+    if d.scatter and AH.Options.verbose() then
+        -- documented v1 simplification, not an anomaly — info under verbose only
         AH.warnOnce("scatter",
-            "[AHB] scatter is a documented v1 simplification — items removed, not relocated")
+            "[AHB] scatter simplification: panicked items removed, not relocated (v1)")
     end
 end
 
